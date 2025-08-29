@@ -1,8 +1,10 @@
-CREATE DATABASE IF NOT EXISTS global_med;
-USE global_med;
-
 ## Tables for Hospital Management System
 ## Tables: patient, doctor, pharmacist, AdminStaff, appointment, medical_record
+
+-- Start of script.sql
+
+CREATE DATABASE IF NOT EXISTS global_med;
+USE global_med;
 
 ## patient table
 CREATE TABLE IF NOT EXISTS patient
