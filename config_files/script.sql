@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS patient
     patient_name VARCHAR(50),
     address      TEXT,
     age          INT,
+    gender       ENUM ("Male","Female"),
     contact_no   VARCHAR(10),
     email        VARCHAR(100) UNIQUE NOT NULL,
     CONSTRAINT PRIMARY KEY (patient_id)
@@ -24,9 +25,9 @@ CREATE TABLE IF NOT EXISTS doctor
     doctor_name VARCHAR(50),
     specialty   VARCHAR(50),
     contact_no  VARCHAR(10),
-    department  ENUM("Cardiology", "Neurology", "Pediatrics", "Oncology", "General"),
+    department  ENUM ("Cardiology", "Neurology", "Pediatrics", "Oncology", "General"),
     email       VARCHAR(100) UNIQUE NOT NULL,
-    password    VARCHAR(100) NOT NULL,
+    password    VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (doctor_id)
 );
 DESC doctor;
@@ -37,9 +38,9 @@ CREATE TABLE IF NOT EXISTS nurse
     nurse_id   VARCHAR(100),
     nurse_name VARCHAR(50),
     contact_no VARCHAR(10),
-    department ENUM("Cardiology", "Neurology", "Pediatrics", "Oncology", "General"),
+    department ENUM ("Cardiology", "Neurology", "Pediatrics", "Oncology", "General"),
     email      VARCHAR(100) UNIQUE NOT NULL,
-    password   VARCHAR(100) NOT NULL,
+    password   VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (nurse_id)
 );
 DESC nurse;
@@ -51,7 +52,7 @@ CREATE TABLE IF NOT EXISTS pharmacist
     pharmacist_name VARCHAR(50),
     contact_no      VARCHAR(10),
     email           VARCHAR(100) UNIQUE NOT NULL,
-    password        VARCHAR(100) NOT NULL,
+    password        VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (pharmacist_id)
 );
 DESC pharmacist;
@@ -63,7 +64,7 @@ CREATE TABLE IF NOT EXISTS AdminStaff
     staff_name VARCHAR(50),
     contact_no VARCHAR(10),
     email      VARCHAR(100) UNIQUE NOT NULL,
-    password   VARCHAR(100) NOT NULL,
+    password   VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (staff_id)
 );
 DESC AdminStaff;
