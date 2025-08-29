@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane fx:id="context" prefHeight="800.0" prefWidth="1200.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.DashBoardFormController">
    <children>
@@ -12,5 +12,9 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Text>
+      <Button layoutX="254.0" layoutY="125.0" mnemonicParsing="false" onAction="#onPatientManagementAction" text="Patient Management" />
+      <Button layoutX="429.0" layoutY="125.0" mnemonicParsing="false" onAction="#onDoctorsManagementAction" text="Doctors Management" />
+      <Button layoutX="596.0" layoutY="125.0" mnemonicParsing="false" onAction="#onNursesManagementAction" text="Nurses Management" />
+      <Button layoutX="768.0" layoutY="125.0" mnemonicParsing="false" onAction="#onPharmacistsManagementAction" text="Pharmacists Management" />
    </children>
 </AnchorPane>
