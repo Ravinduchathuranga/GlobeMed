@@ -1,21 +1,26 @@
 package com.rc008code.hms.entity;
 
+import com.rc008code.hms.enums.Gender;
+import sun.net.www.content.text.Generic;
+
 public class Patient {
     private String patientId;
     private String name;
     private String address;
     private int age;
+    private Gender gender;
     private String contact;
     private String email;
 
     public Patient() {
     }
 
-    public Patient(String patientId, String name, String address, int age, String contact, String email) {
+    public Patient(String patientId, String name, String address, int age, Gender gender,String contact, String email) {
         this.patientId = patientId;
         this.name = name;
         this.address = address;
         this.age = age;
+        this.gender=gender;
         this.contact = contact;
         this.email = email;
     }
@@ -50,6 +55,14 @@ public class Patient {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public String getContact() {
