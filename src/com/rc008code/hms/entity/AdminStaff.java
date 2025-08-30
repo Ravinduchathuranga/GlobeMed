@@ -10,12 +10,12 @@ public class AdminStaff {
     public AdminStaff() {
     }
 
-    public AdminStaff(String staff_id, String name, String contact_number, String email, String password) {
+    public AdminStaff(String staff_id, String name, String contact_number, String email) {
         this.staff_id = staff_id;
         this.name = name;
         this.contact_number = contact_number;
         this.email = email;
-        this.password = password;
+
     }
 
     public String getStaff_id() {
