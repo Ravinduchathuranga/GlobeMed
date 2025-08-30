@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.paint.Color?>
+
+<AnchorPane fx:id="context" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.DashBoardFormController">
+
+    <!-- Main Container -->
+    <VBox fx:id="mainContainer" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+        <!-- Top Header -->
+        <HBox styleClass="header" VBox.vgrow="NEVER">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Text styleClass="header-title" text="GLOBE MED" />
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" spacing="20">
+                <Button styleClass="logout-button" text="Logout" />
+            </HBox>
+        </HBox>
+
+        
+        <!-- Main Content Area -->
+        <HBox styleClass="content-container" VBox.vgrow="ALWAYS">
+            <!-- Left Sidebar -->
+            <VBox styleClass="sidebar" HBox.hgrow="NEVER">
+                <!-- Sidebar Header -->
+                <VBox alignment="CENTER" styleClass="sidebar-header">
+                    <Circle radius="40" styleClass="user-avatar" />
+                    <Text styleClass="user-name" text="Admin User" />
+                    <Text styleClass="user-role" text="Administrator" />
+                </VBox>
+
+                <!-- Navigation Menu -->
+                <VBox styleClass="menu-container" VBox.vgrow="ALWAYS">
+                    <Button prefWidth="220.0" style="-fx-background-color: #34495e; -fx-text-fill: white;" styleClass="menu-button" text="Dashboard">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/dashboard.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button prefWidth="218.0" styleClass="menu-button" text="Patients">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/patient.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button prefWidth="233.0" styleClass="menu-button" text="Doctors">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/doctor.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button prefWidth="226.0" styleClass="menu-button" text="Nurses">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/nurse.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button prefWidth="226.0" styleClass="menu-button" text="Pharmacists">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/pharmacy.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </VBox>
+            </VBox>
+            
+            <!-- Main Content -->
+            <VBox styleClass="content" HBox.hgrow="ALWAYS">
+
+                <!-- Page Title -->
+                <HBox alignment="CENTER_LEFT" style="-fx-spacing: 15;">
+                    <Text styleClass="page-title" text="Dashboard" />
+                    <Text styleClass="page-subtitle" text="/ Overview" />
+                </HBox>
+
+                <!-- Stats Cards -->
+                <GridPane hgap="20" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
+                    </columnConstraints>
+
+                    <!-- Patients Card -->
+                    <VBox styleClass="stats-card" GridPane.columnIndex="0">
+                        <HBox alignment="CENTER_LEFT" style="-fx-spacing: 15;">
+                            <StackPane style="-fx-background-color: #e3f2fd;" styleClass="stats-icon">
+                                <Text style="-fx-fill: #1976d2;" styleClass="action-button-text" text="👥" />
+                            </StackPane>
+                            <VBox>
+                                <Text styleClass="stats-label" text="TOTAL PATIENTS" />
+                                <Text styleClass="stats-value" text="1,254" />
+                            </VBox>
+                        </HBox>
+                        <Text styleClass="stats-trend-up" text="+12% from last month" />
+                    </VBox>
+
+                    <!-- Doctors Card -->
+                    <VBox styleClass="stats-card" GridPane.columnIndex="1">
+                        <HBox alignment="CENTER_LEFT" style="-fx-spacing: 15;">
+                            <StackPane style="-fx-background-color: #e8f5e9;" styleClass="stats-icon">
+                                <Text style="-fx-fill: #388e3c;" styleClass="action-button-text" text="👨‍⚕️" />
+                            </StackPane>
+                            <VBox>
+                                <Text styleClass="stats-label" text="TOTAL DOCTORS" />
+                                <Text styleClass="stats-value" text="48" />
+                            </VBox>
+                        </HBox>
+                        <Text styleClass="stats-trend-up" text="+5% from last month" />
+                    </VBox>
+
+                    <!-- Appointments Card -->
+                    <VBox styleClass="stats-card" GridPane.columnIndex="2">
+                        <HBox alignment="CENTER_LEFT" style="-fx-spacing: 15;">
+                            <StackPane style="-fx-background-color: #fff8e1;" styleClass="stats-icon">
+                                <Text style="-fx-fill: #ffa000;" styleClass="action-button-text">
+                                    <text>\uD83D\uDCC5</text>
+                                </Text>
+                            </StackPane>
+                            <VBox>
+                                <Text styleClass="stats-label" text="TODAY'S APPOINTMENTS" />
+                                <Text styleClass="stats-value" text="24" />
+                            </VBox>
+                        </HBox>
+                        <Text styleClass="stats-trend-down" text="-2% from yesterday" />
+                    </VBox>
+
+                    <!-- Revenue Card -->
+                    <VBox styleClass="stats-card" GridPane.columnIndex="3">
+                        <HBox alignment="CENTER_LEFT" style="-fx-spacing: 15;">
+                            <StackPane style="-fx-background-color: #f3e5f5;" styleClass="stats-icon">
+                                <Text style="-fx-fill: #8e24aa;" styleClass="action-button-text">
+                                    <text>\uD83D\uDCB0</text>
+                                </Text>
+                            </StackPane>
+                            <VBox>
+                                <Text styleClass="stats-label" text="TODAY'S REVENUE" />
+                                <Text styleClass="stats-value" text="" />
+                            </VBox>
+                        </HBox>
+                        <Text styleClass="stats-trend-up" text="+8.2% from yesterday" />
+                    </VBox>
+                    <rowConstraints>
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+
+                <!-- Quick Actions -->
+                <VBox style="-fx-spacing: 15;">
+                    <Text styleClass="quick-actions-title" text="Quick Actions" />
+                    <HBox style="-fx-spacing: 20;">
+                        <VBox styleClass="action-card">
+                            <Button onAction="#onPatientManagementAction" style="-fx-background-color: #e3f2fd;" styleClass="action-button">
+                                <text>
+                                    <Text style="-fx-fill: #1976d2;" styleClass="action-button-text">
+                                        <text>\uD83D\uDC65</text>
+                                    </Text>
+                                </text>
+                            </Button>
+                            <Text styleClass="action-label" text="Patient Management" />
+                        </VBox>
+
+                        <VBox styleClass="action-card">
+                            <Button onAction="#onDoctorsManagementAction" style="-fx-background-color: #e8f5e9;" styleClass="action-button">
+                                <text>
+                                    <Text style="-fx-fill: #388e3c;" styleClass="action-button-text">
+                                        <text>\uD83D\uDC68\u200D\u2695\uFE0F</text>
+                                    </Text>
+                                </text>
+                            </Button>
+                            <Text styleClass="action-label" text="Doctors Management" />
+                        </VBox>
+
+                        <VBox styleClass="action-card">
+                            <Button onAction="#onNursesManagementAction" style="-fx-background-color: #fff3e0;" styleClass="action-button">
+                                <text>
+                                    <Text style="-fx-fill: #f57c00;" styleClass="action-button-text">
+                                    <text>\uD83D\uDC69\u200D\u2695\uFE0F</text>
+                                </Text>
+                                </text>
+                            </Button>
+                            <Text styleClass="action-label" text="Nurses Management" />
+                        </VBox>
+
+                        <VBox styleClass="action-card">
+                            <Button onAction="#onPharmacistsManagementAction" style="-fx-background-color: #f3e5f5;" styleClass="action-button">
+                                <text>
+                                    <Text style="-fx-fill: #8e24aa;" styleClass="action-button-text">
+                                    <text>\uD83D\uDC8A</text>
+                                </Text>
+                                </text>
+                            </Button>
+                            <Text styleClass="action-label" text="Pharmacists Management" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </HBox>
+    </VBox>
+    
+    <!-- Status Bar (Optional) -->
+    <HBox styleClass="status-bar" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+        <Text styleClass="status-text" text="Ready" />
+    </HBox>
+</AnchorPane>
