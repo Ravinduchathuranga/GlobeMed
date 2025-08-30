@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS appointment
     doctor_id        VARCHAR(100),
     admin_staff_id   VARCHAR(100),
     appointment_date DATE,
-    status           VARCHAR(20),
+    status           ENUM("Pending","Completed"),
     CONSTRAINT PRIMARY KEY (appointment_id),
     CONSTRAINT fk_patient1 FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
     CONSTRAINT fk_admin_staff FOREIGN KEY (admin_staff_id) REFERENCES adminStaff (staff_id),
