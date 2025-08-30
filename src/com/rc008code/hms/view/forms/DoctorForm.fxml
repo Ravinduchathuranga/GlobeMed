@@ -20,7 +20,7 @@
 <AnchorPane fx:id="context" pickOnBounds="false" prefHeight="800.0" prefWidth="1370.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.DashBoardFormController">
 
     <!-- Main Container -->
-    <VBox fx:id="mainContainer" fillWidth="false" prefHeight="800.0" prefWidth="1370.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0">
+    <VBox fx:id="mainContainer" prefHeight="800.0" prefWidth="1370.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0">
 
         <!-- Top Header -->
         <HBox prefHeight="58.0" prefWidth="1370.0" styleClass="header" VBox.vgrow="NEVER">
