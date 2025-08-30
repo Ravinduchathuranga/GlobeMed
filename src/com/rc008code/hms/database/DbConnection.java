@@ -522,6 +522,10 @@ public class DbConnection {
     // Appointment-related database operations would be implemented in AppointmentDaoImpl
     /*=========================================================================================================*/
 
+
+
+
+
     /*=========================================================================================================*/
     // Payment-related database operations would be implemented in PaymentDaoImpl
     /*=========================================================================================================*/
