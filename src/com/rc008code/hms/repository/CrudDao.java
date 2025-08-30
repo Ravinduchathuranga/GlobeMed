@@ -1,4 +1,5 @@
 package com.rc008code.hms.repository;
 
-public interface CrudDao {
+public interface CrudDao<T, ID> extends SuperDao {
+
 }
