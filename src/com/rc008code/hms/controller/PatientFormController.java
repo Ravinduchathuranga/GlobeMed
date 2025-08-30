@@ -46,7 +46,7 @@ public class PatientFormController {
     }
 
     private void loadAllPatients(){
-        
+
     }
     // patient creation
     public void onCreateAction(ActionEvent actionEvent) {
