@@ -10,12 +10,11 @@ public class Pharmacist {
     public Pharmacist() {
     }
 
-    public Pharmacist(String pharmacistId, String name, String contactNumber, String email, String password) {
+    public Pharmacist(String pharmacistId, String name, String contactNumber, String email) {
         this.pharmacistId = pharmacistId;
         this.name = name;
         this.contactNumber = contactNumber;
         this.email = email;
-        this.password = password;
     }
 
     public String getPharmacistId() {
