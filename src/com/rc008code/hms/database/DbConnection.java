@@ -6,7 +6,6 @@ import com.rc008code.hms.entity.*;
 import com.rc008code.hms.enums.Departments;
 import com.rc008code.hms.enums.Gender;
 
-import javax.print.Doc;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
