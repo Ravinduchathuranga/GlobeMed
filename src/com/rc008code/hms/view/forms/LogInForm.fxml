@@ -1,35 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
 
-
-<AnchorPane fx:id="context" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/24.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.LogInFormController"
-            stylesheets="@../css/style.css">
-    <children>
-        <Text layoutX="355.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log In">
-            <font>
-                <Font name="System Bold" size="28.0"/>
-            </font>
-        </Text>
-        <TextField fx:id="txtUserName" layoutX="247.0" layoutY="229.0" prefHeight="26.0" prefWidth="305.0"/>
-        <Text layoutX="247.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Text>
-        <Text layoutX="247.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
-            <font>
-                <Font size="18.0"/>
-            </font>
-        </Text>
-        <PasswordField fx:id="txtPassword" layoutX="248.0" layoutY="303.0" prefHeight="26.0" prefWidth="305.0"/>
-        <Button layoutX="337.0" layoutY="347.0" mnemonicParsing="false" onAction="#onLogInAction" prefHeight="26.0"
-                prefWidth="123.0" text="Conform"/>
-    </children>
+<AnchorPane fx:id="context" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/style.css" 
+            xmlns="http://javafx.com/javafx/17.0.12" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.rc008code.hms.controller.LogInFormController"
+            style="-fx-background-color: #f5f8fd;">
+    
+    <!-- Main Container -->
+    <VBox alignment="CENTER" prefWidth="400" prefHeight="450" 
+          style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);" 
+          AnchorPane.topAnchor="25.0" AnchorPane.bottomAnchor="25.0" 
+          AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0">
+        
+        <!-- Header -->
+        <VBox alignment="CENTER" spacing="10" style="-fx-padding: 40 0 30 0;">
+            <Text style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-fill: #2c3e50;" text="Welcome Back"/>
+            <Text style="-fx-font-size: 14px; -fx-fill: #7f8c8d;" text="Please sign in to continue"/>
+        </VBox>
+        
+        <!-- Form -->
+        <VBox alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 0 50 0 50; -fx-pref-width: 300;">
+            <!-- Username Field -->
+            <VBox spacing="5">
+                <Label text="USERNAME" style="-fx-text-fill: #7f8c8d; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                <TextField fx:id="txtUserName" styleClass="text-field" style="-fx-pref-height: 40; -fx-background-radius: 5;" promptText="Enter your username"/>
+            </VBox>
+            
+            <!-- Password Field -->
+            <VBox spacing="5">
+                <Label text="PASSWORD" style="-fx-text-fill: #7f8c8d; -fx-font-size: 12px; -fx-font-weight: bold;"/>
+                <PasswordField fx:id="txtPassword" styleClass="password-field" style="-fx-pref-height: 40; -fx-background-radius: 5;" promptText="Enter your password"/>
+            </VBox>
+            
+            <!-- Remember Me & Forgot Password -->
+            <HBox alignment="CENTER_RIGHT" style="-fx-padding: 5 0 20 0;">
+                <Button text="Forgot Password?" style="-fx-background-color: transparent; -fx-text-fill: #3498db; -fx-padding: 0; -fx-cursor: hand; -fx-font-size: 12px;"/>
+            </HBox>
+            
+            <!-- Login Button -->
+            <Button text="SIGN IN" onAction="#onLogInAction" styleClass="login-button" 
+                   style="-fx-pref-width: 300; -fx-pref-height: 45; -fx-background-radius: 5; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+            
+            <!-- Sign Up Link -->
+            <HBox alignment="CENTER" style="-fx-padding: 20 0 0 0;">
+                <Text style="-fx-fill: #7f8c8d; -fx-font-size: 13px;" text="Don't have an account? "/>
+                <Button text="Sign Up" style="-fx-background-color: transparent; -fx-text-fill: #3498db; -fx-padding: 0 0 0 5; -fx-cursor: hand; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+    </VBox>
 </AnchorPane>
