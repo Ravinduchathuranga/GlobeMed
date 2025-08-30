@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS pharmacist
 DESC pharmacist;
 
 ## AdminStaff table
-CREATE TABLE IF NOT EXISTS AdminStaff
+CREATE TABLE IF NOT EXISTS adminStaff
 (
     staff_id   VARCHAR(100),
     staff_name VARCHAR(50),
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS AdminStaff
     password   VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (staff_id)
 );
-DESC AdminStaff;
+DESC adminStaff;
 
 #########################################################################################################################
 
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS appointment
     status           VARCHAR(20),
     CONSTRAINT PRIMARY KEY (appointment_id),
     CONSTRAINT fk_patient1 FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
-    CONSTRAINT fk_admin_staff FOREIGN KEY (admin_staff_id) REFERENCES AdminStaff (staff_id),
+    CONSTRAINT fk_admin_staff FOREIGN KEY (admin_staff_id) REFERENCES adminStaff (staff_id),
     CONSTRAINT fk_doctor1 FOREIGN KEY (doctor_id) REFERENCES doctor (doctor_id)
 );
 DESC appointment;
