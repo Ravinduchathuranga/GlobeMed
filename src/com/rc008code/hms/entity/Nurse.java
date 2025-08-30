@@ -13,6 +13,14 @@ public class Nurse {
     public Nurse() {
     }
 
+    public Nurse(String nurseId, String name, String contact, Departments department, String email) {
+        this.nurseId = nurseId;
+        this.name = name;
+        this.contact = contact;
+        this.department = department;
+        this.email = email;
+    }
+
     public Nurse(String nurseId, String name, Departments department, String contact, String email, String password) {
         this.nurseId = nurseId;
         this.name = name;
