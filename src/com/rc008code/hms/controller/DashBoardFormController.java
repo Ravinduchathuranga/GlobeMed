@@ -25,4 +25,8 @@ public class DashBoardFormController {
     public void onPharmacistsManagementAction(ActionEvent actionEvent) throws IOException {
         commonUtil.setUi(context,"PharmacistForm");
     }
+
+    public void onPatientAction(ActionEvent actionEvent) throws IOException {
+        new CommonUtil().setUi(context,"PatientForm");
+    }
 }
