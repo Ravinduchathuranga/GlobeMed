@@ -1,46 +1,233 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="context" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.PatientFormController">
-   <children>
-      <Text layoutX="40.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Managment">
-         <font>
-            <Font name="System Bold" size="28.0" />
-         </font>
-      </Text>
-      <TableView fx:id="tblePatients" layoutX="106.0" layoutY="284.0" prefHeight="469.0" prefWidth="989.0">
-        <columns>
-          <TableColumn fx:id="columnName" prefWidth="167.0" text="Name" />
-          <TableColumn fx:id="columnAddress" prefWidth="180.0" text="Address" />
-            <TableColumn fx:id="columnAge" prefWidth="117.0" text="Age" />
-            <TableColumn fx:id="columnGender" prefWidth="78.0" text="Gender" />
-            <TableColumn fx:id="columnContactNo" prefWidth="126.0" text="Contact Number" />
-            <TableColumn fx:id="columnEmail" prefWidth="167.0" text="Email" />
-            <TableColumn fx:id="columnOptions" prefWidth="153.0" text="Options" />
-        </columns>
-      </TableView>
-      <TextField fx:id="txtName" layoutX="145.0" layoutY="95.0" prefHeight="26.0" prefWidth="279.0" promptText="Patient Name" />
-      <TextField fx:id="txtAddress" layoutX="434.0" layoutY="95.0" prefHeight="26.0" prefWidth="279.0" promptText="Address" />
-      <TextField fx:id="txtAge" layoutX="725.0" layoutY="95.0" prefHeight="26.0" prefWidth="115.0" promptText="Age" />
-      <TextField fx:id="txtContactNo" layoutX="145.0" layoutY="135.0" prefHeight="26.0" prefWidth="279.0" promptText="Contact No" />
-      <TextField fx:id="txtEmail" layoutX="434.0" layoutY="135.0" prefHeight="26.0" prefWidth="408.0" promptText="Email" />
-      <RadioButton fx:id="rbtnMale" layoutX="863.0" layoutY="99.0" mnemonicParsing="false" selected="true" text="Male">
-         <toggleGroup>
-            <ToggleGroup fx:id="genderGrop" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="rbtnFemale" layoutX="944.0" layoutY="99.0" mnemonicParsing="false" text="Female" toggleGroup="$genderGrop" />
-      <TextField fx:id="txtSearchPatients" layoutX="106.0" layoutY="237.0" prefHeight="26.0" prefWidth="989.0" promptText="Search Patients" />
-      <Button layoutX="146.0" layoutY="178.0" mnemonicParsing="false" onAction="#onCreateAction" text="Save Patient" />
-      <Button layoutX="989.0" layoutY="19.0" mnemonicParsing="false" onAction="#onBackToHomeAction" text="Back To Home" />
-   </children>
+<?import javafx.scene.control.PasswordField?>
+<AnchorPane fx:id="context" pickOnBounds="false" prefHeight="800.0" prefWidth="1370.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.DashBoardFormController">
+
+    <!-- Main Container -->
+    <VBox fx:id="mainContainer" fillWidth="false" prefHeight="800.0" prefWidth="1370.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0">
+
+        <!-- Top Header -->
+        <HBox prefHeight="58.0" prefWidth="1370.0" styleClass="header" VBox.vgrow="NEVER">
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Text styleClass="header-title" text="GLOBE MED" />
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" spacing="20">
+                <Button styleClass="logout-button" text="Logout" />
+            </HBox>
+        </HBox>
+
+
+        <!-- Main Content Area -->
+        <HBox styleClass="content-container" VBox.vgrow="ALWAYS">
+            <!-- Left Sidebar -->
+            <VBox styleClass="sidebar" HBox.hgrow="NEVER">
+                <!-- Sidebar Header -->
+                <VBox alignment="CENTER" styleClass="sidebar-header">
+                    <Circle radius="40" styleClass="user-avatar">
+                        <VBox.margin>
+                            <Insets top="20.0" />
+                        </VBox.margin></Circle>
+                </VBox>
+
+                <!-- Navigation Menu -->
+                <VBox styleClass="menu-container" VBox.vgrow="ALWAYS">
+                    <Button prefWidth="220.0" style="-fx-background-color: #34495e; -fx-text-fill: white;" styleClass="menu-button" text="Dashboard">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/dashboard.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button prefWidth="218.0" styleClass="menu-button" text="Patients">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/patient.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button prefWidth="233.0" styleClass="menu-button" text="Doctors">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/doctor.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button prefWidth="226.0" styleClass="menu-button" text="Nurses">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/nurse.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button prefWidth="226.0" styleClass="menu-button" text="Pharmacists">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/pharmacy.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                </VBox>
+            </VBox>
+
+            <!-- Main Content -->
+            <VBox spacing="20" styleClass="content" HBox.hgrow="ALWAYS">
+                <!-- Page Header -->
+                <HBox alignment="CENTER_LEFT" style="-fx-spacing: 15;">
+                    <Text styleClass="page-title" text="Patients" />
+                    <Text styleClass="page-subtitle" text="/ Management" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button styleClass="action-button" onAction="#onAddNewAction" text="+ Add New Patient">
+                        <graphic>
+                            <Text style="-fx-fill: white; -fx-font-size: 14;" text="+" />
+                        </graphic>
+                    </Button>
+                </HBox>
+
+                <!-- Patient Form -->
+                <GridPane hgap="15" style="-fx-padding: 20; -fx-background-color: #f5f7fa; -fx-background-radius: 10;" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
+                        <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                        <RowConstraints vgrow="NEVER" />
+                    </rowConstraints>
+
+                    <!-- Patient ID -->
+                    <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Patient ID" />
+                        <TextField fx:id="txtPatientId" editable="false" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10; -fx-background-color: #f0f0f0;" />
+                    </VBox>
+
+                    <!-- Full Name -->
+                    <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Full Name" />
+                        <TextField fx:id="txtName" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
+                    </VBox>
+
+                    <!-- Age -->
+                    <VBox GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Age" />
+                        <TextField fx:id="txtAge" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
+                    </VBox>
+
+                    <!-- Gender -->
+                    <VBox GridPane.columnIndex="3" GridPane.rowIndex="0">
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Gender" />
+                        <HBox spacing="10" style="-fx-alignment: center-left;">
+                            <RadioButton fx:id="rbtnMale" text="Male" toggleGroup="$genderGroup" selected="true" />
+                            <RadioButton fx:id="rbtnFemale" text="Female" toggleGroup="$genderGroup" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- Address -->
+                    <VBox GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Address" />
+                        <TextField fx:id="txtAddress" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
+                    </VBox>
+
+                    <!-- Contact Number -->
+                    <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Contact Number" />
+                        <TextField fx:id="txtContactNo" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
+                    </VBox>
+
+                    <!-- Email -->
+                    <VBox GridPane.columnIndex="3" GridPane.rowIndex="1">
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Email" />
+                        <TextField fx:id="txtEmail" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
+                    </VBox>
+
+                    <!-- Password -->
+                    <VBox GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Password" />
+                        <PasswordField fx:id="txtPassword" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
+                    </VBox>
+
+                    <!-- Action Buttons -->
+                    <HBox alignment="CENTER_RIGHT" spacing="10" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                        <Button onAction="#onClearAction" style="-fx-pref-width: 100; -fx-pref-height: 40; -fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 5;" text="Clear" />
+                        <Button onAction="#onSaveAction" style="-fx-pref-width: 100; -fx-pref-height: 40; -fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 5;" text="Save" />
+                    </HBox>
+                </GridPane>
+
+                <!-- Patients Table -->
+                <VBox style="-fx-padding: 20 0 0 0;" VBox.vgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" style="-fx-spacing: 15; -fx-padding: 0 0 15 0;">
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 18; -fx-font-weight: bold;" text="Patient List" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <TextField fx:id="txtSearchPatients" onAction="#onSearchAction" promptText="Search patients..." style="-fx-pref-height: 35; -fx-pref-width: 250; -fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 0 10;" />
+                        <Button onAction="#onSearchAction" style="-fx-pref-height: 35; -fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 0 15;" text="Search" />
+                    </HBox>
+
+                    <TableView fx:id="tblPatients" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1;">
+                        <columns>
+                            <TableColumn fx:id="colPatientId" maxWidth="120" minWidth="120" prefWidth="120" resizable="false" sortable="false" text="Patient ID" />
+                            <TableColumn fx:id="colName" maxWidth="200" minWidth="150" prefWidth="180" resizable="true" sortable="true" text="Full Name" />
+                            <TableColumn fx:id="colAge" maxWidth="80" minWidth="80" prefWidth="80" resizable="false" sortable="true" text="Age" />
+                            <TableColumn fx:id="colGender" maxWidth="100" minWidth="80" prefWidth="90" resizable="false" sortable="true" text="Gender" />
+                            <TableColumn fx:id="colAddress" maxWidth="250" minWidth="200" prefWidth="220" resizable="true" sortable="true" text="Address" />
+                            <TableColumn fx:id="colContact" maxWidth="150" minWidth="120" prefWidth="140" resizable="true" sortable="true" text="Contact No" />
+                            <TableColumn fx:id="colEmail" maxWidth="250" minWidth="200" prefWidth="230" resizable="true" sortable="true" text="Email" />
+                            <TableColumn fx:id="colAction" maxWidth="120" minWidth="120" prefWidth="120" resizable="false" sortable="false" text="Action" />
+                        </columns>
+                    </TableView>
+
+                    <!-- Pagination -->
+                    <HBox alignment="CENTER_RIGHT" style="-fx-padding: 15 0 0 0;">
+                        <Button fx:id="btnPrevPage" onAction="#onPreviousPage" style="-fx-background-color: transparent; -fx-text-fill: #7f8c8d; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-pref-width: 80;" text="Previous" />
+                        <HBox style="-fx-spacing: 5; -fx-padding: 0 15;">
+                            <Button style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-pref-width: 35; -fx-pref-height: 35;" text="1" />
+                            <Button style="-fx-background-color: transparent; -fx-text-fill: #2c3e50; -fx-pref-width: 35; -fx-pref-height: 35;" text="2" />
+                            <Button style="-fx-background-color: transparent; -fx-text-fill: #2c3e50; -fx-pref-width: 35; -fx-pref-height: 35;" text="3" />
+                            <Text style="-fx-fill: #7f8c8d; -fx-font-size: 14;" text="..." />
+                            <Button style="-fx-background-color: transparent; -fx-text-fill: #2c3e50; -fx-pref-width: 35; -fx-pref-height: 35;" text="10" />
+                        </HBox>
+                        <Button fx:id="btnNextPage" onAction="#onNextPage" style="-fx-background-color: transparent; -fx-text-fill: #2c3e50; -fx-border-color: #bdc3c7; -fx-border-radius: 5; -fx-pref-width: 80;" text="Next" />
+                    </HBox>
+                </VBox>
+            </VBox>
+        </HBox>
+    </VBox>
+
+    <!-- Status Bar (Optional) -->
+    <HBox prefWidth="1370.0" styleClass="status-bar" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0">
+        <Text styleClass="status-text" text="Ready" />
+    </HBox>
 </AnchorPane>
