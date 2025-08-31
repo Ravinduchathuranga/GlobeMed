@@ -69,7 +69,7 @@ public class DoctorsFormController {
         if (btnSave.getText().equalsIgnoreCase("Save Doctor")) {
             try {
                 DoctorDto doctorDto = new DoctorDto(
-                        UUID.randomUUID().toString(),
+                        "D" + UUID.randomUUID().toString().substring(0, 5),
                         txtName.getText().trim(),
                         txtSpecialty.getText().trim(),
                         txtContact.getText().trim(),
@@ -103,6 +103,7 @@ public class DoctorsFormController {
                     boolean isUpdated = doctorBo.update(doctorDto);
                     if (isUpdated) {
                         new Alert(Alert.AlertType.INFORMATION, "Doctor has been updated..", ButtonType.CLOSE).show();
+                        btnSave.setText("Save Doctor");
                         clearFields();
                         loadAllDoctors();
                     } else {
@@ -182,6 +183,7 @@ public class DoctorsFormController {
     }
 
     public void OnClearFields(ActionEvent actionEvent) {
+        btnSave.setText("Save Doctor");
         clearFields();
     }
 
