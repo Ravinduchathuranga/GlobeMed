@@ -66,10 +66,10 @@ public class DbConnection {
 
     // get patient details
     public Patient getPatient(String patientId) throws ClassNotFoundException, SQLException {
-
-        String query = "SELECT * FROM patient WHERE patient_id='" + patientId + "'";
+        String query = "SELECT * FROM patient WHERE patient_id=?";
         PreparedStatement preparedStatement = MysqlConnection.getInstance().getConnection().prepareStatement(query);
         preparedStatement.setString(1, patientId);
+        
         ResultSet resultSet = preparedStatement.executeQuery();
         if (resultSet.next()) {
             return new Patient(
@@ -126,7 +126,7 @@ public class DbConnection {
     // create doctor
     public boolean createDoctor(Doctor doctor) throws ClassNotFoundException, SQLException {
         // Implementation for creating a doctor record in the database
-        String sql = "INSERT INTO doctor VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO doctor VALUES (?, ?, ?, ?, ?, ?,?)";
         PreparedStatement preparedStatement = MysqlConnection.getInstance().getConnection().prepareStatement(sql);
         preparedStatement.setString(1, doctor.getDoctorId());
         preparedStatement.setString(2, doctor.getName());
@@ -134,6 +134,7 @@ public class DbConnection {
         preparedStatement.setString(4, doctor.getContact());
         preparedStatement.setString(5, doctor.getDepartment().toString());
         preparedStatement.setString(6, doctor.getEmail());
+        preparedStatement.setString(7, doctor.getPassword());
 
         int i = preparedStatement.executeUpdate();
         if (i > 0) {
@@ -172,7 +173,7 @@ public class DbConnection {
     // get doctor details
     public Doctor getDoctor(String doctorId) throws ClassNotFoundException, SQLException {
 
-        String query = "SELECT * FROM doctor WHERE doctor_id='" + doctorId + "'";
+        String query = "SELECT * FROM doctor WHERE doctor_id=?";
         PreparedStatement preparedStatement = MysqlConnection.getInstance().getConnection().prepareStatement(query);
         preparedStatement.setString(1, doctorId);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -231,13 +232,14 @@ public class DbConnection {
     // create nurse
     public boolean createNurse(Nurse nurse) throws ClassNotFoundException, SQLException {
         // Implementation for creating a nurse record in the database
-        String sql = "INSERT INTO nurse VALUES (?, ?, ?, ?,?)";
+        String sql = "INSERT INTO nurse VALUES (?, ?, ?, ?,?,?)";
         PreparedStatement preparedStatement = MysqlConnection.getInstance().getConnection().prepareStatement(sql);
         preparedStatement.setString(1, nurse.getNurseId());
         preparedStatement.setString(2, nurse.getName());
         preparedStatement.setString(3, nurse.getContact());
         preparedStatement.setString(4, nurse.getDepartment().toString());
         preparedStatement.setString(5, nurse.getEmail());
+        preparedStatement.setString(6, nurse.getPassword());
 
         int i = preparedStatement.executeUpdate();
         if (i > 0) {
@@ -265,7 +267,8 @@ public class DbConnection {
                             resultSet.getString("nurse_name"),
                             resultSet.getString("contact_no"),
                             Departments.valueOf(resultSet.getString("department")),
-                            resultSet.getString("email")
+                            resultSet.getString("email"),
+                            resultSet.getString("password")
                     )
             );
         }
@@ -275,7 +278,7 @@ public class DbConnection {
     // get nurse details
     public Nurse getNurse(String nurseId) throws ClassNotFoundException, SQLException {
 
-        String query = "SELECT * FROM nurse WHERE nurse_id='" + nurseId + "'";
+        String query = "SELECT * FROM nurse WHERE nurse_id=?";
         PreparedStatement preparedStatement = MysqlConnection.getInstance().getConnection().prepareStatement(query);
         preparedStatement.setString(1, nurseId);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -285,7 +288,8 @@ public class DbConnection {
                     resultSet.getString("nurse_name"),
                     resultSet.getString("contact_no"),
                     Departments.valueOf(resultSet.getString("department")),
-                    resultSet.getString("email")
+                    resultSet.getString("email"),
+                    resultSet.getString("password")
             );
         } else {
             return null;
@@ -331,12 +335,13 @@ public class DbConnection {
     // create pharmacist
     public boolean createPharmacist(Pharmacist pharmacist) throws ClassNotFoundException, SQLException {
         // Implementation for creating a pharmacist record in the database
-        String sql = "INSERT INTO pharmacist VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO pharmacist VALUES (?, ?, ?, ?,?)";
         PreparedStatement preparedStatement = MysqlConnection.getInstance().getConnection().prepareStatement(sql);
         preparedStatement.setString(1, pharmacist.getPharmacistId());
         preparedStatement.setString(2, pharmacist.getName());
         preparedStatement.setString(3, pharmacist.getContactNumber());
         preparedStatement.setString(4, pharmacist.getEmail());
+        preparedStatement.setString(5, pharmacist.getPassword());
 
         int i = preparedStatement.executeUpdate();
         if (i > 0) {
@@ -363,7 +368,8 @@ public class DbConnection {
                             resultSet.getString("pharmacist_id"),
                             resultSet.getString("pharmacist_name"),
                             resultSet.getString("contact_no"),
-                            resultSet.getString("email")
+                            resultSet.getString("email"),
+                            resultSet.getString("password")
                     )
             );
         }
@@ -373,7 +379,7 @@ public class DbConnection {
     // get pharmacist details
     public Pharmacist getPharmacist(String pharmacist) throws ClassNotFoundException, SQLException {
 
-        String query = "SELECT * FROM pharmacist WHERE pharmacist_id='" + pharmacist + "'";
+        String query = "SELECT * FROM pharmacist WHERE pharmacist_id=?";
         PreparedStatement preparedStatement = MysqlConnection.getInstance().getConnection().prepareStatement(query);
         preparedStatement.setString(1, pharmacist);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -382,7 +388,8 @@ public class DbConnection {
                     resultSet.getString("pharmacist_id"),
                     resultSet.getString("pharmacist_name"),
                     resultSet.getString("contact_no"),
-                    resultSet.getString("email")
+                    resultSet.getString("email"),
+                    resultSet.getString("password")
             );
         } else {
             return null;
@@ -427,12 +434,13 @@ public class DbConnection {
     // create administrativeStaff
     public boolean createAdminStaff(AdminStaff adminStaff) throws ClassNotFoundException, SQLException {
         // Implementation for creating a administrativeStaff record in the database
-        String sql = "INSERT INTO adminStaff VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO adminStaff VALUES (?, ?, ?, ?,?)";
         PreparedStatement preparedStatement = MysqlConnection.getInstance().getConnection().prepareStatement(sql);
         preparedStatement.setString(1, adminStaff.getStaff_id());
         preparedStatement.setString(2, adminStaff.getName());
         preparedStatement.setString(3, adminStaff.getContact_number());
         preparedStatement.setString(4, adminStaff.getEmail());
+        preparedStatement.setString(5, adminStaff.getPassword());
 
         int i = preparedStatement.executeUpdate();
         if (i > -1) {
@@ -459,7 +467,8 @@ public class DbConnection {
                             resultSet.getString("staff_id"),
                             resultSet.getString("staff_name"),
                             resultSet.getString("contact_no"),
-                            resultSet.getString("email")
+                            resultSet.getString("email"),
+                            resultSet.getString("password")
                     )
             );
         }
@@ -469,7 +478,7 @@ public class DbConnection {
     // get administrativeStaff details
     public AdminStaff getAdminMember(String entity) throws ClassNotFoundException, SQLException {
 
-        String query = "SELECT * FROM adminStaff WHERE staff_id='" + entity + "'";
+        String query = "SELECT * FROM adminStaff WHERE staff_id=?";
         PreparedStatement preparedStatement = MysqlConnection.getInstance().getConnection().prepareStatement(query);
         preparedStatement.setString(1, entity);
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -478,7 +487,8 @@ public class DbConnection {
                     resultSet.getString("staff_id"),
                     resultSet.getString("staff_name"),
                     resultSet.getString("contact_no"),
-                    resultSet.getString("email")
+                    resultSet.getString("email"),
+                    resultSet.getString("password")
             );
         } else {
             return null;
