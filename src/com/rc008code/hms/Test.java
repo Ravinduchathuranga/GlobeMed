@@ -38,16 +38,16 @@ public class Test {
             System.out.println("=== Starting Database Operations Test ===\n");
 
 //            // Test Doctor Operations
-//            testDoctorOperations();
+            testDoctorOperations();
 //
 //            // Test Nurse Operations
-//            testNurseOperations();
+            testNurseOperations();
 
             // Test Patient Operations
             testPatientOperations();
 
             // Test Pharmacist Operations
-//            testPharmacistOperations();
+            testPharmacistOperations();
 
             System.out.println("\n=== All Tests Completed Successfully ===");
 
@@ -57,78 +57,78 @@ public class Test {
         }
     }
 
-//    private static void testDoctorOperations() throws Exception {
-//        System.out.println("\n=== Testing Doctor Operations ===");
-//
-//        // Create Doctor
-//        DoctorDto newDoctor = new DoctorDto(
-//                testDoctorId,
-//                "Dr. Smith",
-//                "Cardiology",
-//                "0987654321",
-//                Departments.CARDIOLOGY,
-//                "smith@test.com",
-//                "1212"
-//        );
-//
-//        boolean created = doctorBo.create(newDoctor);
-//        System.out.println("Create Doctor: " + (created ? "SUCCESS" : "FAILED"));
-//
-//        // Get Doctor
-//        DoctorDto retrievedDoctor = doctorBo.read(testDoctorId);
-//        System.out.println("Get Doctor: " + (retrievedDoctor != null ? "SUCCESS" : "FAILED"));
-//
-//        // Update Doctor
-//        if (retrievedDoctor != null) {
-//            retrievedDoctor.setName("Dr. Smith Updated");
-//            boolean updated = doctorBo.update(retrievedDoctor);
-//            System.out.println("Update Doctor: " + (updated ? "SUCCESS" : "FAILED"));
-//        }
-//
-//        // List all Doctors
-//        List<DoctorDto> doctors = doctorBo.readAll();
-//        System.out.println("List Doctors: Found " + doctors.size() + " doctors");
-//
-//        // Cleanup
-//        boolean deleted = doctorBo.delete(testDoctorId);
-//        System.out.println("Delete Doctor: " + (deleted ? "SUCCESS" : "FAILED"));
-//    }
-//
-//    private static void testNurseOperations() throws Exception {
-//        System.out.println("\n=== Testing Nurse Operations ===");
-//
-//        // Create Nurse
-//        NurseDto newNurse = new NurseDto(
-//                testNurseId,
-//                "Nurse Jane",
-//                Departments.CARDIOLOGY,
-//                "0987654321",
-//                "jane@test.com",
-//                "12121"
-//        );
-//
-//        boolean created = nurseBo.create(newNurse);
-//        System.out.println("Create Nurse: " + (created ? "SUCCESS" : "FAILED"));
-//
-//        // Get Nurse
-//        NurseDto retrievedNurse = nurseBo.read(testNurseId);
-//        System.out.println("Get Nurse: " + (retrievedNurse != null ? "SUCCESS" : "FAILED"));
-//
-//        // Update Nurse
-//        if (retrievedNurse != null) {
-//            retrievedNurse.setName("Nurse Jane Updated");
-//            boolean updated = nurseBo.update(retrievedNurse);
-//            System.out.println("Update Nurse: " + (updated ? "SUCCESS" : "FAILED"));
-//        }
-//
-//        // List all Nurses
-//        List<NurseDto> nurses = nurseBo.readAll();
-//        System.out.println("List Nurses: Found " + nurses.size() + " nurses");
-//
-//        // Cleanup
-//        boolean deleted = nurseBo.delete(testNurseId);
-//        System.out.println("Delete Nurse: " + (deleted ? "SUCCESS" : "FAILED"));
-//    }
+    private static void testDoctorOperations() throws Exception {
+        System.out.println("\n=== Testing Doctor Operations ===");
+
+        // Create Doctor
+        DoctorDto newDoctor = new DoctorDto(
+                testDoctorId,
+                "Dr. Smith",
+                "Cardiology",
+                "0987654321",
+                Departments.CARDIOLOGY,
+                "smith@test.com",
+                "1212"
+        );
+
+        boolean created = doctorBo.create(newDoctor);
+        System.out.println("Create Doctor: " + (created ? "SUCCESS" : "FAILED"));
+
+        // Get Doctor
+        DoctorDto retrievedDoctor = doctorBo.read(testDoctorId);
+        System.out.println("Get Doctor: " + (retrievedDoctor != null ? "SUCCESS" : "FAILED"));
+
+        // Update Doctor
+        if (retrievedDoctor != null) {
+            retrievedDoctor.setName("Dr. Smith Updated");
+            boolean updated = doctorBo.update(retrievedDoctor);
+            System.out.println("Update Doctor: " + (updated ? "SUCCESS" : "FAILED"));
+        }
+
+        // List all Doctors
+        List<DoctorDto> doctors = doctorBo.readAll();
+        System.out.println("List Doctors: Found " + doctors.size() + " doctors");
+
+        // Cleanup
+        boolean deleted = doctorBo.delete(testDoctorId);
+        System.out.println("Delete Doctor: " + (deleted ? "SUCCESS" : "FAILED"));
+    }
+
+    private static void testNurseOperations() throws Exception {
+        System.out.println("\n=== Testing Nurse Operations ===");
+
+        // Create Nurse
+        NurseDto newNurse = new NurseDto(
+                testNurseId,
+                "Nurse Jane",
+                Departments.CARDIOLOGY,
+                "0987654321",
+                "jane@test.com",
+                "12121"
+        );
+
+        boolean created = nurseBo.create(newNurse);
+        System.out.println("Create Nurse: " + (created ? "SUCCESS" : "FAILED"));
+
+        // Get Nurse
+        NurseDto retrievedNurse = nurseBo.read(testNurseId);
+        System.out.println("Get Nurse: " + (retrievedNurse != null ? "SUCCESS" : "FAILED"));
+
+        // Update Nurse
+        if (retrievedNurse != null) {
+            retrievedNurse.setName("Nurse Jane Updated");
+            boolean updated = nurseBo.update(retrievedNurse);
+            System.out.println("Update Nurse: " + (updated ? "SUCCESS" : "FAILED"));
+        }
+
+        // List all Nurses
+        List<NurseDto> nurses = nurseBo.readAll();
+        System.out.println("List Nurses: Found " + nurses.size() + " nurses");
+
+        // Cleanup
+        boolean deleted = nurseBo.delete(testNurseId);
+        System.out.println("Delete Nurse: " + (deleted ? "SUCCESS" : "FAILED"));
+    }
 
     private static void testPatientOperations() throws Exception {
         System.out.println("\n=== Testing Patient Operations ===");
@@ -164,42 +164,42 @@ public class Test {
         System.out.println("List Patients: Found " + patients.size() + " patients");
 
         // Cleanup
-        boolean deleted = patientBo.delete(testPatientId);
-        System.out.println("Delete Patient: " + (deleted ? "SUCCESS" : "FAILED"));
+//        boolean deleted = patientBo.delete(testPatientId);
+//        System.out.println("Delete Patient: " + (deleted ? "SUCCESS" : "FAILED"));
     }
 
-//    private static void testPharmacistOperations() throws Exception {
-//        System.out.println("\n=== Testing Pharmacist Operations ===");
-//
-//        // Create Pharmacist
-//        PharmacistDto newPharmacist = new PharmacistDto(
-//                testPharmacistId,
-//                "Pharmacist Bob",
-//                "5566778899",
-//                "bob@pharmacy.com",
-//                "12121"
-//        );
-//
-//        boolean created = pharmacistBo.create(newPharmacist);
-//        System.out.println("Create Pharmacist: " + (created ? "SUCCESS" : "FAILED"));
-//
-//        // Get Pharmacist
-//        PharmacistDto retrievedPharmacist = pharmacistBo.read(testPharmacistId);
-//        System.out.println("Get Pharmacist: " + (retrievedPharmacist != null ? "SUCCESS" : "FAILED"));
-//
-//        // Update Pharmacist
-//        if (retrievedPharmacist != null) {
-//            retrievedPharmacist.setName("Pharmacist Bob Updated");
-//            boolean updated = pharmacistBo.update(retrievedPharmacist);
-//            System.out.println("Update Pharmacist: " + (updated ? "SUCCESS" : "FAILED"));
-//        }
-//
-//        // List all Pharmacists
-//        List<PharmacistDto> pharmacists = pharmacistBo.readAll();
-//        System.out.println("List Pharmacists: Found " + pharmacists.size() + " pharmacists");
-//
-//        // Cleanup
-//        boolean deleted = pharmacistBo.delete(testPharmacistId);
-//        System.out.println("Delete Pharmacist: " + (deleted ? "SUCCESS" : "FAILED"));
-//    }
+    private static void testPharmacistOperations() throws Exception {
+        System.out.println("\n=== Testing Pharmacist Operations ===");
+
+        // Create Pharmacist
+        PharmacistDto newPharmacist = new PharmacistDto(
+                testPharmacistId,
+                "Pharmacist Bob",
+                "5566778899",
+                "bob@pharmacy.com",
+                "12121"
+        );
+
+        boolean created = pharmacistBo.create(newPharmacist);
+        System.out.println("Create Pharmacist: " + (created ? "SUCCESS" : "FAILED"));
+
+        // Get Pharmacist
+        PharmacistDto retrievedPharmacist = pharmacistBo.read(testPharmacistId);
+        System.out.println("Get Pharmacist: " + (retrievedPharmacist != null ? "SUCCESS" : "FAILED"));
+
+        // Update Pharmacist
+        if (retrievedPharmacist != null) {
+            retrievedPharmacist.setName("Pharmacist Bob Updated");
+            boolean updated = pharmacistBo.update(retrievedPharmacist);
+            System.out.println("Update Pharmacist: " + (updated ? "SUCCESS" : "FAILED"));
+        }
+
+        // List all Pharmacists
+        List<PharmacistDto> pharmacists = pharmacistBo.readAll();
+        System.out.println("List Pharmacists: Found " + pharmacists.size() + " pharmacists");
+
+        // Cleanup
+        boolean deleted = pharmacistBo.delete(testPharmacistId);
+        System.out.println("Delete Pharmacist: " + (deleted ? "SUCCESS" : "FAILED"));
+    }
 }

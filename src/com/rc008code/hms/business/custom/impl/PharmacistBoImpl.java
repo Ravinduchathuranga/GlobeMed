@@ -7,6 +7,7 @@ import com.rc008code.hms.repository.DaoFactory;
 import com.rc008code.hms.repository.custom.PharmacistDao;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,6 +42,15 @@ public class PharmacistBoImpl implements PharmacistBo {
     @Override
     public List<PharmacistDto> readAll() throws SQLException, ClassNotFoundException {
         return pharmacistDao.findAll().stream().map(this::toPharmacistDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PharmacistDto> search(String searchText) throws SQLException, ClassNotFoundException {
+        try {
+            return pharmacistDao.searchPharmacist(searchText).stream().map(this::toPharmacistDto).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private PharmacistDto toPharmacistDto(Pharmacist pharmacist) {

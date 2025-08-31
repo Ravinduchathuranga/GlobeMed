@@ -1,6 +1,7 @@
 package com.rc008code.hms.business.custom;
 
 
+import com.rc008code.hms.dto.DoctorDto;
 import com.rc008code.hms.dto.NurseDto;
 
 
@@ -13,4 +14,5 @@ public interface NurseBo {
     public boolean update(NurseDto entity) throws SQLException, ClassNotFoundException;
     public boolean delete(String id) throws SQLException, ClassNotFoundException;
     public List<NurseDto> readAll() throws SQLException, ClassNotFoundException;
+    public List<NurseDto> search(String searchText) throws SQLException, ClassNotFoundException;
 }

@@ -7,6 +7,7 @@ import com.rc008code.hms.repository.DaoFactory;
 import com.rc008code.hms.repository.custom.NurseDao;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,6 +42,15 @@ public class NurseBoImpl implements NurseBo {
     @Override
     public List<NurseDto> readAll() throws SQLException, ClassNotFoundException {
         return nurseDao.findAll().stream().map(this::toNurseDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<NurseDto> search(String searchText) throws SQLException, ClassNotFoundException {
+        try {
+            return nurseDao.searchNurse(searchText).stream().map(this::toNurseDto).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private NurseDto toNurseDto(Nurse nurse) {

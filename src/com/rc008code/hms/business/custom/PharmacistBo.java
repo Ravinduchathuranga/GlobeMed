@@ -13,4 +13,5 @@ public interface PharmacistBo {
     public boolean update(PharmacistDto entity) throws SQLException, ClassNotFoundException;
     public boolean delete(String id) throws SQLException, ClassNotFoundException;
     public List<PharmacistDto> readAll() throws SQLException, ClassNotFoundException;
+    public List<PharmacistDto> search(String searchText) throws SQLException, ClassNotFoundException;
 }

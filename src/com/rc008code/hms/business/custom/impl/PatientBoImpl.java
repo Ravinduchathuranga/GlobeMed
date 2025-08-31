@@ -8,6 +8,7 @@ import com.rc008code.hms.repository.DaoFactory;
 import com.rc008code.hms.repository.custom.PatientDao;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,6 +43,15 @@ public class PatientBoImpl implements PatientBo {
     @Override
     public List<PatientDto> readAll() throws SQLException, ClassNotFoundException {
         return patientDao.findAll().stream().map(this::toPatientDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<PatientDto> search(String searchText) throws SQLException, ClassNotFoundException {
+        try {
+            return patientDao.searchPatient(searchText).stream().map(this::toPatientDto).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private PatientDto toPatientDto(Patient patient) {
