@@ -11,7 +11,6 @@ public class Patient {
     private Gender gender;
     private String contact;
     private String email;
-    private String password;
 
     public Patient() {
     }
@@ -80,13 +79,5 @@ public class Patient {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 }
