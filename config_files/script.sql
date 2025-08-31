@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS patient
     patient_name VARCHAR(50),
     address      TEXT,
     age          INT,
-    gender       ENUM ("Male","Female"),
+    gender       ENUM ("MALE","FEMALE"),
     contact_no   VARCHAR(10),
     email        VARCHAR(100) UNIQUE NOT NULL,
     CONSTRAINT PRIMARY KEY (patient_id)
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS doctor
     doctor_name VARCHAR(50),
     specialty   VARCHAR(50),
     contact_no  VARCHAR(10),
-    department  ENUM ("Cardiology", "Neurology", "Pediatrics", "Oncology", "General"),
+    department ENUM ("CARDIOLOGY", "NEUROLOGY", "PEDIATRICS", "ONCOLOGY", "GENERAL"),
     email       VARCHAR(100) UNIQUE NOT NULL,
     password    VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (doctor_id)
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS nurse
     nurse_id   VARCHAR(100),
     nurse_name VARCHAR(50),
     contact_no VARCHAR(10),
-    department ENUM ("Cardiology", "Neurology", "Pediatrics", "Oncology", "General"),
+    department ENUM ("CARDIOLOGY", "NEUROLOGY", "PEDIATRICS", "ONCOLOGY", "GENERAL"),
     email      VARCHAR(100) UNIQUE NOT NULL,
     password   VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (nurse_id)
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS appointment
     doctor_id        VARCHAR(100),
     admin_staff_id   VARCHAR(100),
     appointment_date DATE,
-    status           ENUM("Pending","Completed"),
+    status           ENUM("PENDING", "COMPLETED"),
     CONSTRAINT PRIMARY KEY (appointment_id),
     CONSTRAINT fk_patient1 FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
     CONSTRAINT fk_admin_staff FOREIGN KEY (admin_staff_id) REFERENCES adminStaff (staff_id),
