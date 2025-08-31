@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.PasswordField?>
-<AnchorPane fx:id="context" pickOnBounds="false" prefHeight="800.0" prefWidth="1370.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.DashBoardFormController">
+<AnchorPane fx:id="context" pickOnBounds="false" prefHeight="800.0" prefWidth="1370.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.PharmacistFormController">
 
     <!-- Main Container -->
     <VBox fx:id="mainContainer" fillWidth="false" prefHeight="800.0" prefWidth="1370.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0">
