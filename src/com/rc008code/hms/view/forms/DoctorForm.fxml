@@ -107,15 +107,10 @@
                     <Text styleClass="page-title" text="Doctors" />
                     <Text styleClass="page-subtitle" text="/ Management" />
                     <Region HBox.hgrow="ALWAYS" />
-                    <Button styleClass="action-button" text="+ Add New Doctor">
-                        <graphic>
-                            <Text style="-fx-fill: white; -fx-font-size: 14;" text="+" />
-                        </graphic>
-                    </Button>
                 </HBox>
 
                 <!-- Doctor Form -->
-                <GridPane hgap="15" style="-fx-padding: 20; -fx-background-color: #f5f7fa; -fx-background-radius: 10;" vgap="15">
+                <GridPane hgap="15" prefHeight="247.0" prefWidth="1090.0" style="-fx-padding: 20; -fx-background-color: #f5f7fa; -fx-background-radius: 10;" vgap="15">
                     <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
                         <ColumnConstraints hgrow="ALWAYS" percentWidth="25" />
@@ -128,7 +123,7 @@
                     </rowConstraints>
 
                     <!-- First Name -->
-                    <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <VBox prefHeight="60.0" prefWidth="251.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
                         <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="First Name" />
                         <TextField style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
                     </VBox>
@@ -142,7 +137,7 @@
                     <!-- Specialization -->
                     <VBox GridPane.columnIndex="2" GridPane.rowIndex="0">
                         <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Specialization" />
-                        <ComboBox style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
+                        <TextField prefHeight="28.0" prefWidth="250.0" promptText="Select" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
                     </VBox>
 
                     <!-- Contact Number -->
@@ -165,8 +160,8 @@
 
                     <!-- Availability -->
                     <VBox GridPane.columnIndex="2" GridPane.rowIndex="1">
-                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Availability" />
-                        <ComboBox style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
+                        <Text style="-fx-fill: #2c3e50; -fx-font-size: 14; -fx-font-weight: bold;" text="Department " />
+                        <ComboBox prefHeight="28.0" prefWidth="252.0" promptText="Select" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
                     </VBox>
 
                     <!-- Action Buttons -->
@@ -186,14 +181,13 @@
 
                     <TableView style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1;">
                         <columns>
-                            <TableColumn prefWidth="60" text="ID" />
-                            <TableColumn prefWidth="180" text="Full Name" />
-                            <TableColumn prefWidth="150" text="Specialization" />
-                            <TableColumn prefWidth="120" text="Contact" />
-                            <TableColumn prefWidth="200" text="Email" />
-                            <TableColumn prefWidth="100" text="Experience" />
-                            <TableColumn prefWidth="100" text="Status" />
-                            <TableColumn prefWidth="150" text="Actions" />
+                            <TableColumn prefWidth="118.0" text="ID" />
+                            <TableColumn prefWidth="148.0" text="Full Name" />
+                            <TableColumn prefWidth="181.0" text="Specialization" />
+                            <TableColumn prefWidth="142.0" text="Contact" />
+                            <TableColumn prefWidth="125.0" text="Department" />
+                            <TableColumn prefWidth="220.0" text="Email" />
+                     <TableColumn minWidth="0.0" prefWidth="154.0" text="Actions" />
                         </columns>
                     </TableView>
 
