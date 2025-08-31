@@ -7,6 +7,7 @@ import com.rc008code.hms.repository.DaoFactory;
 import com.rc008code.hms.repository.custom.DoctorDao;
 
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,6 +43,15 @@ public class DoctorBoImpl implements DoctorBo {
     @Override
     public List<DoctorDto> readAll() throws SQLException, ClassNotFoundException {
         return doctorDao.findAll().stream().map(this::toDoctorDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<DoctorDto> search(String searchText) throws SQLException, ClassNotFoundException {
+        try {
+            return doctorDao.searchDoctors(searchText).stream().map(this::toDoctorDto).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

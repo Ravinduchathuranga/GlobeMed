@@ -6,5 +6,5 @@ import com.rc008code.hms.repository.CrudDao;
 import java.util.List;
 
 public interface DoctorDao extends CrudDao<Doctor, String> {
-    List<Doctor> searchDoctor(String searchText) throws Exception;
+    List<Doctor> searchDoctors(String searchText) throws Exception;
 }

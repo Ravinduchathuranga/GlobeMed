@@ -81,7 +81,7 @@ public class DoctorDaoImpl implements DoctorDao {
     }
 
     @Override
-    public List<Doctor> searchDoctor(String searchText) throws Exception {
+    public List<Doctor> searchDoctors(String searchText) throws Exception {
         searchText = "%" + searchText + "%";
         String query = "SELECT * FROM doctor WHERE doctor_name LIKE ? OR email LIKE ?";
         ResultSet resultSet = CrudUtil.execute(query, searchText, searchText);
