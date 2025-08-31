@@ -1,29 +1,29 @@
 package com.rc008code.hms.dto;
 
 public class AdminStaffDto {
-    private String staff_id;
+    private String staffId;
     private String name;
-    private String contact_number;
+    private String contactNumber;
     private String email;
     private String password;
 
     public AdminStaffDto() {
     }
 
-    public AdminStaffDto(String staff_id, String name, String contact_number, String email, String password) {
-        this.staff_id = staff_id;
+    public AdminStaffDto(String staffId, String name, String contactNumber, String email, String password) {
+        this.staffId = staffId;
         this.name = name;
-        this.contact_number = contact_number;
+        this.contactNumber = contactNumber;
         this.email = email;
         this.password = password;
     }
 
-    public String getStaff_id() {
-        return staff_id;
+    public String getStaffId() {
+        return staffId;
     }
 
-    public void setStaff_id(String staff_id) {
-        this.staff_id = staff_id;
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
     }
 
     public String getName() {
@@ -34,12 +34,12 @@ public class AdminStaffDto {
         this.name = name;
     }
 
-    public String getContact_number() {
-        return contact_number;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
-    public void setContact_number(String contact_number) {
-        this.contact_number = contact_number;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public String getEmail() {
