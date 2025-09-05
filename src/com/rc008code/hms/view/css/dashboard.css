@@ -1,0 +1,192 @@
+/* Root Layout */
+#rootPane {
+    -fx-background-color: #f5f7fa;
+}
+
+/* Main Container */
+#mainContainer {
+    -fx-spacing: 0;
+}
+
+/* Header Styles */
+.header {
+    -fx-background-color: white;
+    -fx-padding: 15 30;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 1);
+    -fx-alignment: center;
+}
+
+.header-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-fill: #2c3e50;
+}
+
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e74c3c;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+}
+
+/* Content Container */
+.content-container {
+    -fx-spacing: 0;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    -fx-background-color: #2c3e50;
+    -fx-pref-width: 220;
+    -fx-min-width: 220;
+    -fx-spacing: 0;
+    -fx-padding: 0;
+}
+
+.sidebar-header {
+    -fx-padding: 0 0 20 0;
+    -fx-border-color: #34495e;
+    -fx-border-width: 0 0 1 0;
+}
+
+.user-avatar {
+    -fx-fill: #ecf0f1;
+    -fx-stroke: linear-gradient(to bottom right, #3498db, #9b59b6);
+    -fx-stroke-width: 2;
+}
+
+.user-name {
+    -fx-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 0 0 0;
+}
+
+.user-role {
+    -fx-fill: #bdc3c7;
+    -fx-font-size: 12px;
+}
+
+.menu-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #bdc3c7;
+    -fx-pref-height: 45;
+    -fx-min-height: 45;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 25;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+
+.menu-button:hover, .menu-button:selected, .menu-button:focused {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+}
+
+.menu-button .graphic {
+    -fx-padding: 0 10 0 0;
+}
+
+/* Status Bar */
+.status-bar {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 5 15;
+    -fx-pref-height: 30;
+}
+
+.status-text {
+    -fx-fill: #ecf0f1;
+    -fx-font-size: 12px;
+}
+
+/* Content Area */
+.content {
+    -fx-padding: 30;
+    -fx-spacing: 30;
+    -fx-background-color: #f5f7fa;
+}
+
+.page-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: #2c3e50;
+}
+
+.page-subtitle {
+    -fx-font-size: 24px;
+    -fx-fill: #7f8c8d;
+}
+
+/* Stats Cards */
+.stats-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 2);
+}
+
+.stats-icon {
+    -fx-background-radius: 10;
+    -fx-pref-width: 50;
+    -fx-pref-height: 50;
+    -fx-alignment: CENTER;
+}
+
+.stats-label {
+    -fx-fill: #7f8c8d;
+    -fx-font-size: 14;
+}
+
+.stats-value {
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+}
+
+.stats-trend-up {
+    -fx-fill: #4caf50;
+    -fx-font-size: 12;
+    -fx-padding: 5 0 0 0;
+}
+
+.stats-trend-down {
+    -fx-fill: #f44336;
+    -fx-font-size: 12;
+    -fx-padding: 5 0 0 0;
+}
+
+/* Quick Actions */
+.quick-actions-title {
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+    -fx-fill: #2c3e50;
+}
+
+.action-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 2);
+    -fx-spacing: 15;
+    -fx-pref-width: 200;
+    -fx-alignment: CENTER;
+}
+
+.action-button {
+    -fx-background-radius: 20;
+    -fx-pref-width: 60;
+    -fx-pref-height: 60;
+    -fx-cursor: hand;
+}
+
+.action-button-text {
+    -fx-font-size: 24;
+}
+
+.action-label {
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+    -fx-max-width: 120;
+}

@@ -15,7 +15,6 @@ public class AppInitializer extends Application {
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("view/forms/LogInForm.fxml"))));
         primaryStage.setTitle("Hospital Management System");
         primaryStage.centerOnScreen();
-        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
