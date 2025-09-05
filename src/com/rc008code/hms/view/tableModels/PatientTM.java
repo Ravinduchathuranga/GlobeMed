@@ -1,29 +1,27 @@
-package com.rc008code.hms.entity;
+package com.rc008code.hms.view.tableModels;
 
-import com.rc008code.hms.enums.Gender;
-import sun.net.www.content.text.Generic;
+import javafx.scene.control.ButtonBar;
 
-public class Patient {
+public class PatientTM {
     private String patientId;
     private String name;
     private String address;
     private int age;
-    private Gender gender;
     private String contact;
     private String email;
-    private String password;
+    private ButtonBar buttonBar;
 
-    public Patient() {
+    public PatientTM() {
     }
 
-    public Patient(String patientId, String name, String address, int age, Gender gender,String contact, String email) {
+    public PatientTM(String patientId, String name, String address, int age, String contact, String email, ButtonBar buttonBar) {
         this.patientId = patientId;
         this.name = name;
         this.address = address;
         this.age = age;
-        this.gender=gender;
         this.contact = contact;
         this.email = email;
+        this.buttonBar = buttonBar;
     }
 
     public String getPatientId() {
@@ -58,14 +56,6 @@ public class Patient {
         this.age = age;
     }
 
-    public Gender getGender() {
-        return gender;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
     public String getContact() {
         return contact;
     }
@@ -82,11 +72,11 @@ public class Patient {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public ButtonBar getButtonBar() {
+        return buttonBar;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setButtonBar(ButtonBar buttonBar) {
+        this.buttonBar = buttonBar;
     }
 }

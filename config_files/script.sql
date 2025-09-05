@@ -1,8 +1,10 @@
-CREATE DATABASE IF NOT EXISTS global_med;
-USE global_med;
-
 ## Tables for Hospital Management System
 ## Tables: patient, doctor, pharmacist, AdminStaff, appointment, medical_record
+
+-- Start of script.sql
+
+CREATE DATABASE IF NOT EXISTS global_med;
+USE global_med;
 
 ## patient table
 CREATE TABLE IF NOT EXISTS patient
@@ -11,6 +13,7 @@ CREATE TABLE IF NOT EXISTS patient
     patient_name VARCHAR(50),
     address      TEXT,
     age          INT,
+    gender       ENUM ("MALE","FEMALE"),
     contact_no   VARCHAR(10),
     email        VARCHAR(100) UNIQUE NOT NULL,
     CONSTRAINT PRIMARY KEY (patient_id)
@@ -24,9 +27,9 @@ CREATE TABLE IF NOT EXISTS doctor
     doctor_name VARCHAR(50),
     specialty   VARCHAR(50),
     contact_no  VARCHAR(10),
-    department  ENUM("Cardiology", "Neurology", "Pediatrics", "Oncology", "General"),
+    department ENUM ("CARDIOLOGY", "NEUROLOGY", "PEDIATRICS", "ONCOLOGY", "GENERAL"),
     email       VARCHAR(100) UNIQUE NOT NULL,
-    password    VARCHAR(100) NOT NULL,
+    password    VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (doctor_id)
 );
 DESC doctor;
@@ -37,9 +40,9 @@ CREATE TABLE IF NOT EXISTS nurse
     nurse_id   VARCHAR(100),
     nurse_name VARCHAR(50),
     contact_no VARCHAR(10),
-    department ENUM("Cardiology", "Neurology", "Pediatrics", "Oncology", "General"),
+    department ENUM ("CARDIOLOGY", "NEUROLOGY", "PEDIATRICS", "ONCOLOGY", "GENERAL"),
     email      VARCHAR(100) UNIQUE NOT NULL,
-    password   VARCHAR(100) NOT NULL,
+    password   VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (nurse_id)
 );
 DESC nurse;
@@ -51,22 +54,22 @@ CREATE TABLE IF NOT EXISTS pharmacist
     pharmacist_name VARCHAR(50),
     contact_no      VARCHAR(10),
     email           VARCHAR(100) UNIQUE NOT NULL,
-    password        VARCHAR(100) NOT NULL,
+    password        VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (pharmacist_id)
 );
 DESC pharmacist;
 
 ## AdminStaff table
-CREATE TABLE IF NOT EXISTS AdminStaff
+CREATE TABLE IF NOT EXISTS adminStaff
 (
     staff_id   VARCHAR(100),
     staff_name VARCHAR(50),
     contact_no VARCHAR(10),
     email      VARCHAR(100) UNIQUE NOT NULL,
-    password   VARCHAR(100) NOT NULL,
+    password   VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (staff_id)
 );
-DESC AdminStaff;
+DESC adminStaff;
 
 #########################################################################################################################
 
@@ -78,10 +81,10 @@ CREATE TABLE IF NOT EXISTS appointment
     doctor_id        VARCHAR(100),
     admin_staff_id   VARCHAR(100),
     appointment_date DATE,
-    status           VARCHAR(20),
+    status           ENUM("PENDING", "COMPLETED"),
     CONSTRAINT PRIMARY KEY (appointment_id),
     CONSTRAINT fk_patient1 FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
-    CONSTRAINT fk_admin_staff FOREIGN KEY (admin_staff_id) REFERENCES AdminStaff (staff_id),
+    CONSTRAINT fk_admin_staff FOREIGN KEY (admin_staff_id) REFERENCES adminStaff (staff_id),
     CONSTRAINT fk_doctor1 FOREIGN KEY (doctor_id) REFERENCES doctor (doctor_id)
 );
 DESC appointment;

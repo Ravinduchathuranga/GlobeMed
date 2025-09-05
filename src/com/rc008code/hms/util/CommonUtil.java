@@ -14,8 +14,10 @@ public class CommonUtil {
     public void setUi(AnchorPane context, String location) throws IOException {
         URL resource = getClass().getResource("/com/rc008code/hms/view/forms/" + location + ".fxml");
         Stage stage = (Stage) context.getScene().getWindow();
-        stage.centerOnScreen();
         stage.setScene(new Scene(FXMLLoader.load(resource)));
+        stage.centerOnScreen();
         stage.setTitle(location);
+        stage.setFullScreen(true);
+        stage.show();
     }
 }
