@@ -15,7 +15,7 @@ public class Test {
     private static NurseBo nurseBo;
     private static PatientBo patientBo;
     private static PharmacistBo pharmacistBo;
-    
+
     private static String testPatientId;
     private static String testDoctorId;
     private static String testNurseId;
@@ -164,8 +164,8 @@ public class Test {
         System.out.println("List Patients: Found " + patients.size() + " patients");
 
         // Cleanup
-//        boolean deleted = patientBo.delete(testPatientId);
-//        System.out.println("Delete Patient: " + (deleted ? "SUCCESS" : "FAILED"));
+        boolean deleted = patientBo.delete(testPatientId);
+        System.out.println("Delete Patient: " + (deleted ? "SUCCESS" : "FAILED"));
     }
 
     private static void testPharmacistOperations() throws Exception {

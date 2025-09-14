@@ -30,8 +30,8 @@ public class BoFactory {
                 return (T) new PatientBoImpl();
             case PHARMACIST:
                 return (T) new PharmacistBoImpl();
-//            case APPOINTMENT:
-//                return (T) new AppointmentBoImpl();
+            case APPOINTMENT:
+                return (T) new AppointmentBoImpl();
 //            case MEDICINE:
 //                return (T) new MedicineBoImpl();
             default:

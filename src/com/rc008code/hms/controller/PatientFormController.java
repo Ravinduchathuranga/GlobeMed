@@ -34,7 +34,7 @@ public class PatientFormController {
     public RadioButton rbtnMale;
     public RadioButton rbtnFemale;
     public ToggleGroup genderGroup;
-    
+
     // TableView and columns
     public TableView<PatientTM> tblPatients;
     public TableColumn<PatientTM, String> colPatientId;
@@ -45,7 +45,7 @@ public class PatientFormController {
     public TableColumn<PatientTM, String> colContact;
     public TableColumn<PatientTM, String> colEmail;
     public TableColumn<PatientTM, ButtonBar> colAction;
-    
+
     public TextField txtSearchPatients;
     public Button btnSave;
 
@@ -64,10 +64,10 @@ public class PatientFormController {
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colAction.setCellValueFactory(new PropertyValueFactory<>("buttonBar"));
-        
+
         // Set default gender
         rbtnMale.setSelected(true);
-        
+
         // Load all patients
         loadAllPatients();
     }
@@ -76,13 +76,13 @@ public class PatientFormController {
         ObservableList<PatientTM> patientList = FXCollections.observableArrayList();
         try {
             List<PatientDto> allPatients = patientBo.readAll();
-            
+
             for (PatientDto patient : allPatients) {
                 ButtonBar buttonBar = new ButtonBar();
                 Button btnEdit = new Button("Edit");
                 Button btnDelete = new Button("Delete");
                 buttonBar.getButtons().addAll(btnEdit, btnDelete);
-                
+
                 PatientTM tm = new PatientTM(
                     patient.getPatientId(),
                     patient.getName(),
@@ -93,20 +93,20 @@ public class PatientFormController {
                     patient.getEmail(),
                     buttonBar
                 );
-                
+
                 // Set up delete button action
                 btnDelete.setOnAction(event -> handleDeletePatient(tm));
-                
+
                 // Set up edit button action
                 btnEdit.setOnAction(event -> {
                     btnSave.setText("Update Patient");
                     selectedPatient = patient;
                     populatePatientFields(patient);
                 });
-                
+
                 patientList.add(tm);
             }
-            
+
             tblPatients.setItems(patientList);
         } catch (SQLException | ClassNotFoundException e) {
             new Alert(Alert.AlertType.ERROR, "Failed to load patients: " + e.getMessage(), ButtonType.OK).show();
@@ -138,17 +138,17 @@ public class PatientFormController {
                 txtContactNo.getText().trim(),
                 txtEmail.getText().toLowerCase().trim()
             );
-            
+
             boolean isSaved;
             if (selectedPatient == null) {
                 isSaved = patientBo.create(patientDto);
             } else {
                 isSaved = patientBo.update(patientDto);
             }
-            
+
             if (isSaved) {
-                new Alert(Alert.AlertType.INFORMATION, 
-                    selectedPatient == null ? "Patient saved successfully!" : "Patient updated successfully!", 
+                new Alert(Alert.AlertType.INFORMATION,
+                    selectedPatient == null ? "Patient saved successfully!" : "Patient updated successfully!",
                     ButtonType.OK).show();
                 clearFields();
                 loadAllPatients();
@@ -176,7 +176,7 @@ public class PatientFormController {
             loadAllPatients();
             return;
         }
-        
+
         // Filter the current table items based on search text
         ObservableList<PatientTM> filteredList = FXCollections.observableArrayList();
         for (PatientTM patient : tblPatients.getItems()) {
@@ -189,13 +189,13 @@ public class PatientFormController {
         }
         tblPatients.setItems(filteredList);
     }
-    
+
     private void handleDeletePatient(PatientTM patient) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Deletion");
         alert.setHeaderText("Delete Patient");
         alert.setContentText("Are you sure you want to delete " + patient.getName() + "?");
-        
+
         alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
                 try {
@@ -212,32 +212,32 @@ public class PatientFormController {
             }
         });
     }
-    
+
     private void populatePatientFields(PatientDto patient) {
         txtName.setText(patient.getName());
         txtAddress.setText(patient.getAddress());
         txtAge.setText(String.valueOf(patient.getAge()));
         txtContactNo.setText(patient.getContact());
         txtEmail.setText(patient.getEmail());
-        
+
         if (patient.getGender() == Gender.MALE) {
             rbtnMale.setSelected(true);
         } else {
             rbtnFemale.setSelected(true);
         }
     }
-    
+
     private boolean validateFields() {
-        if (txtName.getText().trim().isEmpty() || 
+        if (txtName.getText().trim().isEmpty() ||
             txtAddress.getText().trim().isEmpty() ||
             txtAge.getText().trim().isEmpty() ||
             txtContactNo.getText().trim().isEmpty() ||
             txtEmail.getText().trim().isEmpty()) {
-            
+
             new Alert(Alert.AlertType.WARNING, "Please fill in all required fields.", ButtonType.OK).show();
             return false;
         }
-        
+
         try {
             int age = Integer.parseInt(txtAge.getText().trim());
             if (age <= 0 || age > 120) {
@@ -248,17 +248,21 @@ public class PatientFormController {
             new Alert(Alert.AlertType.WARNING, "Please enter a valid number for age.", ButtonType.OK).show();
             return false;
         }
-        
+
         if (!txtEmail.getText().trim().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
             new Alert(Alert.AlertType.WARNING, "Please enter a valid email address.", ButtonType.OK).show();
             return false;
         }
-        
+
         if (!txtContactNo.getText().trim().matches("^\\+?[0-9]{10,15}$")) {
             new Alert(Alert.AlertType.WARNING, "Please enter a valid contact number (10-15 digits, may start with +).", ButtonType.OK).show();
             return false;
         }
-        
+
         return true;
+    }
+
+    public void OnBackToHome(ActionEvent actionEvent) throws IOException {
+        new CommonUtil().setUi(context,"DashboardForm");
     }
 }

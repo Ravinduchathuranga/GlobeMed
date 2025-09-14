@@ -3,6 +3,7 @@ package com.rc008code.hms.controller;
 import com.rc008code.hms.business.BoFactory;
 import com.rc008code.hms.business.custom.PharmacistBo;
 import com.rc008code.hms.dto.PharmacistDto;
+import com.rc008code.hms.util.CommonUtil;
 import com.rc008code.hms.view.tableModels.PharmacistTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -43,15 +45,15 @@ public class PharmacistFormController {
         colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colActions.setCellValueFactory(new PropertyValueFactory<>("buttonBar"));
-        
+
         // Load all pharmacists
         loadAllPharmacists();
-        
+
         // Add search listener
-        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-            searchText = newValue.trim();
-            loadAllPharmacists();
-        });
+//        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+//            searchText = newValue.trim();
+//            loadAllPharmacists();
+//        });
     }
 
     public void OnSavePharmacistAction(ActionEvent actionEvent) {
@@ -195,5 +197,9 @@ public class PharmacistFormController {
             return false;
         }
         return true;
+    }
+
+    public void OnBackToHome(ActionEvent actionEvent) throws IOException {
+        new CommonUtil().setUi(context,"DashboardForm");
     }
 }

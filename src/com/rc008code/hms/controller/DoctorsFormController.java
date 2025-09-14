@@ -4,6 +4,7 @@ import com.rc008code.hms.business.BoFactory;
 import com.rc008code.hms.business.custom.DoctorBo;
 import com.rc008code.hms.dto.DoctorDto;
 import com.rc008code.hms.enums.Departments;
+import com.rc008code.hms.util.CommonUtil;
 import com.rc008code.hms.view.tableModels.DoctorTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -193,5 +195,9 @@ public class DoctorsFormController {
         txtContact.clear();
         txtEmail.clear();
         cmbDepartment.getSelectionModel().clearSelection();
+    }
+
+    public void OnBackToHome(ActionEvent actionEvent) throws IOException {
+        new CommonUtil().setUi(context,"DashboardForm");
     }
 }

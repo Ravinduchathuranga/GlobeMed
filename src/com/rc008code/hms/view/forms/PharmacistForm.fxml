@@ -5,7 +5,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -13,7 +12,7 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="context" pickOnBounds="false" prefHeight="800.0" prefWidth="1370.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.PharmacistFormController">
@@ -23,8 +22,16 @@
 
         <!-- Top Header -->
         <HBox prefHeight="58.0" prefWidth="1370.0" styleClass="header" VBox.vgrow="NEVER">
+         <Button mnemonicParsing="false" onAction="#OnBackToHome" styleClass="logout-button" text="Home">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Button>
             <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
-                <Text styleClass="header-title" text="GLOBE MED" />
+                <Text styleClass="header-title" text="GLOBE MED">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin></Text>
             </HBox>
             <HBox alignment="CENTER_RIGHT" spacing="20">
                 <Button styleClass="logout-button" text="Logout" />
@@ -34,70 +41,6 @@
 
         <!-- Main Content Area -->
         <HBox styleClass="content-container" VBox.vgrow="ALWAYS">
-            <!-- Left Sidebar -->
-            <VBox styleClass="sidebar" HBox.hgrow="NEVER">
-                <!-- Sidebar Header -->
-                <VBox alignment="CENTER" styleClass="sidebar-header">
-                    <Circle radius="40" styleClass="user-avatar">
-                        <VBox.margin>
-                            <Insets top="20.0" />
-                        </VBox.margin></Circle>
-                </VBox>
-
-                <!-- Navigation Menu -->
-                <VBox styleClass="menu-container" VBox.vgrow="ALWAYS">
-                    <Button prefWidth="220.0" style="-fx-text-fill: white;" styleClass="menu-button" text="Dashboard">
-                        <graphic>
-                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
-                                <image>
-                                    <!-- Image URL will be added later -->
-                                    <!-- <Image url="@../../../../resources/icons/dashboard.png" /> -->
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                    <Button prefWidth="218.0" styleClass="menu-button" text="Patients">
-                        <graphic>
-                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
-                                <image>
-                                    <!-- Image URL will be added later -->
-                                    <!-- <Image url="@../../../../resources/icons/patient.png" /> -->
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                    <Button prefWidth="233.0" styleClass="menu-button" text="Doctors">
-                        <graphic>
-                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
-                                <image>
-                                    <!-- Image URL will be added later -->
-                                    <!-- <Image url="@../../../../resources/icons/doctor.png" /> -->
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                    <Button prefWidth="226.0" styleClass="menu-button" text="Nurses">
-                        <graphic>
-                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
-                                <image>
-                                    <!-- Image URL will be added later -->
-                                    <!-- <Image url="@../../../../resources/icons/nurse.png" /> -->
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                    <Button prefWidth="226.0" styleClass="menu-button" text="Pharmacists">
-                        <graphic>
-                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
-                                <image>
-                                    <!-- Image URL will be added later -->
-                                    <!-- <Image url="@../../../../resources/icons/pharmacy.png" /> -->
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                </VBox>
-            </VBox>
 
             <!-- Main Content -->
             <VBox spacing="20" styleClass="content" HBox.hgrow="ALWAYS">
