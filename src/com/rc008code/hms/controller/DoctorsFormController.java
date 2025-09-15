@@ -198,6 +198,6 @@ public class DoctorsFormController {
     }
 
     public void OnBackToHome(ActionEvent actionEvent) throws IOException {
-        new CommonUtil().setUi(context,"DashboardForm");
+        new CommonUtil().setUi(context,"AdminDashboardForm");
     }
 }

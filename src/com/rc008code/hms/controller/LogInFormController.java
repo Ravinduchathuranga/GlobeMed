@@ -18,7 +18,7 @@ public class LogInFormController {
     public PasswordField txtPassword;
 
     public void onLogInAction(ActionEvent actionEvent) throws IOException {
-       new CommonUtil().setUi(context,"DashboardForm");
+       new CommonUtil().setUi(context,"DoctorDashboardForm");
     }
 
 }
