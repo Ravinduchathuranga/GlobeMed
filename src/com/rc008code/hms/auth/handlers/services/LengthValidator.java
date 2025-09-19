@@ -3,6 +3,7 @@ package com.rc008code.hms.auth.handlers.services;
 import com.rc008code.hms.auth.handlers.api.Validator;
 import com.rc008code.hms.auth.handlers.model.ValidationResult;
 
+//password validation
 public class LengthValidator implements Validator<String> {
     private Validator<String> nextValidator;
     @Override
