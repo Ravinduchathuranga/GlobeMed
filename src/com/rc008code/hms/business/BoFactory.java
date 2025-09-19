@@ -9,7 +9,8 @@ public class BoFactory {
     }
 
     public enum BoType {
-        DOCTOR, NURSE, PATIENT, PHARMACIST, APPOINTMENT, MEDICINE
+        DOCTOR, NURSE, PATIENT, PHARMACIST, ADMINSTAFF, APPOINTMENT, MEDICINE
+
     }
 
     public static BoFactory getInstance() {
@@ -32,6 +33,8 @@ public class BoFactory {
                 return (T) new PharmacistBoImpl();
             case APPOINTMENT:
                 return (T) new AppointmentBoImpl();
+            case ADMINSTAFF:
+                return (T) new AdminStaffBoImpl();
 //            case MEDICINE:
 //                return (T) new MedicineBoImpl();
             default:
