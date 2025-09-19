@@ -3,6 +3,7 @@ package com.rc008code.hms.auth.decorators.api;
 public abstract class AuthenticatorDecorator implements Authenticator {
 
     //dto logic here
+
     protected Authenticator authenticator;
 
     public AuthenticatorDecorator(Authenticator authenticator) {
@@ -13,5 +14,4 @@ public abstract class AuthenticatorDecorator implements Authenticator {
     public boolean authenticate(String username, String password) {
         return authenticator.authenticate(username, password);
     }
-
 }
