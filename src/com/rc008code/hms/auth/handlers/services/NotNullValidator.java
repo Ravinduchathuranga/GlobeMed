@@ -2,6 +2,7 @@ package com.rc008code.hms.auth.handlers.services;
 
 import com.rc008code.hms.auth.handlers.api.Validator;
 import com.rc008code.hms.auth.handlers.model.ValidationResult;
+import javafx.scene.control.Alert;
 
 // Validates that the input is not null or empty
 public class NotNullValidator implements Validator<String> {
@@ -9,10 +10,11 @@ public class NotNullValidator implements Validator<String> {
 
     @Override
     public ValidationResult validate(String input) {
-        if (input == null) {
-            return new ValidationResult(false, "Input cannot be null");
-        }else if (input.isEmpty()) {
-            return new ValidationResult(false, "Input cannot be empty");
+       if (input.trim().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Login Failed");
+            alert.setContentText("Invalid username or password");
         }
 
         // If validation passes and there's a next validator, pass to it
