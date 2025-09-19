@@ -1,5 +1,8 @@
 package com.rc008code.hms.controller;
 
+import com.rc008code.hms.auth.handlers.model.ValidationResult;
+import com.rc008code.hms.auth.handlers.services.LengthValidator;
+import com.rc008code.hms.auth.handlers.services.NotNullValidator;
 import com.rc008code.hms.util.CommonUtil;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +21,29 @@ public class LogInFormController {
     public PasswordField txtPassword;
 
     public void onLogInAction(ActionEvent actionEvent) throws IOException {
-       new CommonUtil().setUi(context,"DoctorDashboardForm");
-    }
+        String username = txtUserName.getText();
+        String password = txtPassword.getText();
 
+        NotNullValidator notNullValidator = new NotNullValidator();
+        LengthValidator lengthValidator = new LengthValidator();
+
+        notNullValidator.validate(username);
+        notNullValidator.validate(password);
+        lengthValidator.validate(password);
+
+        ValidationResult usernamevalidationResult = notNullValidator.validate(username);
+        ValidationResult passwordvalidationResult = notNullValidator.validate(password);
+        // this validation not woking as well
+        //ValidationResult validationResult = lengthValidator.validate(password);
+
+        if (usernamevalidationResult.isValid() && passwordvalidationResult.isValid()) {
+            System.out.println("success");
+//        } else if (validationResult.isValid()) {
+//            System.out.println("success");
+        } else {
+            System.out.println(usernamevalidationResult.getErrorMessage() + " " + passwordvalidationResult.getErrorMessage());
+        }
+
+        //new CommonUtil().setUi(context, "StaffDashboardForm");
+    }
 }
