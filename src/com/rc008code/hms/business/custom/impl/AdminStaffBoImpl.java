@@ -1,17 +1,12 @@
 package com.rc008code.hms.business.custom.impl;
 
-import com.rc008code.hms.business.BoFactory;
 import com.rc008code.hms.business.custom.AdminStaffBo;
 import com.rc008code.hms.dto.AdminStaffDto;
-import com.rc008code.hms.dto.DoctorDto;
 import com.rc008code.hms.entity.AdminStaff;
-import com.rc008code.hms.entity.Doctor;
 import com.rc008code.hms.repository.DaoFactory;
 import com.rc008code.hms.repository.custom.AdminStaffDao;
 
 import java.sql.SQLException;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,7 +19,7 @@ public class AdminStaffBoImpl implements AdminStaffBo {
     }
 
     @Override
-    public AdminStaffDto find(String id) throws SQLException, ClassNotFoundException {
+    public AdminStaffDto read(String id) throws SQLException, ClassNotFoundException {
         AdminStaff adminStaff = adminStaffDao.find(id);
         if (adminStaff != null) {
             return toAdminStaffDto(adminStaff);
@@ -39,18 +34,27 @@ public class AdminStaffBoImpl implements AdminStaffBo {
     }
 
     @Override
-    public boolean delete(AdminStaffDto adminStaffDto) throws SQLException, ClassNotFoundException {
-        return adminStaffDao.delete(adminStaffDto.getStaff_id());
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
+        return adminStaffDao.delete(id);
     }
 
     @Override
-    public List<AdminStaffDto> findAll() throws SQLException, ClassNotFoundException {
+    public List<AdminStaffDto> readAll() throws SQLException, ClassNotFoundException {
         return adminStaffDao.findAll().stream().map(this::toAdminStaffDto).collect(Collectors.toList());
     }
 
     @Override
-    public List<AdminStaff> searchAdminStaff(String searchText) throws Exception {
+    public List<AdminStaffDto> search(String searchText) throws Exception {
+        try {
+            return adminStaffDao.searchAdminStaff(searchText).stream().map(this::toAdminStaffDto).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
+    @Override
+    public boolean logIn(String username, String password) throws Exception {
+        return adminStaffDao.logIn(username, password);
     }
 
     private AdminStaffDto toAdminStaffDto(AdminStaff adminStaff) {
