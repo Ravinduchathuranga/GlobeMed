@@ -3,6 +3,7 @@ package com.rc008code.hms.auth.handlers.services;
 import com.rc008code.hms.auth.handlers.api.Validator;
 import com.rc008code.hms.auth.handlers.model.ValidationResult;
 
+// Validates that the input is not null or empty
 public class NotNullValidator implements Validator<String> {
     private Validator<String> nextValidator;
 
