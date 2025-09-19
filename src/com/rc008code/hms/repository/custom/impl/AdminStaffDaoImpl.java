@@ -44,8 +44,7 @@ public class AdminStaffDaoImpl implements AdminStaffDao {
 
     @Override
     public boolean logIn(String email, String password) throws Exception {
-        String query = "SELECT * FROM adminStaff WHERE email= '" + email + "'AND password = '" + password + "'";
-        System.out.println(query);
+        String query = "SELECT * FROM adminStaff WHERE email= '" + email + "' AND password = '" + password + "'";
         Statement statement = MysqlConnection.getInstance().getConnection().createStatement();
         ResultSet resultSet = statement.executeQuery(query);
         if (resultSet.next()) {
