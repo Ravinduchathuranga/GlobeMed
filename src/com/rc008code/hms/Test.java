@@ -6,7 +6,7 @@ public class Test {
     private final static AdminStaffBo adminStaffBo= BoFactory.getInstance().getBo(BoFactory.BoType.ADMINSTAFF);
     public static void main(String[] args) {
         try {
-            boolean isLogin= adminStaffBo.logIn("ravindu","ravindu");
+            boolean isLogin= adminStaffBo.logIn("ravindu@gmail.com","12345");
             System.out.println(isLogin);
         }catch (Exception e){
             e.printStackTrace();
