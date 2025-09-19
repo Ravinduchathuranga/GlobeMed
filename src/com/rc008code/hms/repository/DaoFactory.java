@@ -17,9 +17,9 @@ public class DaoFactory {
     }
 
     public enum DaoType {
-        DOCTOR, NURSE, PATIENT, PHARMACIST, APPOINTMENT, MEDICINE
+        DOCTOR, NURSE, PATIENT, PHARMACIST, ADMINSTAFF, APPOINTMENT, MEDICINE
     }
-    
+
     @SuppressWarnings("unchecked")
     public <T> T getDao(DaoType daoType) {
         switch (daoType) {
@@ -31,6 +31,8 @@ public class DaoFactory {
                 return (T) new PatientDaoImpl();
             case PHARMACIST:
                 return (T) new PharmacistDaoImpl();
+            case ADMINSTAFF:
+                return (T) new AdminStaffDaoImpl();
 //            case APPOINTMENT:
 //                return (T) new AppointmentDaoImpl();
 //            case MEDICINE:
