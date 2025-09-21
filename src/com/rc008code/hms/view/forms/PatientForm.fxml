@@ -107,8 +107,8 @@
 
                     <!-- Action Buttons -->
                     <HBox alignment="CENTER_RIGHT" spacing="15" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.rowIndex="2">
-                        <Button onAction="#onClearAction" style="-fx-pref-width: 120; -fx-pref-height: 40; -fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Clear" />
-                        <Button onAction="#onSaveAction" style="-fx-pref-width: 120; -fx-pref-height: 40; -fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Save Patient" />
+                        <Button style="-fx-pref-width: 120; -fx-pref-height: 40; -fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Clear" />
+                        <Button style="-fx-pref-width: 120; -fx-pref-height: 40; -fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Save Patient" />
                     </HBox>
                 </GridPane>
 
@@ -117,7 +117,7 @@
                     <HBox alignment="CENTER_LEFT" style="-fx-spacing: 15; -fx-padding: 0 0 15 0;">
                         <Text style="-fx-fill: #2c3e50; -fx-font-size: 18; -fx-font-weight: bold;" text="Patient List" />
                         <Region HBox.hgrow="ALWAYS" />
-                        <TextField fx:id="txtSearchPatients" onAction="#onSearchAction" promptText="Search patients..." style="-fx-pref-height: 35; -fx-pref-width: 250; -fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 0 10;" />
+                        <TextField fx:id="txtSearchPatients"  promptText="Search patients..." style="-fx-pref-height: 35; -fx-pref-width: 250; -fx-background-radius: 5; -fx-border-radius: 5; -fx-padding: 0 10;" />
                     </HBox>
 
                     <TableView fx:id="tblPatients" style="-fx-background-color: white; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #ecf0f1;">

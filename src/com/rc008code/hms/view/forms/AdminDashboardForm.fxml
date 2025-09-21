@@ -28,7 +28,7 @@
             </HBox>
         </HBox>
 
-        
+
         <!-- Main Content Area -->
         <HBox styleClass="content-container" VBox.vgrow="ALWAYS">
             <!-- Left Sidebar -->
@@ -38,7 +38,7 @@
                     <Circle radius="40" styleClass="user-avatar">
                   <VBox.margin>
                      <Insets top="20.0" />
-                  </VBox.margin></Circle>
+                  </VBox.margin></Circle>ravindu@gmail.com
                 </VBox>
 
                 <!-- Navigation Menu -->
@@ -95,7 +95,7 @@
                     </Button>
                 </VBox>
             </VBox>
-            
+
             <!-- Main Content -->
             <VBox styleClass="content" HBox.hgrow="ALWAYS">
 
@@ -240,7 +240,7 @@
             </VBox>
         </HBox>
     </VBox>
-    
+
     <!-- Status Bar (Optional) -->
     <HBox prefWidth="1370.0" styleClass="status-bar" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0">
         <Text styleClass="status-text" text="Ready" />

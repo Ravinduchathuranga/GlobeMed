@@ -1,7 +1,6 @@
 package com.rc008code.hms.auth.decorators.service;
 
 import com.rc008code.hms.auth.decorators.api.Authenticator;
-import com.rc008code.hms.auth.decorators.api.AuthenticatorDecorator;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class PasswordManager extends AuthenticatorDecorator {

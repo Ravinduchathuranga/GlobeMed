@@ -9,6 +9,9 @@ import java.io.IOException;
 public class StaffDashboardFormController {
     public AnchorPane context;
 
+    public void initialize() {
+
+    }
     public void OnClickToPatient(ActionEvent actionEvent) throws IOException {
         new CommonUtil().setUi(context,"PatientForm");
     }

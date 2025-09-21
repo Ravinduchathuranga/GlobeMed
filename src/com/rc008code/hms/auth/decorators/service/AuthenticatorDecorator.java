@@ -1,4 +1,6 @@
-package com.rc008code.hms.auth.decorators.api;
+package com.rc008code.hms.auth.decorators.service;
+
+import com.rc008code.hms.auth.decorators.api.Authenticator;
 
 public abstract class AuthenticatorDecorator implements Authenticator {
 
