@@ -1,16 +1,12 @@
 package com.rc008code.hms.business.custom.impl;
 
 import com.rc008code.hms.business.custom.MedicalRecordBo;
-import com.rc008code.hms.dto.DoctorDto;
 import com.rc008code.hms.dto.MedicalRecordDto;
-import com.rc008code.hms.entity.Doctor;
 import com.rc008code.hms.entity.MedicalRecord;
 import com.rc008code.hms.repository.DaoFactory;
 import com.rc008code.hms.repository.custom.MedicalRecordsDao;
 
-import javax.print.Doc;
 import java.sql.SQLException;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,12 +19,21 @@ public class MedicalRecordBoImpl implements MedicalRecordBo {
     }
 
     @Override
-    public MedicalRecordDto read(String id) throws SQLException, ClassNotFoundException {
+    public MedicalRecordDto find(String id) throws SQLException, ClassNotFoundException {
         MedicalRecord medicalRecord = medicalRecordsDao.find(id);
         if (medicalRecord != null) {
             return toMedicalRecordDto(medicalRecord);
         }
         return null;
+    }
+
+    @Override
+    public List<MedicalRecordDto> findRecordByPatient(String id) throws Exception {
+        try {
+            return medicalRecordsDao.findRecordByPatient(id).stream().map(this::toMedicalRecordDto).collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
