@@ -35,7 +35,6 @@ public class PatientProfileFormController {
     public TableColumn colDignosis;
     public TableColumn colTreatment;
     public TableColumn colRecordDate;
-    public TableColumn colAction;
 
     private final MedicalRecordBo medicalRecordBo = BoFactory.getInstance().getBo(BoFactory.BoType.MEDICALRECORD);
 
@@ -45,7 +44,6 @@ public class PatientProfileFormController {
         colDignosis.setCellValueFactory(new PropertyValueFactory<>("diagnosis"));
         colTreatment.setCellValueFactory(new PropertyValueFactory<>("treatment"));
         colRecordDate.setCellValueFactory(new PropertyValueFactory<>("record_date"));
-        colAction.setCellValueFactory(new PropertyValueFactory<>("buttonBar"));
     }
 
     // pass data from doctorDashboard to patientProfile
