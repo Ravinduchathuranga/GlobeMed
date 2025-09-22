@@ -8,25 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List//        // Get Doctor
-//        MedicalRecordDto retrievedDoctor = medicalRecordBo.read("212121");
-//        System.out.println("Get Doctor: " + (retrievedDoctor != null ? "SUCCESS" : "FAILED"));
-//
-//        // Update Doctor
-//        if (retrievedDoctor != null) {
-//            retrievedDoctor.setDiagnosis("Dr. Smith Updated");
-//            boolean updated = medicalRecordBo.update(retrievedDoctor);
-//            System.out.println("Update Doctor: " + (updated ? "SUCCESS" : "FAILED"));
-//        }
-//
-//        // List all Doctors
-//        List<MedicalRecordDto> doctors = medicalRecordBo.readAll();
-//        System.out.println("List Doctors: Found " + doctors.size() + " doctors");
-//
-//        // Cleanup
-//        boolean deleted = medicalRecordBo.delete("212121");
-//        System.out.println("Delete Doctor: " + (deleted ? "SUCCESS" : "FAILED"));
-;
+import java.util.List;
 
 public class MedicalRecordsDaoImpl implements MedicalRecordsDao {
     @Override
@@ -54,6 +36,23 @@ public class MedicalRecordsDaoImpl implements MedicalRecordsDao {
             );
         }
         return null;
+    }
+
+    @Override
+    public List<MedicalRecord> findRecordByPatient(String id) throws Exception {
+        ResultSet resultSet = CrudUtil.execute("SELECT * FROM medical_record where patient_id=?", id);
+        List<MedicalRecord> medicalRecords = new ArrayList<>();
+        while (resultSet.next()) {
+            medicalRecords.add(new MedicalRecord(
+                    resultSet.getString("record_id"),
+                    resultSet.getString("patient_id"),
+                    resultSet.getString("doctor_id"),
+                    resultSet.getString("diagnosis"),
+                    resultSet.getString("treatment"),
+                    resultSet.getDate("record_date")
+            ));
+        }
+        return medicalRecords;
     }
 
     @Override
@@ -109,4 +108,5 @@ public class MedicalRecordsDaoImpl implements MedicalRecordsDao {
         }
         return medicalRecords;
     }
+
 }
