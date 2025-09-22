@@ -66,26 +66,14 @@ public class PatientProfileFormController {
         try {
             List<MedicalRecordDto> allMedicalRecords = medicalRecordBo.findRecordByPatient(patientId);
             for (MedicalRecordDto record : allMedicalRecords) {
-
-                ButtonBar buttonBar = new ButtonBar();
-                Button btnMoreInfo = new Button("More Info");
-                buttonBar.getButtons().addAll(btnMoreInfo);
-
                 MedicalRecordTM tm = new MedicalRecordTM(
                         record.getRecordId(),
                         record.getDoctorId(),
                         record.getDiagnosis(),
                         record.getTreatment(),
-                        record.getRecordDate(),
-                        buttonBar
+                        record.getRecordDate()
+
                 );
-                btnMoreInfo.setOnAction(event -> {
-                    try {
-                        new CommonUtil().setUi(context, "MedicalRecordForm");
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
                 medicalRecordList.add(tm);
             }
             tblRecordHistory.setItems(medicalRecordList);
