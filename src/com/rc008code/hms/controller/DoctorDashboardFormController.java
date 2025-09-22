@@ -81,7 +81,7 @@ public class DoctorDashboardFormController {
                         AnchorPane.setRightAnchor(view, 0.0);
                         AnchorPane.setBottomAnchor(view, 0.0);
                         AnchorPane.setLeftAnchor(view, 0.0);
-                    } catch (IOException | SQLException e) {
+                    } catch (IOException | ClassNotFoundException | SQLException e) {
                         throw new RuntimeException(e);
                     }
                 });
