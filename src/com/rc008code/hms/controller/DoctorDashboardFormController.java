@@ -7,6 +7,8 @@ import com.rc008code.hms.util.CommonUtil;
 import com.rc008code.hms.view.tableModels.PatientTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -62,20 +64,24 @@ public class DoctorDashboardFormController {
                         patient.getEmail(),
                         buttonBar
                 );
-//                // Set up delete button action
-//                btnDelete.setOnAction(event -> handleDeletePatient(tm));
-//
-//                // Set up edit button action
-//                btnEdit.setOnAction(event -> {
-//                    btnSave.setText("Update Patient");
-//                    selectedPatient = patient;
-//                    populatePatientFields(patient);
-//                });
-
-                btnMoreInfo.setOnAction(event->{
+                btnMoreInfo.setOnAction(event -> {
                     try {
-                        new CommonUtil().setUi(context,"PatientProfileForm");
-                    } catch (IOException e) {
+//                        PatientProfileFormController controller = new PatientProfileFormController();
+//                        new CommonUtil().setUi(context, "PatientProfileForm");
+//                        controller.initialize(patient);
+
+                        // Load the PatientProfileForm FXML and get its controller
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rc008code/hms/view/forms/PatientProfileForm.fxml"));
+                        Parent view = loader.load();
+                        PatientProfileFormController controller = loader.getController();
+                        controller.setPatientDetails(patient);
+                        // Set the view into the current context
+                        context.getChildren().setAll(view);
+                        AnchorPane.setTopAnchor(view, 0.0);
+                        AnchorPane.setRightAnchor(view, 0.0);
+                        AnchorPane.setBottomAnchor(view, 0.0);
+                        AnchorPane.setLeftAnchor(view, 0.0);
+                    } catch (IOException | SQLException e) {
                         throw new RuntimeException(e);
                     }
                 });
