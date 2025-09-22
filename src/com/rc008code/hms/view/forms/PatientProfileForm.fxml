@@ -52,7 +52,7 @@
                   <top>
                      <Pane prefHeight="437.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
                         <children>
-                           <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Medical History">
+                           <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Medical History">
                               <font>
                                  <Font name="System Bold" size="23.0" />
                               </font>
@@ -67,6 +67,7 @@
                                  <TableColumn fx:id="colAction" prefWidth="200.0" text="Action" />
                              </columns>
                            </TableView>
+                           <Button layoutX="1220.0" layoutY="10.0" mnemonicParsing="false" styleClass="logout-button" text="+ Add New Record" />
                         </children>
                      </Pane>
                   </top>
