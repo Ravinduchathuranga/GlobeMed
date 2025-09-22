@@ -1,5 +1,6 @@
 package com.rc008code.hms.business;
 
+import com.rc008code.hms.business.custom.MedicalRecordBo;
 import com.rc008code.hms.business.custom.impl.*;
 
 public class BoFactory {
@@ -9,7 +10,7 @@ public class BoFactory {
     }
 
     public enum BoType {
-        DOCTOR, NURSE, PATIENT, PHARMACIST, ADMINSTAFF, APPOINTMENT, MEDICINE
+        DOCTOR, NURSE, PATIENT, PHARMACIST, ADMINSTAFF, APPOINTMENT, MEDICINE,MEDICALRECORD
 
     }
 
@@ -35,8 +36,8 @@ public class BoFactory {
                 return (T) new AppointmentBoImpl();
             case ADMINSTAFF:
                 return (T) new AdminStaffBoImpl();
-//            case MEDICINE:
-//                return (T) new MedicineBoImpl();
+            case MEDICALRECORD:
+                return (T) new MedicalRecordBoImpl();
             default:
                 throw new IllegalArgumentException("Unknown BO type: " + type);
         }
