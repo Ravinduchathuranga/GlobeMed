@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -54,42 +55,146 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button prefWidth="218.0" styleClass="menu-button" text="Patients">
-                        <graphic>
-                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
-                                <image>
-                                    <!-- Image URL will be added later -->
-                                    <!-- <Image url="@../../../../resources/icons/patient.png" /> -->
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
                 </VBox>
             </VBox>
             <BorderPane prefHeight="742.0" prefWidth="1165.0">
                 <top>
-                    <Pane prefHeight="166.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
+                    <Pane prefHeight="196.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
                         <children>
-                            <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Doctor Dashboard">
+                            <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello Nurse">
                                 <font>
                                     <Font name="System Bold" size="26.0" />
                                 </font>
                             </Text>
-                            <Text layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paged Patients for doctor" />
+                     <HBox layoutX="14.0" layoutY="47.0" prefHeight="58.0" prefWidth="1123.0">
+                        <children>
+                           <VBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="stats-card">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+                                    <font>
+                                       <Font size="40.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <Text layoutX="20.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paged Requests">
+                                    <font>
+                                       <Font size="24.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Text>
+                              </children>
+                              <opaqueInsets>
+                                 <Insets right="2.0" />
+                              </opaqueInsets>
+                              <HBox.margin>
+                                 <Insets left="60.0" />
+                              </HBox.margin>
+                           </VBox>
+                           <VBox layoutX="10.0" layoutY="15.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="stats-card">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+                                    <font>
+                                       <Font size="40.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <Text layoutX="20.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paged Requests">
+                                    <font>
+                                       <Font size="24.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Text>
+                              </children>
+                              <opaqueInsets>
+                                 <Insets right="2.0" />
+                              </opaqueInsets>
+                              <HBox.margin>
+                                 <Insets left="60.0" />
+                              </HBox.margin>
+                           </VBox>
+                           <VBox layoutX="241.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;" styleClass="stats-card">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+                                    <font>
+                                       <Font size="40.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Text>
+                                 <Text layoutX="20.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paged Requests">
+                                    <font>
+                                       <Font size="24.0" />
+                                    </font>
+                                    <VBox.margin>
+                                       <Insets left="10.0" />
+                                    </VBox.margin>
+                                 </Text>
+                              </children>
+                              <opaqueInsets>
+                                 <Insets right="2.0" />
+                              </opaqueInsets>
+                              <HBox.margin>
+                                 <Insets left="60.0" />
+                              </HBox.margin>
+                           </VBox>
+                        </children>
+                        <padding>
+                           <Insets bottom="5.0" top="5.0" />
+                        </padding>
+                     </HBox>
                         </children>
                     </Pane>
                 </top>
                 <bottom>
                     <Pane prefHeight="57.0" prefWidth="1150.0" BorderPane.alignment="CENTER" />
                 </bottom>
-                <center>
-                    <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-                        <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
-                        </columns>
-                    </TableView>
-                </center>
+            <center>
+               <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <top>
+                     <HBox alignment="TOP_RIGHT" prefHeight="57.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
+                        <children>
+                           <Pane prefHeight="57.0" prefWidth="982.0">
+                              <children>
+                                 <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Treatement Requests ">
+                                    <font>
+                                       <Font size="20.0" />
+                                    </font>
+                                 </Text>
+                              </children>
+                           </Pane>
+                           <TextField alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="273.0">
+                              <HBox.margin>
+                                 <Insets right="20.0" top="10.0" />
+                              </HBox.margin>
+                              <font>
+                                 <Font size="15.0" />
+                              </font>
+                           </TextField>
+                        </children>
+                     </HBox>
+                  </top>
+                  <center>
+                     <TableView prefHeight="416.0" prefWidth="1140.0" BorderPane.alignment="CENTER">
+                       <columns>
+                         <TableColumn prefWidth="75.0" text="C1" />
+                         <TableColumn prefWidth="75.0" text="C2" />
+                       </columns>
+                        <BorderPane.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </BorderPane.margin>
+                     </TableView>
+                  </center>
+               </BorderPane>
+            </center>
             </BorderPane>
         </HBox>
     </VBox>
