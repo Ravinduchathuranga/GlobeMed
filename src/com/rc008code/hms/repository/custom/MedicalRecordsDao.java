@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface MedicalRecordsDao extends CrudDao<MedicalRecord, String> {
     List<MedicalRecord> searchMedicalRecords(String searchText) throws Exception;
+    List<MedicalRecord> findRecordByPatient(String id) throws Exception;
 
 }
