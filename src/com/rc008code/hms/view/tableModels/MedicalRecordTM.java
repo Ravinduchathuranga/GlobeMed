@@ -7,7 +7,6 @@ import java.util.Date;
 
 public class MedicalRecordTM {
     private String record_id;
-    private String patient_id;
     private String doctor_id;
     private String diagnosis;
     private String treatment;
@@ -18,9 +17,8 @@ public class MedicalRecordTM {
     public MedicalRecordTM() {
     }
 
-    public MedicalRecordTM(String record_id, String patient_id, String doctor_id, String diagnosis, String treatment, Date record_date, ButtonBar buttonBar) {
+    public MedicalRecordTM(String record_id, String doctor_id, String diagnosis, String treatment, Date record_date, ButtonBar buttonBar) {
         this.record_id = record_id;
-        this.patient_id = patient_id;
         this.doctor_id = doctor_id;
         this.diagnosis = diagnosis;
         this.treatment = treatment;
@@ -35,14 +33,6 @@ public class MedicalRecordTM {
 
     public void setRecord_id(String record_id) {
         this.record_id = record_id;
-    }
-
-    public String getPatient_id() {
-        return patient_id;
-    }
-
-    public void setPatient_id(String patient_id) {
-        this.patient_id = patient_id;
     }
 
     public String getDoctor_id() {
