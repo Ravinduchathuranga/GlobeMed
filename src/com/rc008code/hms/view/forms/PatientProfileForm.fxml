@@ -50,21 +50,21 @@
             <bottom>
                <BorderPane BorderPane.alignment="CENTER">
                   <top>
-                     <Pane prefHeight="462.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
+                     <Pane prefHeight="437.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
                         <children>
                            <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Medical History">
                               <font>
                                  <Font name="System Bold" size="23.0" />
                               </font>
                            </Text>
-                           <TableView layoutX="10.0" layoutY="42.0" prefHeight="386.0" prefWidth="1346.0">
+                           <TableView fx:id="tblRecordHistory" layoutX="10.0" layoutY="42.0" prefHeight="361.0" prefWidth="1346.0">
                              <columns>
-                               <TableColumn prefWidth="116.0" text="Record ID" />
-                               <TableColumn prefWidth="253.0" text="Doctor Name" />
-                                 <TableColumn prefWidth="320.0" text="Diagnosis" />
-                                 <TableColumn prefWidth="248.0" text="Treatment" />
-                                 <TableColumn prefWidth="208.0" text="Record Date" />
-                                 <TableColumn prefWidth="200.0" text="Action" />
+                               <TableColumn fx:id="colRecordId" prefWidth="116.0" text="Record ID" />
+                               <TableColumn fx:id="colDoctorName" prefWidth="253.0" text="Doctor Name" />
+                                 <TableColumn fx:id="colDignosis" prefWidth="320.0" text="Diagnosis" />
+                                 <TableColumn fx:id="colTreatment" prefWidth="248.0" text="Treatment" />
+                                 <TableColumn fx:id="colRecordDate" prefWidth="208.0" text="Record Date" />
+                                 <TableColumn fx:id="colAction" prefWidth="200.0" text="Action" />
                              </columns>
                            </TableView>
                         </children>
