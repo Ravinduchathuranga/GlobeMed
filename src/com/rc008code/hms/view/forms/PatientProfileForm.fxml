@@ -61,10 +61,9 @@
                              <columns>
                                <TableColumn fx:id="colRecordId" prefWidth="116.0" text="Record ID" />
                                <TableColumn fx:id="colDoctorName" prefWidth="253.0" text="Doctor Name" />
-                                 <TableColumn fx:id="colDignosis" prefWidth="320.0" text="Diagnosis" />
-                                 <TableColumn fx:id="colTreatment" prefWidth="248.0" text="Treatment" />
-                                 <TableColumn fx:id="colRecordDate" prefWidth="208.0" text="Record Date" />
-                                 <TableColumn fx:id="colAction" prefWidth="200.0" text="Action" />
+                                 <TableColumn fx:id="colDignosis" prefWidth="420.0" text="Diagnosis" />
+                                 <TableColumn fx:id="colTreatment" prefWidth="390.0" text="Treatment" />
+                                 <TableColumn fx:id="colRecordDate" prefWidth="166.0" text="Record Date" />
                              </columns>
                            </TableView>
                            <Button layoutX="1220.0" layoutY="10.0" mnemonicParsing="false" styleClass="logout-button" text="+ Add New Record" />
