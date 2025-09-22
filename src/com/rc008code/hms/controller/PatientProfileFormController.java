@@ -84,4 +84,8 @@ public class PatientProfileFormController {
     public void onClickHome(ActionEvent event) throws IOException {
         new CommonUtil().setUi(context, "DoctorDashboardForm");
     }
+
+    public void onNewRecordForm(ActionEvent event) throws IOException {
+        new CommonUtil().setUi(context,"NewPatientRecordForm");
+    }
 }
