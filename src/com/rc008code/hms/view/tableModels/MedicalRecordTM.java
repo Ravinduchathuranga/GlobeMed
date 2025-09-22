@@ -11,19 +11,17 @@ public class MedicalRecordTM {
     private String diagnosis;
     private String treatment;
     private Date record_date;
-    private ButtonBar buttonBar;
 
 
     public MedicalRecordTM() {
     }
 
-    public MedicalRecordTM(String record_id, String doctor_id, String diagnosis, String treatment, Date record_date, ButtonBar buttonBar) {
+    public MedicalRecordTM(String record_id, String doctor_id, String diagnosis, String treatment, Date record_date) {
         this.record_id = record_id;
         this.doctor_id = doctor_id;
         this.diagnosis = diagnosis;
         this.treatment = treatment;
         this.record_date = record_date;
-        this.buttonBar = buttonBar;
     }
 
 
@@ -67,10 +65,4 @@ public class MedicalRecordTM {
         this.record_date = record_date;
     }
 
-    public ButtonBar getButtonBar() {
-        return buttonBar;
-    }
-
-    public void setButtonBar(ButtonBar buttonBar) {
-    }
 }
