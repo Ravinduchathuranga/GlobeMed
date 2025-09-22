@@ -20,7 +20,11 @@
         <!-- Top Header -->
         <HBox prefHeight="58.0" prefWidth="1370.0" styleClass="header" VBox.vgrow="NEVER">
             <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
-                <Text styleClass="header-title" text="GLOBE MED" />
+            <Button mnemonicParsing="false" onAction="#onClickHome" styleClass="menu-button" text="Home" textFill="#b50000" />
+                <Text styleClass="header-title" text="GLOBE MED">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Text>
             </HBox>
             <HBox alignment="CENTER_RIGHT" spacing="20">
                 <Button styleClass="logout-button" text="Logout" />
@@ -30,272 +34,194 @@
 
         <!-- Main Content Area -->
         <HBox styleClass="content-container" VBox.vgrow="ALWAYS">
-            <BorderPane prefHeight="742.0" prefWidth="1386.0">
+            <BorderPane prefHeight="742.0" prefWidth="1386.0" HBox.hgrow="ALWAYS">
                 <top>
-                    <Pane prefHeight="100.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
+                    <Pane prefHeight="77.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
                         <children>
                             <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Profile">
                                 <font>
                                     <Font name="System Bold" size="26.0" />
                                 </font>
                             </Text>
-                            <Text layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paged Patients for doctor" />
+                            <Text layoutX="14.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paged Patients for doctor" />
                         </children>
                     </Pane>
                 </top>
-            <center>
-               <HBox prefHeight="287.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
-                  <children>
-                     <Pane prefHeight="208.0" prefWidth="685.0">
-                        <children>
-                           <VBox prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Id">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="351.0" prefHeight="86.0" prefWidth="350.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="3.0" layoutY="86.0" prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="354.0" layoutY="86.0" prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact No">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="3.0" layoutY="185.0" prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="354.0" layoutY="185.0" prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                    <VBox.margin>
-                                       <Insets />
-                                    </VBox.margin>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                        </children>
-                     </Pane>
-                     <Pane layoutX="10.0" layoutY="10.0" prefHeight="370.0" prefWidth="700.0">
-                        <children>
-                           <VBox prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Id">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="351.0" prefHeight="86.0" prefWidth="350.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Visited Date">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="3.0" layoutY="86.0" prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Age">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="354.0" layoutY="86.0" prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact No">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="3.0" layoutY="185.0" prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                           <VBox layoutX="354.0" layoutY="185.0" prefHeight="86.0" prefWidth="330.0">
-                              <children>
-                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email">
-                                    <font>
-                                       <Font name="System Bold" size="20.0" />
-                                    </font>
-                                 </Text>
-                                 <Text layoutX="10.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" wrappingWidth="324.76000213623047">
-                                    <font>
-                                       <Font size="18.0" />
-                                    </font>
-                                    <VBox.margin>
-                                       <Insets />
-                                    </VBox.margin>
-                                 </Text>
-                              </children>
-                              <padding>
-                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                              </padding>
-                           </VBox>
-                        </children>
-                     </Pane>
-                  </children>
-               </HBox>
-            </center>
             <bottom>
                <BorderPane BorderPane.alignment="CENTER">
                   <top>
-                     <Pane prefHeight="60.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
+                     <Pane prefHeight="462.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
                         <children>
                            <Text layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Medical History">
                               <font>
                                  <Font name="System Bold" size="23.0" />
                               </font>
                            </Text>
+                           <TableView layoutX="10.0" layoutY="42.0" prefHeight="386.0" prefWidth="1346.0">
+                             <columns>
+                               <TableColumn prefWidth="116.0" text="Record ID" />
+                               <TableColumn prefWidth="253.0" text="Doctor Name" />
+                                 <TableColumn prefWidth="320.0" text="Diagnosis" />
+                                 <TableColumn prefWidth="248.0" text="Treatment" />
+                                 <TableColumn prefWidth="208.0" text="Record Date" />
+                                 <TableColumn prefWidth="200.0" text="Action" />
+                             </columns>
+                           </TableView>
                         </children>
                      </Pane>
                   </top>
-                  <center>
-                     <TableView prefHeight="320.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
-                       <columns>
-                         <TableColumn prefWidth="163.0" text="Record Id" />
-                           <TableColumn prefWidth="249.0" text="Paged Doctor " />
-                           <TableColumn prefWidth="229.0" text="Diagnosis" />
-                           <TableColumn prefWidth="470.0" text="Treatment" />
-                           <TableColumn prefWidth="258.0" text="Record Date" />
-                       </columns>
-                        <padding>
-                           <Insets bottom="10.0" left="10.0" right="10.0" />
-                        </padding>
-                     </TableView>
-                  </center>
                </BorderPane>
             </bottom>
+            <left>
+               <HBox prefHeight="219.0" prefWidth="1370.0" BorderPane.alignment="CENTER">
+                  <children>
+                     <VBox prefHeight="203.0" prefWidth="440.0">
+                        <children>
+                           <VBox prefHeight="73.0" prefWidth="332.0" spacing="5.0" styleClass="stats-card">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Id">
+                                    <font>
+                                       <Font name="System Bold" size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <Text fx:id="txtPatientId" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="308.13000106811523">
+                                    <font>
+                                       <Font size="16.0" />
+                                    </font>
+                                 </Text>
+                              </children>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                              <VBox.margin>
+                                 <Insets top="5.0" />
+                              </VBox.margin>
+                           </VBox>
+                           <VBox prefHeight="73.0" prefWidth="332.0" spacing="5.0" styleClass="stats-card">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Contact No">
+                                    <font>
+                                       <Font name="System Bold" size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <Text fx:id="txtPatientContactNo" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="308.13000106811523">
+                                    <font>
+                                       <Font size="16.0" />
+                                    </font>
+                                 </Text>
+                              </children>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                              <VBox.margin>
+                                 <Insets top="5.0" />
+                              </VBox.margin>
+                           </VBox>
+                        </children>
+                        <HBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                     </VBox>
+                     <VBox prefHeight="203.0" prefWidth="485.0">
+                        <children>
+                           <VBox prefHeight="73.0" prefWidth="332.0" spacing="5.0" styleClass="stats-card">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Name">
+                                    <font>
+                                       <Font name="System Bold" size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <Text fx:id="txtPatientName" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="308.13000106811523">
+                                    <font>
+                                       <Font size="16.0" />
+                                    </font>
+                                 </Text>
+                              </children>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                              <VBox.margin>
+                                 <Insets top="5.0" />
+                              </VBox.margin>
+                           </VBox>
+                           <VBox layoutX="10.0" layoutY="10.0" prefHeight="73.0" prefWidth="332.0" spacing="5.0" styleClass="stats-card">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Address">
+                                    <font>
+                                       <Font name="System Bold" size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <Text fx:id="txtPatientAddress" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="308.13000106811523">
+                                    <font>
+                                       <Font size="16.0" />
+                                    </font>
+                                 </Text>
+                              </children>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                              <VBox.margin>
+                                 <Insets top="5.0" />
+                              </VBox.margin>
+                           </VBox>
+                        </children>
+                        <HBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                     </VBox>
+                     <VBox layoutX="465.0" layoutY="15.0" prefHeight="203.0" prefWidth="485.0">
+                        <children>
+                           <VBox prefHeight="73.0" prefWidth="332.0" spacing="5.0" styleClass="stats-card">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Age">
+                                    <font>
+                                       <Font name="System Bold" size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <Text fx:id="txtPatientAge" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="308.13000106811523">
+                                    <font>
+                                       <Font size="16.0" />
+                                    </font>
+                                 </Text>
+                              </children>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                              <VBox.margin>
+                                 <Insets top="5.0" />
+                              </VBox.margin>
+                           </VBox>
+                           <VBox layoutX="10.0" layoutY="10.0" prefHeight="73.0" prefWidth="332.0" spacing="5.0" styleClass="stats-card">
+                              <children>
+                                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Email">
+                                    <font>
+                                       <Font name="System Bold" size="20.0" />
+                                    </font>
+                                 </Text>
+                                 <Text fx:id="txtPatientEmail" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="308.13000106811523">
+                                    <font>
+                                       <Font size="16.0" />
+                                    </font>
+                                 </Text>
+                              </children>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                              <VBox.margin>
+                                 <Insets top="5.0" />
+                              </VBox.margin>
+                           </VBox>
+                        </children>
+                        <HBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                     </VBox>
+                  </children>
+                  <BorderPane.margin>
+                     <Insets />
+                  </BorderPane.margin>
+               </HBox>
+            </left>
             </BorderPane>
         </HBox>
     </VBox>
