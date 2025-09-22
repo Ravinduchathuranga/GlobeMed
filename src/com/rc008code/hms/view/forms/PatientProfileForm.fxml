@@ -66,7 +66,7 @@
                                  <TableColumn fx:id="colRecordDate" prefWidth="166.0" text="Record Date" />
                              </columns>
                            </TableView>
-                           <Button layoutX="1220.0" layoutY="10.0" mnemonicParsing="false" styleClass="logout-button" text="+ Add New Record" />
+                           <Button layoutX="1220.0" layoutY="10.0" mnemonicParsing="false" onAction="#onNewRecordForm" styleClass="logout-button" text="+ Add New Record" />
                         </children>
                      </Pane>
                   </top>
