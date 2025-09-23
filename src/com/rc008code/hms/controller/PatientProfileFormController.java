@@ -10,6 +10,8 @@ import com.rc008code.hms.view.tableModels.MedicalRecordTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -86,6 +88,16 @@ public class PatientProfileFormController {
     }
 
     public void onNewRecordForm(ActionEvent event) throws IOException {
-        new CommonUtil().setUi(context,"NewPatientRecordForm");
+        String patientId = txtPatientId.getText();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rc008code/hms/view/forms/NewPatientRecordForm.fxml"));
+        Parent parent = loader.load();
+        NewPatientRecordFormController controller = loader.getController();
+        controller.setPatientDetails(patientId);
+
+        context.getChildren().setAll(parent);
+        AnchorPane.setTopAnchor(parent, 0.0);
+        AnchorPane.setRightAnchor(parent, 0.0);
+        AnchorPane.setBottomAnchor(parent, 0.0);
+        AnchorPane.setLeftAnchor(parent, 0.0);
     }
 }
