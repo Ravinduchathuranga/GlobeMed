@@ -18,4 +18,6 @@ public interface DoctorBo {
 
     public List<DoctorDto> search(String searchText) throws SQLException, ClassNotFoundException;
 
+    public boolean logIn(String username, String password) throws Exception;
+
 }

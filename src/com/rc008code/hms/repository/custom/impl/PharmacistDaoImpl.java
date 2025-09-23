@@ -1,11 +1,13 @@
 package com.rc008code.hms.repository.custom.impl;
 
+import com.rc008code.hms.database.MysqlConnection;
 import com.rc008code.hms.entity.Pharmacist;
 import com.rc008code.hms.repository.CrudUtil;
 import com.rc008code.hms.repository.custom.PharmacistDao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,6 +70,18 @@ public class PharmacistDaoImpl implements PharmacistDao {
             ));
         }
         return pharmacists;
+    }
+
+    @Override
+    public boolean logIn(String email, String password) throws Exception {
+        String query = "SELECT * FROM pharmacist WHERE email= '" + email + "' AND password = '" + password + "'";
+        Statement statement = MysqlConnection.getInstance().getConnection().createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

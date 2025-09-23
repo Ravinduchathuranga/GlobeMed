@@ -54,6 +54,11 @@ public class DoctorBoImpl implements DoctorBo {
         }
     }
 
+    @Override
+    public boolean logIn(String username, String password) throws Exception {
+        return doctorDao.logIn(username, password);
+    }
+
 
     private DoctorDto toDoctorDto(Doctor doctor) {
         return new DoctorDto(

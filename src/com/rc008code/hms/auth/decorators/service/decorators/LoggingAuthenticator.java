@@ -1,4 +1,4 @@
-package com.rc008code.hms.auth.decorators.service;
+package com.rc008code.hms.auth.decorators.service.decorators;
 
 import com.rc008code.hms.auth.decorators.api.Authenticator;
 

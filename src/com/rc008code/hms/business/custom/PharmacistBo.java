@@ -14,4 +14,6 @@ public interface PharmacistBo {
     public boolean delete(String id) throws SQLException, ClassNotFoundException;
     public List<PharmacistDto> readAll() throws SQLException, ClassNotFoundException;
     public List<PharmacistDto> search(String searchText) throws SQLException, ClassNotFoundException;
+    public boolean logIn(String username, String password) throws Exception;
+
 }

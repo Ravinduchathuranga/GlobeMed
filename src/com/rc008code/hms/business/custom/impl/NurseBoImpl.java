@@ -53,6 +53,11 @@ public class NurseBoImpl implements NurseBo {
         }
     }
 
+    @Override
+    public boolean logIn(String username, String password) throws Exception {
+       return nurseDao.logIn(username, password);
+    }
+
     private NurseDto toNurseDto(Nurse nurse) {
         return new NurseDto(
                 nurse.getNurseId(),

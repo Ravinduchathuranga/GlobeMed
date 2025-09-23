@@ -8,6 +8,7 @@ import com.rc008code.hms.repository.custom.DoctorDao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -15,14 +16,14 @@ import java.util.List;
 public class DoctorDaoImpl implements DoctorDao {
     @Override
     public boolean create(Doctor doctor) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("INSERT INTO doctor VALUES (?, ?, ?, ?, ?, ?, ?)", 
-            doctor.getDoctorId(), 
-            doctor.getName(), 
-            doctor.getSpecialty(),
-            doctor.getContact(),
-            doctor.getDepartment().toString(),
-            doctor.getEmail(),
-            doctor.getPassword());
+        return CrudUtil.execute("INSERT INTO doctor VALUES (?, ?, ?, ?, ?, ?, ?)",
+                doctor.getDoctorId(),
+                doctor.getName(),
+                doctor.getSpecialty(),
+                doctor.getContact(),
+                doctor.getDepartment().toString(),
+                doctor.getEmail(),
+                doctor.getPassword());
     }
 
     @Override
@@ -45,14 +46,14 @@ public class DoctorDaoImpl implements DoctorDao {
     @Override
     public boolean update(Doctor doctor) throws SQLException, ClassNotFoundException {
         String sql = "UPDATE doctor SET doctor_name=?, specialty=?, contact_no=?, department=?, email=?, password=? WHERE doctor_id=?";
-        return CrudUtil.execute(sql, 
-            doctor.getName(),
-            doctor.getSpecialty(),
-            doctor.getContact(),
-            doctor.getDepartment().toString(),
-            doctor.getEmail(),
-            doctor.getPassword(),
-            doctor.getDoctorId()
+        return CrudUtil.execute(sql,
+                doctor.getName(),
+                doctor.getSpecialty(),
+                doctor.getContact(),
+                doctor.getDepartment().toString(),
+                doctor.getEmail(),
+                doctor.getPassword(),
+                doctor.getDoctorId()
         );
     }
 
@@ -78,6 +79,18 @@ public class DoctorDaoImpl implements DoctorDao {
             ));
         }
         return doctors;
+    }
+
+    @Override
+    public boolean logIn(String email, String password) throws Exception {
+        String query = "SELECT * FROM doctor WHERE email= '" + email + "' AND password = '" + password + "'";
+        Statement statement = MysqlConnection.getInstance().getConnection().createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
