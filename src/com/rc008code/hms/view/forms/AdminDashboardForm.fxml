@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="context" maxHeight="800.0" maxWidth="1370.0" minHeight="800.0" minWidth="1370.0" pickOnBounds="false" prefHeight="800.0" prefWidth="1370.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.DashBoardFormController">
+<AnchorPane fx:id="context" maxHeight="800.0" maxWidth="1370.0" minHeight="800.0" minWidth="1370.0" pickOnBounds="false" prefHeight="800.0" prefWidth="1370.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.AdminDashBoardFormController">
 
     <!-- Main Container -->
     <VBox fx:id="mainContainer" prefHeight="800.0" prefWidth="1370.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0">
