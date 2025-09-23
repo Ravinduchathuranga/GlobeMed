@@ -1,22 +1,28 @@
 package com.rc008code.hms;
 
-import com.rc008code.hms.auth.decorators.service.handlers.UserAdminAuth;
-import com.rc008code.hms.auth.decorators.service.handlers.UserDoctorAuth;
-import com.rc008code.hms.auth.decorators.service.handlers.UserNurseAuth;
-import com.rc008code.hms.auth.decorators.service.handlers.UserPharmacistAuth;
-import com.rc008code.hms.business.BoFactory;
-import com.rc008code.hms.business.custom.MedicalRecordBo;
-import com.rc008code.hms.dto.MedicalRecordDto;
-import com.rc008code.hms.enums.Departments;
-
-import java.util.Date;
-import java.util.List;
+import com.rc008code.hms.dto.PatientDto;
+import com.rc008code.hms.enums.Gender;
+import com.rc008code.hms.reports.service.EmailReportVisitor;
+import com.rc008code.hms.reports.element.PatientReportElement;
 
 
 public class Test {
 //    private static MedicalRecordBo medicalRecordBo = BoFactory.getInstance().getBo(BoFactory.BoType.MEDICALRECORD);
 
     public static void main(String[] args) throws Exception {
+
+        PatientDto patientDto = new PatientDto(
+                "P554f2",
+                "John Doe",
+                "Kurunegala",
+                26,
+                Gender.MALE,
+                "07122121",
+                "ravinducdasanayaka12345@gmail.com"
+        );
+        EmailReportVisitor emailReportVisitor = new EmailReportVisitor();
+        new PatientReportElement(patientDto).accept(emailReportVisitor);
+
 //        testMedicalRecords();
 //        UserAdminAuth userAdminAuth = new UserAdminAuth();
 //        UserDoctorAuth userDoctorAuth = new UserDoctorAuth();
