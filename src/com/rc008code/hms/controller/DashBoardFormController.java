@@ -45,4 +45,8 @@ public class DashBoardFormController {
     public void OnPharmesistManagementAction(ActionEvent actionEvent) throws IOException {
         commonUtil.setUi(context,"PharmacistForm");
     }
+
+    public void OnLogOutAction(ActionEvent event) throws IOException {
+        commonUtil.setUi(context,"LogInForm");
+    }
 }
