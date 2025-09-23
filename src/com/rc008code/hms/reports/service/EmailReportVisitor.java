@@ -17,7 +17,7 @@ public class EmailReportVisitor implements ReportVisitor {
                     + "Please use this information to sign in for the first time. For security purposes, we recommend changing your password after your initial login.\n\n"
                     + "If you have any questions or need assistance, feel free to reach out to our support team.\n\n"
                     + "Best regards,\n"
-                    + "The ViralCare Team";
+                    + "Global_med Team";
 
             MailManager.sendMail(patientElement.getPatient().getEmail(), subject, body);
 
