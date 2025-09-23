@@ -4,32 +4,40 @@ import com.rc008code.hms.entity.Appointment;
 import com.rc008code.hms.repository.custom.AppointmentDao;
 
 import java.sql.SQLException;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class AppointmentDaoImpl implements AppointmentDao {
+    private static final Map<String, Appointment> STORE = new LinkedHashMap<>();
+
     @Override
     public boolean create(Appointment appointment) throws SQLException, ClassNotFoundException {
-        return false;
+        if (appointment == null || appointment.getAppointment_id() == null) return false;
+        if (STORE.containsKey(appointment.getAppointment_id())) return false;
+        STORE.put(appointment.getAppointment_id(), appointment);
+        return true;
     }
 
     @Override
-    public Appointment find(String s) throws SQLException, ClassNotFoundException {
-        return null;
+    public Appointment find(String id) throws SQLException, ClassNotFoundException {
+        return STORE.get(id);
     }
 
     @Override
     public boolean update(Appointment appointment) throws SQLException, ClassNotFoundException {
-        return false;
+        if (appointment == null || appointment.getAppointment_id() == null) return false;
+        if (!STORE.containsKey(appointment.getAppointment_id())) return false;
+        STORE.put(appointment.getAppointment_id(), appointment);
+        return true;
     }
 
     @Override
-    public boolean delete(String s) throws SQLException, ClassNotFoundException {
-        return false;
+    public boolean delete(String id) throws SQLException, ClassNotFoundException {
+        return STORE.remove(id) != null;
     }
 
     @Override
     public List<Appointment> findAll() throws SQLException, ClassNotFoundException {
-        return Collections.emptyList();
+        return new ArrayList<>(STORE.values());
     }
 }
