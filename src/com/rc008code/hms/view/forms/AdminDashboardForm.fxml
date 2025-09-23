@@ -36,14 +36,14 @@
                 <!-- Sidebar Header -->
                 <VBox alignment="CENTER" styleClass="sidebar-header">
                     <Circle radius="40" styleClass="user-avatar">
-                  <VBox.margin>
-                     <Insets top="20.0" />
-                  </VBox.margin></Circle>ravindu@gmail.com
+                        <VBox.margin>
+                            <Insets top="20.0" />
+                        </VBox.margin></Circle>
                 </VBox>
 
                 <!-- Navigation Menu -->
                 <VBox styleClass="menu-container" VBox.vgrow="ALWAYS">
-                    <Button prefWidth="220.0" style="-fx-text-fill: white;" styleClass="menu-button" text="Dashboard">
+                    <Button prefWidth="220.0" style="-fx-background-color: #34495e; -fx-text-fill: white;" styleClass="menu-button" text="Dashboard">
                         <graphic>
                             <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
                                 <image>
@@ -53,7 +53,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button onAction="#OnPatientManagementAction" prefWidth="218.0" styleClass="menu-button" text="Patients">
+                    <Button onAction="#onPatientAction" prefWidth="218.0" styleClass="menu-button" text="Patients">
                         <graphic>
                             <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
                                 <image>
@@ -63,7 +63,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button onAction="#OnDoctorManagementAction" prefWidth="233.0" styleClass="menu-button" text="Doctors">
+                    <Button prefWidth="233.0" styleClass="menu-button" text="Doctors">
                         <graphic>
                             <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
                                 <image>
@@ -73,7 +73,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button onAction="#OnNurseManagementAction" prefWidth="226.0" styleClass="menu-button" text="Nurses">
+                    <Button prefWidth="226.0" styleClass="menu-button" text="Nurses">
                         <graphic>
                             <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
                                 <image>
@@ -83,7 +83,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button onAction="#OnPharmesistManagementAction" prefWidth="226.0" styleClass="menu-button" text="Pharmacists">
+                    <Button prefWidth="226.0" styleClass="menu-button" text="Pharmacists">
                         <graphic>
                             <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
                                 <image>
@@ -149,11 +149,11 @@
                                 <Text style="-fx-fill: #ffa000;" styleClass="action-button-text">
                                     <text>nice</text>
                                 </Text>
-                        <StackPane style="-fx-background-color: #fff8e1;" styleClass="stats-icon">
-                           <children>
-                              <Text style="-fx-fill: #388e3c;" styleClass="action-button-text" text="" />
-                           </children>
-                        </StackPane>
+                                <StackPane style="-fx-background-color: #fff8e1;" styleClass="stats-icon">
+                                    <children>
+                                        <Text style="-fx-fill: #388e3c;" styleClass="action-button-text" text="" />
+                                    </children>
+                                </StackPane>
                             </StackPane>
                             <VBox>
                                 <Text styleClass="stats-label" text="TODAY'S APPOINTMENTS" />
@@ -170,11 +170,11 @@
                                 <Text style="-fx-fill: #8e24aa;" styleClass="action-button-text">
                                     <text>nice</text>
                                 </Text>
-                        <StackPane style="-fx-background-color: #f3e5f5;" styleClass="stats-icon">
-                           <children>
-                              <Text style="-fx-fill: #388e3c;" styleClass="action-button-text" text="" />
-                           </children>
-                        </StackPane>
+                                <StackPane style="-fx-background-color: #f3e5f5;" styleClass="stats-icon">
+                                    <children>
+                                        <Text style="-fx-fill: #388e3c;" styleClass="action-button-text" text="" />
+                                    </children>
+                                </StackPane>
                             </StackPane>
                             <VBox>
                                 <Text styleClass="stats-label" text="TODAY'S REVENUE" />
@@ -218,8 +218,8 @@
                             <Button onAction="#onNursesManagementAction" style="-fx-background-color: #fff3e0;" styleClass="action-button">
                                 <text>
                                     <Text style="-fx-fill: #f57c00;" styleClass="action-button-text">
-                                    <text>200</text>
-                                </Text>
+                                        <text>200</text>
+                                    </Text>
                                 </text>
                             </Button>
                             <Text styleClass="action-label" text="Nurses Management" />
@@ -229,8 +229,8 @@
                             <Button onAction="#onPharmacistsManagementAction" style="-fx-background-color: #f3e5f5;" styleClass="action-button">
                                 <text>
                                     <Text style="-fx-fill: #8e24aa;" styleClass="action-button-text">
-                                    <text>200</text>
-                                </Text>
+                                        <text>200</text>
+                                    </Text>
                                 </text>
                             </Button>
                             <Text styleClass="action-label" text="Pharmacists Management" />
@@ -246,3 +246,4 @@
         <Text styleClass="status-text" text="Ready" />
     </HBox>
 </AnchorPane>
+
