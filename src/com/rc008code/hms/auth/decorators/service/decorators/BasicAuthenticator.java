@@ -15,7 +15,7 @@ public class BasicAuthenticator implements Authenticator {
     private static final AdminStaffBo adminStaffBo = BoFactory.getInstance().getBo(BoFactory.BoType.ADMINSTAFF);
 
     @Override
-    public boolean authenticate(String email, String password) {
+    public ValidationResult authenticate(String email, String password) {
         UserAdminAuth userAdminAuth = new UserAdminAuth();
         UserDoctorAuth userDoctorAuth = new UserDoctorAuth();
         UserNurseAuth userNurseAuth = new UserNurseAuth();
@@ -25,11 +25,6 @@ public class BasicAuthenticator implements Authenticator {
         userDoctorAuth.setNextHandler(userNurseAuth);
         userNurseAuth.setNextHandler(userPharmacistAuth);
 
-        ValidationResult authenticate = userAdminAuth.authenticate(email, password);
-        if (authenticate.isValid()) {
-            return true;
-        } else {
-            return false;
-        }
+        return userAdminAuth.authenticate(email, password);
     }
 }
