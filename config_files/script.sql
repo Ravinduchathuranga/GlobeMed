@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS doctor
     doctor_name VARCHAR(50),
     specialty   VARCHAR(50),
     contact_no  VARCHAR(10),
-    department ENUM ("CARDIOLOGY", "NEUROLOGY", "PEDIATRICS", "ONCOLOGY", "GENERAL"),
+    department  ENUM ("CARDIOLOGY", "NEUROLOGY", "PEDIATRICS", "ONCOLOGY", "GENERAL"),
     email       VARCHAR(100) UNIQUE NOT NULL,
     password    VARCHAR(100)        NOT NULL,
     CONSTRAINT PRIMARY KEY (doctor_id)
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS appointment
     doctor_id        VARCHAR(100),
     admin_staff_id   VARCHAR(100),
     appointment_date DATE,
-    status           ENUM("PENDING", "COMPLETED"),
+    status           ENUM ("PENDING", "COMPLETED"),
     CONSTRAINT PRIMARY KEY (appointment_id),
     CONSTRAINT fk_patient1 FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
     CONSTRAINT fk_admin_staff FOREIGN KEY (admin_staff_id) REFERENCES adminStaff (staff_id),
@@ -108,13 +108,16 @@ CREATE TABLE IF NOT EXISTS prescription
     prescription_id VARCHAR(100),
     record_id       VARCHAR(100),
     pharmacist_id   VARCHAR(100),
+    patient_id      VARCHAR(100),
     medication      TEXT,
     dosage          TEXT,
     issue_date      DATE,
     CONSTRAINT PRIMARY KEY (prescription_id),
+    CONSTRAINT fk_patient_record FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
     CONSTRAINT fk_medical_record FOREIGN KEY (record_id) REFERENCES medical_record (record_id),
     CONSTRAINT fk_pharmacist FOREIGN KEY (pharmacist_id) REFERENCES pharmacist (pharmacist_id)
 );
+
 DESC prescription;
 
 CREATE TABLE IF NOT EXISTS payment
