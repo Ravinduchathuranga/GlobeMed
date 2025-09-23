@@ -9,16 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- * Concrete mediator that coordinates appointment scheduling among colleagues.
- * Keeps a minimal in-memory store of appointments for demonstration.
- */
 public class AppointmentSchedulerMediator implements AppointmentMediator {
     private final PatientPortal patientPortal;
     private final DoctorCalendar doctorCalendar;
     private final NotificationService notificationService;
 
-    // Simple in-memory store: id -> AppointmentDto
+
     private final Map<String, AppointmentDto> store = new HashMap<>();
 
     public AppointmentSchedulerMediator(PatientPortal patientPortal,
