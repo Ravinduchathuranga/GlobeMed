@@ -50,14 +50,63 @@ public class PharmacistFormController {
         loadAllPharmacists();
 
         // Add search listener
-//        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-//            searchText = newValue.trim();
-//            loadAllPharmacists();
-//        });
+        if (txtSearch != null) {
+            txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+                searchText = newValue == null ? "" : newValue.trim();
+                loadAllPharmacists();
+            });
+        }
     }
 
     public void OnSavePharmacistAction(ActionEvent actionEvent) {
+        if (!validateFields()) return;
 
+        if (btnSave.getText().equalsIgnoreCase("Save Pharmacist")) {
+            try {
+                PharmacistDto dto = new PharmacistDto(
+                        "PH" + UUID.randomUUID().toString().substring(0, 5),
+                        txtName.getText().trim(),
+                        txtContact.getText().trim(),
+                        txtEmail.getText().toLowerCase().trim(),
+                        UUID.randomUUID().toString()
+                );
+                boolean ok = pharmacistBo.create(dto);
+                if (ok) {
+                    new Alert(Alert.AlertType.INFORMATION, "Pharmacist has been saved..", ButtonType.CLOSE).show();
+                    clearFields();
+                    loadAllPharmacists();
+                } else {
+                    new Alert(Alert.AlertType.WARNING, "Try Again..", ButtonType.CLOSE).show();
+                }
+            } catch (SQLException | ClassNotFoundException e) {
+                new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE).show();
+            }
+        } else {
+            if (selectedPharmacist != null) {
+                try {
+                    PharmacistDto dto = new PharmacistDto(
+                            selectedPharmacist.getPharmacistId(),
+                            txtName.getText().trim(),
+                            txtContact.getText().trim(),
+                            txtEmail.getText().toLowerCase().trim(),
+                            selectedPharmacist.getPassword()
+                    );
+                    boolean ok = pharmacistBo.update(dto);
+                    if (ok) {
+                        new Alert(Alert.AlertType.INFORMATION, "Pharmacist has been updated..", ButtonType.CLOSE).show();
+                        btnSave.setText("Save Pharmacist");
+                        clearFields();
+                        loadAllPharmacists();
+                    } else {
+                        new Alert(Alert.AlertType.WARNING, "Try Again..", ButtonType.CLOSE).show();
+                    }
+                } catch (SQLException | ClassNotFoundException e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE).show();
+                }
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Please select a pharmacist to update..", ButtonType.CLOSE).show();
+            }
+        }
     }
 
     private void loadAllPharmacists() {
@@ -154,5 +203,6 @@ public class PharmacistFormController {
     }
 
     public void onClearFields(ActionEvent event) {
+        OnClearFields(event);
     }
 }
