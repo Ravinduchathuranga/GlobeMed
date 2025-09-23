@@ -20,8 +20,7 @@ public class LogInFormController {
         BasicAuthenticator authenticator = new BasicAuthenticator();
         ValidationResult authenticate = authenticator.authenticate(txtUserName.getText(), txtPassword.getText());
         if (authenticate.isValid()) {
-            String message = authenticate.getMessage();
-            switch (message) {
+            switch (authenticate.getMessage()) {
                 case "admin":
                     new CommonUtil().setUi(context, "AdminDashboardForm");
                 case "doctor":
