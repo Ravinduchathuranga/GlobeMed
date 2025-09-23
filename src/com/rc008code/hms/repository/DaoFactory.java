@@ -17,7 +17,7 @@ public class DaoFactory {
     }
 
     public enum DaoType {
-        DOCTOR, NURSE, PATIENT, PHARMACIST, ADMINSTAFF, APPOINTMENT, MEDICINE,MEDICALRECORD
+        DOCTOR, NURSE, PATIENT, PHARMACIST, ADMINSTAFF, APPOINTMENT, MEDICINE, MEDICALRECORD, PRESCRIPTION
     }
 
     @SuppressWarnings("unchecked")
@@ -37,6 +37,8 @@ public class DaoFactory {
                 return (T) new AppointmentDaoImpl();
             case MEDICALRECORD:
                 return (T) new MedicalRecordsDaoImpl();
+            case PRESCRIPTION:
+                return (T) new PrescriptionDaoImpl();
             default:
                 throw new IllegalArgumentException("Unknown DAO type: " + daoType);
         }
