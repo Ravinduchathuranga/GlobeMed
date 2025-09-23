@@ -7,6 +7,7 @@ import com.rc008code.hms.util.CommonUtil;
 import com.rc008code.hms.view.tableModels.PatientTM;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
@@ -94,4 +95,7 @@ public class DoctorDashboardFormController {
         }
     }
 
+    public void OnLogOutAction(ActionEvent event) throws IOException {
+        new CommonUtil().setUi(context,"LogInForm");
+    }
 }
