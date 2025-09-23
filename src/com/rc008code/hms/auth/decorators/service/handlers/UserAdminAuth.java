@@ -14,7 +14,7 @@ public class UserAdminAuth extends UserAuthHandler {
         try {
             boolean b = adminStaffBo.logIn(username, password);
             if (b) {
-                return new ValidationResult(true, "AdminDashboard");
+                return new ValidationResult(true, "admin");
             } else if (nextHandler != null) {
                 return nextHandler.authenticate(username, password);
             } else return new ValidationResult(false, "Invalid username or password");
