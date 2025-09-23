@@ -12,7 +12,7 @@ public class DashBoardFormController {
     private CommonUtil commonUtil = new CommonUtil();
 
     public void onDoctorsManagementAction(ActionEvent actionEvent) throws IOException {
-        commonUtil.setUi(context, "DoctorForm");
+        commonUtil.setUi(context, "AdminDoctorForm");
     }
 
     public void onNursesManagementAction(ActionEvent actionEvent) throws IOException {
