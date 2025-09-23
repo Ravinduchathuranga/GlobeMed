@@ -11,17 +11,17 @@ public class Test {
 
     public static void main(String[] args) throws Exception {
 
-        PatientDto patientDto = new PatientDto(
-                "P554f2",
-                "John Doe",
-                "Kurunegala",
-                26,
-                Gender.MALE,
-                "07122121",
-                "ravinducdasanayaka12345@gmail.com"
-        );
-        EmailReportVisitor emailReportVisitor = new EmailReportVisitor();
-        new PatientReportElement(patientDto).accept(emailReportVisitor);
+//        PatientDto patientDto = new PatientDto(
+//                "P554f2",
+//                "John Doe",
+//                "Kurunegala",
+//                26,
+//                Gender.MALE,
+//                "07122121",
+//                "ravinducdasanayaka12345@gmail.com"
+//        );
+//        EmailReportVisitor emailReportVisitor = new EmailReportVisitor();
+//        new PatientReportElement(patientDto).accept(emailReportVisitor);
 
 //        testMedicalRecords();
 //        UserAdminAuth userAdminAuth = new UserAdminAuth();

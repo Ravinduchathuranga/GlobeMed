@@ -6,9 +6,7 @@ import com.rc008code.hms.payments.model.PaymentResult;
 
 import java.util.UUID;
 
-/**
- * ConcreteImplementor: simulates insurance claim processing.
- */
+
 public class InsurancePaymentProcessor implements PaymentProcessor {
     @Override
     public PaymentResult process(PaymentContext context) {
