@@ -12,4 +12,8 @@ public class NurseDashboardFormController {
     public void OnLogOutAction(ActionEvent event) throws IOException {
         new CommonUtil().setUi(context,"LogInForm");
     }
+
+    public void onPatientFormAction(ActionEvent event) throws IOException {
+        new CommonUtil().setUi(context,"NewPatientForm");
+    }
 }
