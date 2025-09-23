@@ -6,7 +6,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class DashBoardFormController {
+public class AdminDashBoardFormController {
     public AnchorPane context;
 
     private CommonUtil commonUtil = new CommonUtil();
@@ -16,11 +16,11 @@ public class DashBoardFormController {
     }
 
     public void onNursesManagementAction(ActionEvent actionEvent) throws IOException {
-        commonUtil.setUi(context, "NurseForm");
+        commonUtil.setUi(context, "AdminNurseForm");
     }
 
     public void onPharmacistsManagementAction(ActionEvent actionEvent) throws IOException {
-        commonUtil.setUi(context, "PharmacistForm");
+        commonUtil.setUi(context, "AdminPharmacistForm");
     }
 
     public void OnLogOutAction(ActionEvent event) throws IOException {
