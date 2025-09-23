@@ -7,6 +7,8 @@ import com.rc008code.hms.dto.MedicalRecordDto;
 import com.rc008code.hms.dto.PatientDto;
 import com.rc008code.hms.util.CommonUtil;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
@@ -23,6 +25,7 @@ public class NewPatientRecordFormController {
     private final MedicalRecordBo medicalRecordBo = BoFactory.getInstance().getBo(BoFactory.BoType.MEDICALRECORD);
 
     private String patientId;
+    private String medicalRecordId;
 
     public void setPatientDetails(String patientId) {
         this.patientId = patientId;
@@ -34,9 +37,9 @@ public class NewPatientRecordFormController {
         String treatments = txtTreatment.getText();
 
         MedicalRecordDto medicalRecordDto = new MedicalRecordDto(
-                "MED" + UUID.randomUUID().toString().substring(0, 5),
+                medicalRecordId = "MED-" + UUID.randomUUID().toString().substring(0, 5),
                 patientId,
-                "e4a11581-defe-4ac3-8b26-bb374f665833",
+                "D-001",
                 diagnosis,
                 treatments,
                 new java.util.Date()
@@ -45,12 +48,22 @@ public class NewPatientRecordFormController {
 
         boolean b = medicalRecordBo.create(medicalRecordDto);
         if (b) {
+            txtDiagnosis.clear();
+            txtTreatment.clear();
             new Alert(Alert.AlertType.INFORMATION, "Record Saved Successfully").show();
-            new CommonUtil().setUi(context, "DoctorDashboardForm");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rc008code/hms/view/forms/NewPrescriptionsForm.fxml"));
+            Parent parent = loader.load();
+            NewPrescriptionsFormController controller = loader.getController();
+            controller.setPatientDetails(patientId,medicalRecordId);
 
+            context.getChildren().setAll(parent);
+            AnchorPane.setTopAnchor(parent, 0.0);
+            AnchorPane.setRightAnchor(parent, 0.0);
+            AnchorPane.setBottomAnchor(parent, 0.0);
+            AnchorPane.setLeftAnchor(parent, 0.0);
         }
-
     }
+
 
     public void onBackAction(ActionEvent event) throws IOException {
         new CommonUtil().setUi(context, "DoctorDashboardForm");

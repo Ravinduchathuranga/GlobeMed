@@ -1,8 +1,8 @@
-package com.rc008code.hms.entity;
+package com.rc008code.hms.dto;
 
 import java.util.Date;
 
-public class Prescription {
+public class PrescriptionDto {
     private String prescription_id;
     private String record_id;
     private String pharmacist_id;
@@ -11,10 +11,10 @@ public class Prescription {
     private String dosage;
     private Date issue_date;
 
-    public Prescription() {
+    public PrescriptionDto() {
     }
 
-    public Prescription(String prescription_id, String record_id, String pharmacist_id, String patient_id, String medication, String dosage, Date issue_date) {
+    public PrescriptionDto(String prescription_id, String record_id, String pharmacist_id, String patient_id, String medication, String dosage, Date issue_date) {
         this.prescription_id = prescription_id;
         this.record_id = record_id;
         this.pharmacist_id = pharmacist_id;
