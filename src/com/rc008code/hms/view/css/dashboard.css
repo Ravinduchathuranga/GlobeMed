@@ -78,6 +78,16 @@
     -fx-border-radius: 0;
     -fx-background-radius: 0;
 }
+.menu-button-header{
+    -fx-background-color: transparent;
+    -fx-pref-height: 45;
+    -fx-min-height: 45;
+    -fx-font-size: 14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 25;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
 
 .menu-button:hover, .menu-button:selected, .menu-button:focused {
     -fx-background-color: #34495e;

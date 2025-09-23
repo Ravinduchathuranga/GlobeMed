@@ -29,4 +29,20 @@ public class DashBoardFormController {
     public void onPatientAction(ActionEvent actionEvent) throws IOException {
         new CommonUtil().setUi(context,"PatientForm");
     }
+
+    public void OnPatientManagementAction(ActionEvent actionEvent) throws IOException {
+        commonUtil.setUi(context,"PatientForm");
+    }
+
+    public void OnDoctorManagementAction(ActionEvent actionEvent) throws IOException {
+        commonUtil.setUi(context,"DoctorForm");
+    }
+
+    public void OnNurseManagementAction(ActionEvent actionEvent) throws IOException {
+        commonUtil.setUi(context,"NurseForm");
+    }
+
+    public void OnPharmesistManagementAction(ActionEvent actionEvent) throws IOException {
+        commonUtil.setUi(context,"PharmacistForm");
+    }
 }

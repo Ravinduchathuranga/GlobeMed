@@ -1,5 +1,6 @@
 package com.rc008code.hms.view.tableModels;
 
+import com.rc008code.hms.enums.Departments;
 import javafx.scene.control.ButtonBar;
 
 public class DoctorTM {
@@ -7,20 +8,20 @@ public class DoctorTM {
     private String name;
     private String specialization;
     private String contact;
+    private Departments department;
     private String email;
-    private String availableTime;
     private ButtonBar buttonBar;
 
     public DoctorTM() {
     }
 
-    public DoctorTM(String doctorId, String name, String specialization, String contact, String email, String availableTime, ButtonBar buttonBar) {
+    public DoctorTM(String doctorId, String name, String specialization, String contact, Departments department, String email, ButtonBar buttonBar) {
         this.doctorId = doctorId;
         this.name = name;
         this.specialization = specialization;
         this.contact = contact;
+        this.department = department;
         this.email = email;
-        this.availableTime = availableTime;
         this.buttonBar = buttonBar;
     }
 
@@ -64,12 +65,13 @@ public class DoctorTM {
         this.email = email;
     }
 
-    public String getAvailableTime() {
-        return availableTime;
+
+    public Departments getDepartment() {
+        return department;
     }
 
-    public void setAvailableTime(String availableTime) {
-        this.availableTime = availableTime;
+    public void setDepartment(Departments department) {
+        this.department = department;
     }
 
     public ButtonBar getButtonBar() {

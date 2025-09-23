@@ -5,22 +5,18 @@ import javafx.scene.control.ButtonBar;
 public class PharmacistTM {
     private String pharmacistId;
     private String name;
-    private String address;
     private String contact;
     private String email;
-    private String qualification;
     private ButtonBar buttonBar;
 
     public PharmacistTM() {
     }
 
-    public PharmacistTM(String pharmacistId, String name, String address, String contact, String email, String qualification, ButtonBar buttonBar) {
+    public PharmacistTM(String pharmacistId, String name, String contact, String email, ButtonBar buttonBar) {
         this.pharmacistId = pharmacistId;
         this.name = name;
-        this.address = address;
         this.contact = contact;
         this.email = email;
-        this.qualification = qualification;
         this.buttonBar = buttonBar;
     }
 
@@ -40,14 +36,6 @@ public class PharmacistTM {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getContact() {
         return contact;
     }
@@ -62,14 +50,6 @@ public class PharmacistTM {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getQualification() {
-        return qualification;
-    }
-
-    public void setQualification(String qualification) {
-        this.qualification = qualification;
     }
 
     public ButtonBar getButtonBar() {

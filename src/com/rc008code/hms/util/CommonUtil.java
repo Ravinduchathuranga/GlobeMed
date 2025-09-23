@@ -17,7 +17,6 @@ public class CommonUtil {
         stage.setScene(new Scene(FXMLLoader.load(resource)));
         stage.centerOnScreen();
         stage.setTitle(location);
-        stage.setFullScreen(true);
         stage.show();
     }
 }

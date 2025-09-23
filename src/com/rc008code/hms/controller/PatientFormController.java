@@ -1,15 +1,23 @@
 package com.rc008code.hms.controller;
 
-import com.rc008code.hms.database.DbConnection;
-import com.rc008code.hms.entity.Patient;
+import com.rc008code.hms.business.BoFactory;
+import com.rc008code.hms.business.custom.PatientBo;
+import com.rc008code.hms.dto.PatientDto;
 import com.rc008code.hms.enums.Gender;
 import com.rc008code.hms.util.AlertBuilder;
 import com.rc008code.hms.util.CommonUtil;
+import com.rc008code.hms.view.tableModels.PatientTM;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public class PatientFormController {
@@ -25,63 +33,26 @@ public class PatientFormController {
     public TextField txtEmail;
     public RadioButton rbtnMale;
     public RadioButton rbtnFemale;
-    public ToggleGroup genderGrop;
+    public ToggleGroup genderGroup;
+
+    // TableView and columns
+    public TableView<PatientTM> tblPatients;
+    public TableColumn<PatientTM, String> colPatientId;
+    public TableColumn<PatientTM, String> colName;
+    public TableColumn<PatientTM, Integer> colAge;
+    public TableColumn<PatientTM, Gender> colGender;
+    public TableColumn<PatientTM, String> colAddress;
+    public TableColumn<PatientTM, String> colContact;
+    public TableColumn<PatientTM, String> colEmail;
+    public TableColumn<PatientTM, ButtonBar> colAction;
+
     public TextField txtSearchPatients;
+    public Button btnSave;
 
-    // TableView and its columns
-    public TableView tblePatients;
-    public TableColumn columnName;
-    public TableColumn columnAddress;
-    public TableColumn columnAge;
-    public TableColumn columnGender;
-    public TableColumn columnContactNo;
-    public TableColumn columnEmail;
-    public TableColumn columnOptions;
+   public void initialize() {
 
-    // private properties
-    private CommonUtil commonUtil = new CommonUtil();
+   }
 
-    public void initialize() {
-        loadAllPatients();
-    }
-
-    private void loadAllPatients(){
-
-    }
-    // patient creation
-    public void onCreateAction(ActionEvent actionEvent) {
-        try {
-
-            Patient patient = new Patient(
-                    UUID.randomUUID().toString(),
-                    txtName.getText(),
-                    txtAddress.getText(),
-                    Integer.parseInt(txtAge.getText()),
-                    rbtnMale.isSelected() ? Gender.MALE : Gender.FEMALE,
-                    txtContactNo.getText(),
-                    txtEmail.getText()
-            );
-            DbConnection dbConnection = new DbConnection();
-            boolean isSaved = dbConnection.createPatient(patient);
-            if (isSaved) {
-                new Alert(Alert.AlertType.INFORMATION, "Patient Created Successfully", ButtonType.OK).show();
-                clearFields();
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void onBackToHomeAction(ActionEvent actionEvent) throws IOException {
-        commonUtil.setUi(context,"Dashboard");
-    }
-
-    private void clearFields() {
-        txtName.clear();
-        txtAddress.clear();
-        txtAge.clear();
-        txtContactNo.clear();
-        txtEmail.clear();
+    public void OnBackToHome(ActionEvent event) {
     }
 }

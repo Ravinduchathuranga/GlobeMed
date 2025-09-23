@@ -5,24 +5,20 @@ import javafx.scene.control.ButtonBar;
 public class NurseTM {
     private String nurseId;
     private String name;
-    private String address;
     private String contact;
     private String email;
     private String department;
-    private String shift;
     private ButtonBar buttonBar;
 
     public NurseTM() {
     }
 
-    public NurseTM(String nurseId, String name, String address, String contact, String email, String department, String shift, ButtonBar buttonBar) {
+    public NurseTM(String nurseId, String name, String contact, String email, String department, ButtonBar buttonBar) {
         this.nurseId = nurseId;
         this.name = name;
-        this.address = address;
         this.contact = contact;
         this.email = email;
         this.department = department;
-        this.shift = shift;
         this.buttonBar = buttonBar;
     }
 
@@ -42,13 +38,6 @@ public class NurseTM {
         this.name = name;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public String getContact() {
         return contact;
@@ -72,14 +61,6 @@ public class NurseTM {
 
     public void setDepartment(String department) {
         this.department = department;
-    }
-
-    public String getShift() {
-        return shift;
-    }
-
-    public void setShift(String shift) {
-        this.shift = shift;
     }
 
     public ButtonBar getButtonBar() {
