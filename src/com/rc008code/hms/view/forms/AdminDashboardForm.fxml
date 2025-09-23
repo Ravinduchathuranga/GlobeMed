@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="context" maxHeight="800.0" maxWidth="1370.0" minHeight="800.0" minWidth="1370.0" pickOnBounds="false" prefHeight="800.0" prefWidth="1370.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.DashBoardFormController">
+<AnchorPane fx:id="context" maxHeight="800.0" maxWidth="1370.0" minHeight="800.0" minWidth="1370.0" pickOnBounds="false" prefHeight="800.0" prefWidth="1370.0" stylesheets="@../css/dashboard.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rc008code.hms.controller.DashBoardFormController">
 
     <!-- Main Container -->
     <VBox fx:id="mainContainer" prefHeight="800.0" prefWidth="1370.0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0">
@@ -47,17 +53,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button onAction="#onPatientAction" prefWidth="218.0" styleClass="menu-button" text="Patients">
-                        <graphic>
-                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
-                                <image>
-                                    <!-- Image URL will be added later -->
-                                    <!-- <Image url="@../../../../resources/icons/patient.png" /> -->
-                                </image>
-                            </ImageView>
-                        </graphic>
-                    </Button>
-                    <Button prefWidth="233.0" styleClass="menu-button" text="Doctors">
+                    <Button onAction="#onDoctorsManagementAction" prefWidth="233.0" styleClass="menu-button" text="Doctors">
                         <graphic>
                             <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
                                 <image>
@@ -67,7 +63,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button prefWidth="226.0" styleClass="menu-button" text="Nurses">
+                    <Button onAction="#onNursesManagementAction" prefWidth="226.0" styleClass="menu-button" text="Nurses">
                         <graphic>
                             <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
                                 <image>
@@ -77,7 +73,7 @@
                             </ImageView>
                         </graphic>
                     </Button>
-                    <Button prefWidth="226.0" styleClass="menu-button" text="Pharmacists">
+                    <Button onAction="#onPharmacistsManagementAction" prefWidth="226.0" styleClass="menu-button" text="Pharmacists">
                         <graphic>
                             <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
                                 <image>
@@ -187,7 +183,7 @@
                     <Text styleClass="quick-actions-title" text="Quick Actions" />
                     <HBox style="-fx-spacing: 20;">
                         <VBox styleClass="action-card">
-                            <Button onAction="#onPatientManagementAction" style="-fx-background-color: #e3f2fd;" styleClass="action-button">
+                            <Button style="-fx-background-color: #e3f2fd;" styleClass="action-button">
                                 <text>
                                     <Text style="-fx-fill: #1976d2;" styleClass="action-button-text">
                                         <text>\uD83D\uDC65</text>
