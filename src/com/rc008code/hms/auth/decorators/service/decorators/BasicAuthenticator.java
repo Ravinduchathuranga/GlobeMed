@@ -10,10 +10,6 @@ import com.rc008code.hms.business.BoFactory;
 import com.rc008code.hms.business.custom.AdminStaffBo;
 
 public class BasicAuthenticator implements Authenticator {
-
-    //dao logic here
-    private static final AdminStaffBo adminStaffBo = BoFactory.getInstance().getBo(BoFactory.BoType.ADMINSTAFF);
-
     @Override
     public ValidationResult authenticate(String email, String password) {
         UserAdminAuth userAdminAuth = new UserAdminAuth();
