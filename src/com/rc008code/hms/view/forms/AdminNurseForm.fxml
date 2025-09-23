@@ -67,7 +67,7 @@
                            <TextField fx:id="txtEmail" style="-fx-pref-height: 40; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #bdc3c7; -fx-padding: 0 10;" />
                         </children>
                      </VBox>
-                     <Button layoutX="1015.0" layoutY="121.0" onAction="#onSaveNurseAction" style="-fx-pref-width: 120; -fx-pref-height: 40; -fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Save Nurse" />
+                     <Button fx:id="btnSave" layoutX="1015.0" layoutY="121.0" onAction="#onSaveNurseAction" style="-fx-pref-width: 120; -fx-pref-height: 40; -fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Save Nurse" />
                      <Button layoutX="1158.0" layoutY="123.0" onAction="#onClearFields" style="-fx-pref-width: 120; -fx-pref-height: 40; -fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="Clear" />
                   </children>
                     </Pane>
