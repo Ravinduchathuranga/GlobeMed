@@ -1,4 +1,4 @@
-package com.rc008code.hms.reports.service;
+package com.rc008code.hms.reports.element;
 
 import com.rc008code.hms.dto.PatientDto;
 import com.rc008code.hms.reports.api.ReportElement;

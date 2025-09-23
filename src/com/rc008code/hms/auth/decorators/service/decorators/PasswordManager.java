@@ -1,6 +1,7 @@
-package com.rc008code.hms.auth.decorators.service;
+package com.rc008code.hms.auth.decorators.service.decorators;
 
 import com.rc008code.hms.auth.decorators.api.Authenticator;
+import com.rc008code.hms.auth.decorators.service.model.ValidationResult;
 import org.mindrot.jbcrypt.BCrypt;
 
 public class PasswordManager extends AuthenticatorDecorator {
@@ -16,7 +17,7 @@ public class PasswordManager extends AuthenticatorDecorator {
 
     // Check password
     @Override
-    public boolean authenticate(String username, String password) {
+    public ValidationResult authenticate(String username, String password) {
         return authenticator.authenticate(username, hashPassword(password));
     }
 

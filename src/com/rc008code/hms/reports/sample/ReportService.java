@@ -1,6 +1,7 @@
-package com.rc008code.hms.reports.service;
+package com.rc008code.hms.reports.sample;
 
 import com.rc008code.hms.dto.PatientDto;
+import com.rc008code.hms.reports.element.PatientReportElement;
 
 import java.util.List;
 

@@ -1,5 +1,6 @@
 package com.rc008code.hms.repository.custom.impl;
 
+import com.rc008code.hms.database.MysqlConnection;
 import com.rc008code.hms.entity.Nurse;
 import com.rc008code.hms.enums.Departments;
 import com.rc008code.hms.repository.CrudUtil;
@@ -7,6 +8,7 @@ import com.rc008code.hms.repository.custom.NurseDao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +75,18 @@ public class NurseDaoImpl implements NurseDao {
             ));
         }
         return nurses;
+    }
+
+    @Override
+    public boolean logIn(String email, String password) throws Exception {
+        String query = "SELECT * FROM nurse WHERE email= '" + email + "' AND password = '" + password + "'";
+        Statement statement = MysqlConnection.getInstance().getConnection().createStatement();
+        ResultSet resultSet = statement.executeQuery(query);
+        if (resultSet.next()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
