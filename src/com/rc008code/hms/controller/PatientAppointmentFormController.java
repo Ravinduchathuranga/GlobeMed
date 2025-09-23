@@ -27,7 +27,18 @@ public class PatientAppointmentFormController {
     public TextArea txtDescription;
     public Button btnSave;
 
+    // Simple handoff for pre-filling patientId from other screens
+    public static String presetPatientId;
+
     private final AppointmentBo appointmentBo = BoFactory.getInstance().getBo(BoFactory.BoType.APPOINTMENT);
+
+    public void initialize() {
+        if (presetPatientId != null && txtPatientId != null) {
+            txtPatientId.setText(presetPatientId);
+            // clear after using to avoid leaking to next open
+            presetPatientId = null;
+        }
+    }
 
     public void onSaveAppointment(ActionEvent actionEvent) {
         try {
