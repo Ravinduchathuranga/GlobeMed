@@ -5,6 +5,7 @@ import java.util.Date;
 public class Prescription {
     private String prescription_id;
     private String record_id;
+    private String patient_id;
     private String pharmacist_id;
     private String medication;
     private String dosage;
@@ -13,9 +14,10 @@ public class Prescription {
     public Prescription() {
     }
 
-    public Prescription(String prescription_id, String record_id, String pharmacist_id, String medication, String dosage, Date issue_date) {
+    public Prescription(String prescription_id, String record_id, String patient_id, String pharmacist_id, String medication, String dosage, Date issue_date) {
         this.prescription_id = prescription_id;
         this.record_id = record_id;
+        this.patient_id = patient_id;
         this.pharmacist_id = pharmacist_id;
         this.medication = medication;
         this.dosage = dosage;
@@ -36,6 +38,14 @@ public class Prescription {
 
     public void setRecord_id(String record_id) {
         this.record_id = record_id;
+    }
+
+    public String getPatient_id() {
+        return patient_id;
+    }
+
+    public void setPatient_id(String patient_id) {
+        this.patient_id = patient_id;
     }
 
     public String getPharmacist_id() {
