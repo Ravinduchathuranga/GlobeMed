@@ -37,7 +37,7 @@ public class NewPatientRecordFormController {
         String treatments = txtTreatment.getText();
 
         MedicalRecordDto medicalRecordDto = new MedicalRecordDto(
-                medicalRecordId = "MED" + UUID.randomUUID().toString().substring(0, 5),
+                medicalRecordId = "MED-" + UUID.randomUUID().toString().substring(0, 5),
                 patientId,
                 "D-001",
                 diagnosis,
