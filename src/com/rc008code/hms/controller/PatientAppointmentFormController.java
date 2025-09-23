@@ -5,6 +5,10 @@ import com.rc008code.hms.business.BoFactory;
 import com.rc008code.hms.business.custom.AppointmentBo;
 import com.rc008code.hms.dto.AppointmentDto;
 import com.rc008code.hms.enums.AppointmentStatus;
+import com.rc008code.hms.mediator.services.AppointmentSchedulerMediator;
+import com.rc008code.hms.mediator.services.DoctorCalendar;
+import com.rc008code.hms.mediator.services.NotificationService;
+import com.rc008code.hms.mediator.services.PatientPortal;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -72,11 +76,26 @@ public class PatientAppointmentFormController {
                     .withStatus(AppointmentStatus.PENDING)
                     .build();
 
+            // Use Mediator pattern to schedule (handles conflicts and notifications)
+            PatientPortal portal = new PatientPortal();
+            DoctorCalendar doctorCalendar = new DoctorCalendar();
+            NotificationService notificationService = new NotificationService();
+            AppointmentSchedulerMediator mediator = new AppointmentSchedulerMediator(portal, doctorCalendar, notificationService);
+
+            boolean scheduled = portal.requestAppointment(dto);
+            if (!scheduled) {
+                new Alert(Alert.AlertType.WARNING, "Requested time slot is not available. Please choose a different time.", ButtonType.CLOSE).show();
+                return;
+            }
+
+            // Persist via existing BO layer after mediator confirmed scheduling
             boolean ok = appointmentBo.create(dto);
             if (ok) {
                 new Alert(Alert.AlertType.INFORMATION, "Appointment created successfully.", ButtonType.CLOSE).show();
                 clearFields();
             } else {
+                // Rollback the mediator reservation if persistence failed
+                portal.cancelAppointment(dto.getAppointmentId());
                 new Alert(Alert.AlertType.WARNING, "Could not create appointment. Try again.", ButtonType.CLOSE).show();
             }
         } catch (SQLException | ClassNotFoundException ex) {
