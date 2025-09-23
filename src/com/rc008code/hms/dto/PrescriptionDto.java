@@ -17,8 +17,8 @@ public class PrescriptionDto {
     public PrescriptionDto(String prescription_id, String record_id, String pharmacist_id, String patient_id, String medication, String dosage, Date issue_date) {
         this.prescription_id = prescription_id;
         this.record_id = record_id;
-        this.patient_id = patient_id;
         this.pharmacist_id = pharmacist_id;
+        this.patient_id = patient_id;
         this.medication = medication;
         this.dosage = dosage;
         this.issue_date = issue_date;
