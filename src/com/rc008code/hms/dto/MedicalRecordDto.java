@@ -5,7 +5,6 @@ import java.util.Date;
 public class MedicalRecordDto {
     private String recordId;
     private String patientId;
-    private String doctorId;
     private String diagnosis;
     private String treatment;
     private Date recordDate;
@@ -16,7 +15,7 @@ public class MedicalRecordDto {
     public MedicalRecordDto(String recordId, String patientId, String doctorId, String diagnosis, String treatment, Date recordDate) {
         this.recordId = recordId;
         this.patientId = patientId;
-        this.doctorId = doctorId;
+
         this.diagnosis = diagnosis;
         this.treatment = treatment;
         this.recordDate = recordDate;
@@ -36,14 +35,6 @@ public class MedicalRecordDto {
 
     public void setPatientId(String patientId) {
         this.patientId = patientId;
-    }
-
-    public String getDoctorId() {
-        return doctorId;
-    }
-
-    public void setDoctorId(String doctorId) {
-        this.doctorId = doctorId;
     }
 
     public String getDiagnosis() {
