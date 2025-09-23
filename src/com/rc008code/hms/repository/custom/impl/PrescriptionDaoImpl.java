@@ -16,11 +16,11 @@ import java.util.List;
 public class PrescriptionDaoImpl implements PrescriptionDao {
     @Override
     public boolean create(Prescription prescription) throws SQLException, ClassNotFoundException {
-        return CrudUtil.execute("INSERT INTO prescription (prescription_id, patient_id, record_id, doctor_id, date, medicines, notes) VALUES (?, ?, ?, ?, ?, ?, ?)",
+        return CrudUtil.execute("INSERT INTO prescription (prescription_id,record_id,pharmacist_id,patient_id, medication,dosage,issue_date) VALUES (?, ?, ?, ?, ?, ?, ?)",
                 prescription.getPrescription_id(),
                 prescription.getRecord_id(),
-                prescription.getPatient_id(),
                 prescription.getPharmacist_id(),
+                prescription.getPatient_id(),
                 prescription.getMedication(),
                 prescription.getDosage(),
                 prescription.getIssue_date());

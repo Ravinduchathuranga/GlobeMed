@@ -5,8 +5,8 @@ import java.util.Date;
 public class PrescriptionDto {
     private String prescription_id;
     private String record_id;
-    private String patient_id;
     private String pharmacist_id;
+    private String patient_id;
     private String medication;
     private String dosage;
     private Date issue_date;
@@ -14,11 +14,11 @@ public class PrescriptionDto {
     public PrescriptionDto() {
     }
 
-    public PrescriptionDto(String prescription_id, String record_id, String patient_id, String pharmacist_id, String medication, String dosage, Date issue_date) {
+    public PrescriptionDto(String prescription_id, String record_id, String pharmacist_id, String patient_id, String medication, String dosage, Date issue_date) {
         this.prescription_id = prescription_id;
         this.record_id = record_id;
-        this.patient_id = patient_id;
         this.pharmacist_id = pharmacist_id;
+        this.patient_id = patient_id;
         this.medication = medication;
         this.dosage = dosage;
         this.issue_date = issue_date;
