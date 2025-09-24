@@ -62,7 +62,7 @@ public class AppointmentBoImpl implements AppointmentBo {
                 a.getPatient_id(),
                 a.getDoctor_id(),
                 a.getAppointment_date(),
-                null, // description is not stored at entity/DB level in current model
+                a.getDescription(),
                 a.getStatus()
         );
     }
@@ -75,6 +75,7 @@ public class AppointmentBoImpl implements AppointmentBo {
                 d.getDoctorId(),
                 null, // admin staff id not provided by UI
                 d.getAppointmentDate(),
+                d.getDescription(),
                 d.getStatus()
         );
     }
