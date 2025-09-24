@@ -2,6 +2,7 @@ package com.rc008code.hms.reports.service;
 
 import com.rc008code.hms.reports.api.ReportVisitor;
 import com.rc008code.hms.reports.element.PatientReportElement;
+import com.rc008code.hms.reports.element.AppointmentReportElement;
 import com.rc008code.hms.reports.util.MailManager;
 
 public class EmailReportVisitor implements ReportVisitor {
@@ -24,5 +25,10 @@ public class EmailReportVisitor implements ReportVisitor {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void visit(AppointmentReportElement appointmentElement) {
+        // This visitor is focused on patient welcome emails; do nothing for appointments
     }
 }
