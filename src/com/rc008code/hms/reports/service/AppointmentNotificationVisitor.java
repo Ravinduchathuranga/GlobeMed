@@ -15,7 +15,6 @@ public class AppointmentNotificationVisitor implements ReportVisitor {
 
     @Override
     public void visit(PatientReportElement patientElement) {
-
         // We keep the method to adhere to the ReportVisitor interface.
     }
 
