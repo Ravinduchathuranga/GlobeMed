@@ -24,7 +24,6 @@ public class AppointmentSchedulerMediator implements AppointmentMediator {
         this.doctorCalendar = Objects.requireNonNull(doctorCalendar);
         this.notificationService = Objects.requireNonNull(notificationService);
 
-        // wire back references
         this.patientPortal.setMediator(this);
         this.doctorCalendar.setMediator(this);
         this.notificationService.setMediator(this);
