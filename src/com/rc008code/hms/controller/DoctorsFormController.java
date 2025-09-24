@@ -6,6 +6,7 @@ import com.rc008code.hms.dto.DoctorDto;
 import com.rc008code.hms.enums.Departments;
 import com.rc008code.hms.util.CommonUtil;
 import com.rc008code.hms.view.tableModels.DoctorTM;
+import com.rc008code.hms.reports.service.StaffOnboardingNotifier;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -81,6 +82,8 @@ public class DoctorsFormController {
                 );
                 boolean isSaved = doctorBo.create(doctorDto);
                 if (isSaved) {
+                    // Send onboarding email with generated password
+                    StaffOnboardingNotifier.sendWelcome(doctorDto);
                     new Alert(Alert.AlertType.INFORMATION, "Doctor has been saved..", ButtonType.CLOSE).show();
                     clearFields();
                     loadAllDoctors();
