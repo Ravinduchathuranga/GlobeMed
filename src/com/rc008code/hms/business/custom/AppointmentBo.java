@@ -9,7 +9,7 @@ import java.util.List;
 public interface AppointmentBo {
     public boolean create(AppointmentDto entity) throws SQLException, ClassNotFoundException;
 
-    public DoctorDto read(String id) throws SQLException, ClassNotFoundException;
+    public AppointmentDto read(String id) throws SQLException, ClassNotFoundException;
 
     public boolean update(AppointmentDto entity) throws SQLException, ClassNotFoundException;
 
