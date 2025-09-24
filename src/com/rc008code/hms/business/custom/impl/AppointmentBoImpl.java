@@ -21,8 +21,11 @@ public class AppointmentBoImpl implements AppointmentBo {
     }
 
     @Override
-    public DoctorDto read(String id) throws SQLException, ClassNotFoundException {
-        // Not used for appointments in current UI; returning null to keep interface unchanged
+    public AppointmentDto read(String id) throws SQLException, ClassNotFoundException {
+        Appointment appointment = appointmentDao.find(id);
+        if (appointment != null) {
+            return toAppointmentDto(appointment);
+        }
         return null;
     }
 
