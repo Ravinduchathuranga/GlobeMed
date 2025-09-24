@@ -39,14 +39,12 @@ public class PatientAppointmentFormController {
     public void initialize() {
         if (presetPatientId != null && txtPatientId != null) {
             txtPatientId.setText(presetPatientId);
-            // clear after using to avoid leaking to next open
             presetPatientId = null;
         }
     }
 
     public void onSaveAppointment(ActionEvent actionEvent) {
         try {
-            // Basic validation
             String patientId = txtPatientId.getText().trim();
             String doctorId = txtDoctorId.getText().trim();
             LocalDate date = dpDate.getValue();
@@ -76,7 +74,6 @@ public class PatientAppointmentFormController {
                     .withStatus(AppointmentStatus.PENDING)
                     .build();
 
-            // Use Mediator pattern to schedule (handles conflicts and notifications)
             PatientPortal portal = new PatientPortal();
             DoctorCalendar doctorCalendar = new DoctorCalendar();
             NotificationService notificationService = new NotificationService();
@@ -94,7 +91,6 @@ public class PatientAppointmentFormController {
                 new Alert(Alert.AlertType.INFORMATION, "Appointment created successfully.", ButtonType.CLOSE).show();
                 clearFields();
             } else {
-                // Rollback the mediator reservation if persistence failed
                 portal.cancelAppointment(dto.getAppointmentId());
                 new Alert(Alert.AlertType.WARNING, "Could not create appointment. Try again.", ButtonType.CLOSE).show();
             }
