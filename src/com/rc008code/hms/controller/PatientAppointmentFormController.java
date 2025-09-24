@@ -9,10 +9,12 @@ import com.rc008code.hms.mediator.services.AppointmentSchedulerMediator;
 import com.rc008code.hms.mediator.services.DoctorCalendar;
 import com.rc008code.hms.mediator.services.NotificationService;
 import com.rc008code.hms.mediator.services.PatientPortal;
+import com.rc008code.hms.util.CommonUtil;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -78,6 +80,7 @@ public class PatientAppointmentFormController {
             DoctorCalendar doctorCalendar = new DoctorCalendar();
             NotificationService notificationService = new NotificationService();
             AppointmentSchedulerMediator mediator = new AppointmentSchedulerMediator(portal, doctorCalendar, notificationService);
+            mediator.notifyParticipants(dto, "Appointment scheduled for " + when);
 
             boolean scheduled = portal.requestAppointment(dto);
             if (!scheduled) {
@@ -89,12 +92,13 @@ public class PatientAppointmentFormController {
             boolean ok = appointmentBo.create(dto);
             if (ok) {
                 new Alert(Alert.AlertType.INFORMATION, "Appointment created successfully.", ButtonType.CLOSE).show();
+                new CommonUtil().setUi(context,"");
                 clearFields();
             } else {
                 portal.cancelAppointment(dto.getAppointmentId());
                 new Alert(Alert.AlertType.WARNING, "Could not create appointment. Try again.", ButtonType.CLOSE).show();
             }
-        } catch (SQLException | ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException | IOException ex) {
             new Alert(Alert.AlertType.ERROR, ex.getMessage(), ButtonType.CLOSE).show();
         }
     }
