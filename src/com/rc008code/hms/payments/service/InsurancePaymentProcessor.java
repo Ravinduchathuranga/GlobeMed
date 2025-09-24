@@ -13,7 +13,6 @@ public class InsurancePaymentProcessor implements PaymentProcessor {
         if (context == null || context.getAmount() <= 0) {
             return PaymentResult.failed("Invalid amount");
         }
-        // Simulate slower approval; for demo we approve amounts up to 50000
         boolean approved = context.getAmount() <= 50000;
         if (!approved) {
             return PaymentResult.failed("Insurance claim denied");
