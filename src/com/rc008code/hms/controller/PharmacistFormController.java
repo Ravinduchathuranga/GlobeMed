@@ -5,6 +5,7 @@ import com.rc008code.hms.business.custom.PharmacistBo;
 import com.rc008code.hms.dto.PharmacistDto;
 import com.rc008code.hms.util.CommonUtil;
 import com.rc008code.hms.view.tableModels.PharmacistTM;
+import com.rc008code.hms.reports.service.StaffOnboardingNotifier;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -72,6 +73,9 @@ public class PharmacistFormController {
                 );
                 boolean ok = pharmacistBo.create(dto);
                 if (ok) {
+                    // Send onboarding email with generated password
+                    StaffOnboardingNotifier.sendWelcome(dto);
+
                     new Alert(Alert.AlertType.INFORMATION, "Pharmacist has been saved..", ButtonType.CLOSE).show();
                     clearFields();
                     loadAllPharmacists();
