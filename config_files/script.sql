@@ -80,7 +80,8 @@ CREATE TABLE IF NOT EXISTS appointment
     patient_id       VARCHAR(100),
     doctor_id        VARCHAR(100),
     admin_staff_id   VARCHAR(100),
-    appointment_date DATE,
+    appointment_date DATETIME,
+    description      TEXT,
     status           ENUM ("PENDING", "COMPLETED"),
     CONSTRAINT PRIMARY KEY (appointment_id),
     CONSTRAINT fk_patient1 FOREIGN KEY (patient_id) REFERENCES patient (patient_id),
@@ -146,5 +147,54 @@ CREATE TABLE IF NOT EXISTS nurse_assignment
 );
 DESC nurse_assignment;
 
+
+-- Sample Data Inserts
+
+-- Patients
+INSERT INTO patient (patient_id, patient_name, address, age, gender, contact_no, email) VALUES
+ ('P001','Alice Johnson','123 Main St, Cityville',30,'FEMALE','0712345678','alice@example.com'),
+ ('P002','Bob Smith','456 Elm St, Townsburg',45,'MALE','0723456789','bob@example.com'),
+ ('P003','Carol Perez','789 Oak Ave, Villageton',28,'FEMALE','0734567890','carol@example.com');
+
+-- Doctors
+INSERT INTO doctor (doctor_id, doctor_name, specialty, contact_no, department, email, password) VALUES
+ ('D001','Gregory House','Diagnostics','0771234567','GENERAL','house@example.com','password1'),
+ ('D002','Meredith Grey','Surgery','0779876543','ONCOLOGY','grey@example.com','password2');
+
+-- Nurses
+INSERT INTO nurse (nurse_id, nurse_name, contact_no, department, email, password) VALUES
+ ('N001','Nina Patel','0751112233','PEDIATRICS','nina.patel@example.com','nursepass1');
+
+-- Pharmacists
+INSERT INTO pharmacist (pharmacist_id, pharmacist_name, contact_no, email, password) VALUES
+ ('PH001','Phil Baker','0762223344','phil.baker@example.com','pharmapass1');
+
+-- Admin Staff
+INSERT INTO adminStaff (staff_id, staff_name, contact_no, email, password) VALUES
+ ('AS001','Anna Scott','0743334455','anna.scott@example.com','adminpass1');
+
+-- Appointments (ensure referenced patient, doctor, admin exist)
+INSERT INTO appointment (appointment_id, patient_id, doctor_id, admin_staff_id, appointment_date, description, status) VALUES
+ ('A1001','P001','D001','AS001','2025-09-24 10:30:00','General check-up','PENDING'),
+ ('A1002','P002','D002','AS001','2025-09-25 14:00:00','Follow-up consultation','PENDING');
+
+-- Medical Records
+INSERT INTO medical_record (record_id, patient_id, doctor_id, diagnosis, treatment, record_date) VALUES
+ ('MR001','P001','D001','Hypertension','Lifestyle changes; medication','2025-09-20'),
+ ('MR002','P002','D002','Post-surgery recovery','Physical therapy; pain management','2025-09-21');
+
+-- Prescriptions
+INSERT INTO prescription (prescription_id, record_id, pharmacist_id, patient_id, medication, dosage, issue_date) VALUES
+ ('PR001','MR001','PH001','P001','Lisinopril 10mg','1 tablet daily','2025-09-21'),
+ ('PR002','MR002','PH001','P002','Ibuprofen 200mg','2 tablets as needed','2025-09-22');
+
+-- Payments
+INSERT INTO payment (payment_id, patient_id, appointment_id, amount, payment_date, method, status) VALUES
+ ('PAY001','P001','A1001',250.00,'2025-09-24','cash','completed'),
+ ('PAY002','P002','A1002',150.00,'2025-09-25','credit_card','pending');
+
+-- Nurse Assignments
+INSERT INTO nurse_assignment (assignment_id, nurse_id, patient_id, assigned_date) VALUES
+ ('NA001','N001','P003','2025-09-23');
 
 -- End of script.sql

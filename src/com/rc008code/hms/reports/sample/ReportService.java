@@ -5,16 +5,10 @@ import com.rc008code.hms.reports.element.PatientReportElement;
 
 import java.util.List;
 
-/**
- * Service that provides simple reporting features using the Visitor pattern.
- */
+
 public class ReportService {
 
-    /**
-     * Generates a simple text report for the provided patients.
-     * @param patients list of patients; nulls will be ignored
-     * @return report content as String (never null)
-     */
+
     public String generatePatientReport(List<PatientDto> patients) {
         SimpleReportVisitor visitor = new SimpleReportVisitor();
         visitor.startReport("Patients Report");

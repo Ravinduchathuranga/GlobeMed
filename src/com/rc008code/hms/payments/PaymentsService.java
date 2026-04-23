@@ -7,10 +7,7 @@ import com.rc008code.hms.payments.model.PaymentContext;
 import com.rc008code.hms.payments.model.PaymentResult;
 import com.rc008code.hms.payments.service.*;
 
-/**
- * Facade for simple payment operations using the Bridge pattern implementation.
- * This does not persist payments; it just simulates processing and returns a result.
- */
+
 public class PaymentsService {
 
     public PaymentResult process(PaymentContext context) {

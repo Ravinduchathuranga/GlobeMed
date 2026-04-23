@@ -6,13 +6,9 @@ import com.rc008code.hms.mediator.api.AppointmentMediator;
 
 import java.util.*;
 
-/**
- * Colleague that represents a doctor's calendar. Keeps a simple in-memory
- * record of occupied time slots per doctor for demonstration purposes.
- */
+
 public class DoctorCalendar implements AppointmentColleague {
     private AppointmentMediator mediator;
-    // Map: doctorId -> set of epoch millis reserved
     private final Map<String, Set<Long>> reservations = new HashMap<>();
 
     @Override

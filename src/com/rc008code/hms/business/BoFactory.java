@@ -11,7 +11,7 @@ public class BoFactory {
     }
 
     public enum BoType {
-        DOCTOR, NURSE, PATIENT, PHARMACIST, ADMINSTAFF, APPOINTMENT, MEDICINE, MEDICALRECORD, PRESCRIPTION
+        DOCTOR, NURSE, PATIENT, PHARMACIST, ADMINSTAFF, APPOINTMENT, MEDICINE, MEDICALRECORD, PRESCRIPTION, PAYMENT
 
     }
 
@@ -41,6 +41,8 @@ public class BoFactory {
                 return (T) new MedicalRecordBoImpl();
             case PRESCRIPTION:
                 return (T) new PrescriptionBoImpl();
+            case PAYMENT:
+                return (T) new PaymentBoImpl();
             default:
                 throw new IllegalArgumentException("Unknown BO type: " + type);
         }

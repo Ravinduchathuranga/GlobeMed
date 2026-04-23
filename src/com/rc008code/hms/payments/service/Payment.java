@@ -4,9 +4,7 @@ import com.rc008code.hms.payments.api.PaymentProcessor;
 import com.rc008code.hms.payments.model.PaymentContext;
 import com.rc008code.hms.payments.model.PaymentResult;
 
-/**
- * Abstraction in the Bridge pattern. High-level payment that delegates to a PaymentProcessor.
- */
+
 public abstract class Payment {
     protected final PaymentProcessor processor;
 
@@ -14,8 +12,6 @@ public abstract class Payment {
         this.processor = processor;
     }
 
-    /**
-     * Perform the payment using the underlying processor.
-     */
+
     public abstract PaymentResult pay(PaymentContext context);
 }
