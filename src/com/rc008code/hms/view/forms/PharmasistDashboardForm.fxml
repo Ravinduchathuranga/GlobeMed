@@ -18,7 +18,7 @@
                 <Text styleClass="header-title" text="GLOBE MED" />
             </HBox>
             <HBox alignment="CENTER_RIGHT" spacing="20">
-                <Button styleClass="logout-button" text="Logout" />
+                <Button onAction="#OnLogOutAction" styleClass="logout-button" text="Logout" />
             </HBox>
         </HBox>
 
@@ -61,14 +61,13 @@
             </VBox>
             <BorderPane prefHeight="742.0" prefWidth="1165.0">
                 <top>
-                    <Pane prefHeight="166.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
+                    <Pane prefHeight="65.0" prefWidth="1150.0" BorderPane.alignment="CENTER">
                         <children>
                             <Text layoutX="14.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pharmasist Dashboard">
                                 <font>
                                     <Font name="System Bold" size="26.0" />
                                 </font>
                             </Text>
-                            <Text layoutX="14.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paged Patients for doctor" />
                         </children>
                     </Pane>
                 </top>
@@ -76,10 +75,16 @@
                     <Pane prefHeight="57.0" prefWidth="1150.0" BorderPane.alignment="CENTER" />
                 </bottom>
                 <center>
-                    <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <TableView fx:id="tblPatients" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                         <columns>
-                            <TableColumn prefWidth="75.0" text="C1" />
-                            <TableColumn prefWidth="75.0" text="C2" />
+                            <TableColumn fx:id="colPatientId" prefWidth="89.0" text="Patient Id" />
+                            <TableColumn fx:id="colPatientName" prefWidth="121.0" text="Full Name" />
+                            <TableColumn fx:id="colPatientAge" prefWidth="68.0" text="Age" />
+                            <TableColumn fx:id="colPatientGender" prefWidth="99.0" text="Gender" />
+                            <TableColumn fx:id="colPatientAddress" prefWidth="184.0" text="Address" />
+                            <TableColumn fx:id="colPatientContactNo" prefWidth="149.0" text="Contact No" />
+                            <TableColumn fx:id="colPatientEmail" prefWidth="250.0" text="Email" />
+                            <TableColumn fx:id="colPatientAction" minWidth="0.0" prefWidth="189.0" text="Action" />
                         </columns>
                     </TableView>
                 </center>

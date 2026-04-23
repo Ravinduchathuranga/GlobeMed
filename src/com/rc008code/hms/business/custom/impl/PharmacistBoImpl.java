@@ -53,6 +53,11 @@ public class PharmacistBoImpl implements PharmacistBo {
         }
     }
 
+    @Override
+    public boolean logIn(String username, String password) throws Exception {
+        return pharmacistDao.logIn(username, password);
+    }
+
     private PharmacistDto toPharmacistDto(Pharmacist pharmacist) {
         return new PharmacistDto(
                 pharmacist.getPharmacistId(),

@@ -15,4 +15,6 @@ public interface NurseBo {
     public boolean delete(String id) throws SQLException, ClassNotFoundException;
     public List<NurseDto> readAll() throws SQLException, ClassNotFoundException;
     public List<NurseDto> search(String searchText) throws SQLException, ClassNotFoundException;
+    public boolean logIn(String username, String password) throws Exception;
+
 }

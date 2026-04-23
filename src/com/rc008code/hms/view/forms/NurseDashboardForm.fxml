@@ -26,7 +26,7 @@
                 <Text styleClass="header-title" text="GLOBE MED" />
             </HBox>
             <HBox alignment="CENTER_RIGHT" spacing="20">
-                <Button styleClass="logout-button" text="Logout" />
+                <Button onAction="#OnLogOutAction" styleClass="logout-button" text="Logout" />
             </HBox>
         </HBox>
 
@@ -46,6 +46,16 @@
                 <!-- Navigation Menu -->
                 <VBox styleClass="menu-container" VBox.vgrow="ALWAYS">
                     <Button prefWidth="220.0" style="-fx-text-fill: white;" styleClass="menu-button" text="Dashboard">
+                        <graphic>
+                            <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
+                                <image>
+                                    <!-- Image URL will be added later -->
+                                    <!-- <Image url="@../../../../resources/icons/dashboard.png" /> -->
+                                </image>
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <Button onAction="#onPatientFormAction" prefWidth="220.0" style="-fx-text-fill: white;" styleClass="menu-button" text="Patients">
                         <graphic>
                             <ImageView fitHeight="16" fitWidth="16" preserveRatio="true" smooth="true">
                                 <image>

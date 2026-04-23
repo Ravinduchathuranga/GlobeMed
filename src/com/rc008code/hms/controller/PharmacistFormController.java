@@ -57,57 +57,7 @@ public class PharmacistFormController {
     }
 
     public void OnSavePharmacistAction(ActionEvent actionEvent) {
-        if (btnSave.getText().equalsIgnoreCase("Save Pharmacist")) {
-            try {
-                if (validateFields()) {
-                    PharmacistDto pharmacistDto = new PharmacistDto(
-                            "P" + UUID.randomUUID().toString().substring(0, 5),
-                            txtName.getText().trim(),
-                            txtContact.getText().trim(),
-                            txtEmail.getText().toLowerCase().trim(),
-                            UUID.randomUUID().toString() // Temporary password, will be managed by backend
-                    );
-                    boolean isSaved = pharmacistBo.create(pharmacistDto);
-                    if (isSaved) {
-                        new Alert(Alert.AlertType.INFORMATION, "Pharmacist has been saved successfully!", ButtonType.CLOSE).show();
-                        clearFields();
-                        loadAllPharmacists();
-                    } else {
-                        new Alert(Alert.AlertType.WARNING, "Failed to save pharmacist. Please try again.", ButtonType.CLOSE).show();
-                    }
-                }
-            } catch (SQLException | ClassNotFoundException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE).show();
-            }
-        } else {
-            // Update existing pharmacist
-            if (selectedPharmacist != null) {
-                try {
-                    if (validateFields()) {
-                        PharmacistDto pharmacistDto = new PharmacistDto(
-                                selectedPharmacist.getPharmacistId(),
-                                txtName.getText().trim(),
-                                txtContact.getText().trim(),
-                                txtEmail.getText().toLowerCase().trim(),
-                                selectedPharmacist.getPassword() // Keep existing password
-                        );
-                        boolean isUpdated = pharmacistBo.update(pharmacistDto);
-                        if (isUpdated) {
-                            new Alert(Alert.AlertType.INFORMATION, "Pharmacist has been updated successfully!", ButtonType.CLOSE).show();
-                            btnSave.setText("Save Pharmacist");
-                            clearFields();
-                            loadAllPharmacists();
-                        } else {
-                            new Alert(Alert.AlertType.WARNING, "Failed to update pharmacist. Please try again.", ButtonType.CLOSE).show();
-                        }
-                    }
-                } catch (Exception e) {
-                    new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE).show();
-                }
-            } else {
-                new Alert(Alert.AlertType.WARNING, "Please select a pharmacist to update.", ButtonType.CLOSE).show();
-            }
-        }
+
     }
 
     private void loadAllPharmacists() {
@@ -201,5 +151,8 @@ public class PharmacistFormController {
 
     public void OnBackToHome(ActionEvent actionEvent) throws IOException {
         new CommonUtil().setUi(context,"AdminDashboardForm");
+    }
+
+    public void onClearFields(ActionEvent event) {
     }
 }

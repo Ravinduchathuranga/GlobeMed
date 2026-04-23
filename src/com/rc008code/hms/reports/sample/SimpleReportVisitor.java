@@ -1,6 +1,7 @@
-package com.rc008code.hms.reports.service;
+package com.rc008code.hms.reports.sample;
 
 import com.rc008code.hms.reports.api.ReportVisitor;
+import com.rc008code.hms.reports.element.PatientReportElement;
 
 /**
  * A simple text report visitor that aggregates details of visited elements

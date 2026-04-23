@@ -29,6 +29,9 @@ public class NursesFormController {
     public ComboBox<Departments> cmbDepartment;
     public TextField txtEmail;
     public Button btnSave;
+    public TextField txtSearch; // from FXML
+
+    // TableView and columns
     public TableView<NurseTM> tblNurses;
     public TableColumn<NurseTM, String> colNurseId;
     public TableColumn<NurseTM, String> colName;
@@ -42,14 +45,24 @@ public class NursesFormController {
     private final NurseBo nurseBo = BoFactory.getInstance().getBo(BoFactory.BoType.NURSE);
 
     public void initialize() {
-        // Initialize table columns
-        colNurseId.setVisible(false); // Hide the ID column as it's managed by the backend
-        colNurseId.setCellValueFactory(new PropertyValueFactory<>("nurseId"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
-        colDepartment.setCellValueFactory(new PropertyValueFactory<>("department"));
-        colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        colActions.setCellValueFactory(new PropertyValueFactory<>("buttonBar"));
+        // Initialize table columns (null-safe like other forms)
+        if (colNurseId != null) {
+            colNurseId.setCellValueFactory(new PropertyValueFactory<>("nurseId"));
+            colNurseId.setVisible(false); // Hide the ID column as it's managed by the backend
+        }
+        if (colName != null) colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        if (colContact != null) colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
+        if (colDepartment != null) colDepartment.setCellValueFactory(new PropertyValueFactory<>("department"));
+        if (colEmail != null) colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        if (colActions != null) colActions.setCellValueFactory(new PropertyValueFactory<>("buttonBar"));
+
+        // bind search if available
+        if (txtSearch != null) {
+            txtSearch.textProperty().addListener((obs, oldV, newV) -> {
+                searchText = newV == null ? "" : newV.trim();
+                loadAllNurses();
+            });
+        }
 
         loadAllDepartments();
         loadAllNurses();
@@ -117,7 +130,7 @@ public class NursesFormController {
     private void loadAllNurses() {
         ObservableList<NurseTM> nurseTMObservableList = FXCollections.observableArrayList();
         try {
-            List<NurseDto> allNurses = nurseBo.readAll();
+            List<NurseDto> allNurses = nurseBo.search(searchText);
 
             for (NurseDto nurseDto : allNurses) {
                 ButtonBar buttonBar = new ButtonBar();
