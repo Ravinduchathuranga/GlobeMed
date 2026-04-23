@@ -2,9 +2,7 @@ package com.rc008code.hms.payments.model;
 
 import com.rc008code.hms.enums.PaymentTypes;
 
-/**
- * Context for a payment attempt.
- */
+
 public class PaymentContext {
     private String patientId;
     private String appointmentId;

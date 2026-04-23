@@ -10,17 +10,19 @@ public class Appointment {
     private String doctor_id;
     private String admin_staff_id;
     private Date appointment_date;
+    private String description;
     private AppointmentStatus status;
 
     public Appointment() {
     }
 
-    public Appointment(String appointment_id, String patient_id, String doctor_id, String admin_staff_id, Date appointment_date, AppointmentStatus status) {
+    public Appointment(String appointment_id, String patient_id, String doctor_id, String admin_staff_id, Date appointment_date, String description, AppointmentStatus status) {
         this.appointment_id = appointment_id;
         this.patient_id = patient_id;
         this.doctor_id = doctor_id;
         this.admin_staff_id = admin_staff_id;
         this.appointment_date = appointment_date;
+        this.description = description;
         this.status = status;
     }
 
@@ -62,6 +64,14 @@ public class Appointment {
 
     public void setAppointment_date(Date appointment_date) {
         this.appointment_date = appointment_date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public AppointmentStatus getStatus() {

@@ -6,9 +6,6 @@ import com.rc008code.hms.payments.model.PaymentResult;
 
 import java.util.UUID;
 
-/**
- * ConcreteImplementor: processes cash payments (trivially successful).
- */
 public class CashPaymentProcessor implements PaymentProcessor {
     @Override
     public PaymentResult process(PaymentContext context) {

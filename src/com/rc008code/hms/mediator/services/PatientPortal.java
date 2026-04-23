@@ -4,9 +4,7 @@ import com.rc008code.hms.dto.AppointmentDto;
 import com.rc008code.hms.mediator.api.AppointmentColleague;
 import com.rc008code.hms.mediator.api.AppointmentMediator;
 
-/**
- * Colleague representing a patient-facing UI/service that requests scheduling.
- */
+
 public class PatientPortal implements AppointmentColleague {
     private AppointmentMediator mediator;
 
